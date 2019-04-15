@@ -20,11 +20,11 @@ public class UpdateUser extends HttpServlet {
 
         UpdateUserDao updateUserDao = new UpdateUserDao();
 
-          updateUserDao.UpdateUser("103",name,email,phone);
+          updateUserDao.UpdateUser(id,name,email,phone);
 
         response.sendRedirect("manageUsers.jsp");
 
-        System.out.println("****** "+id);
+
 
 
     }

@@ -285,7 +285,7 @@
                 <div class="modal-body">
 
                     <form id="profileForm" action="UpdateUser" method="post">
-                        ID: <input class="form-control" name="id" value="" placeholder="id" >
+                        ID: <input class="form-control" name="id" value="" placeholder="id" readonly="readonly" >
                         Firstname : <input class="form-control" name="firstname" value="" placeholder="firstname">
                         Phone : <input class="form-control" name="phone" value="" placeholder="phone">
                         E-Mail : <input class="form-control" name="email" value="" placeholder="email">
