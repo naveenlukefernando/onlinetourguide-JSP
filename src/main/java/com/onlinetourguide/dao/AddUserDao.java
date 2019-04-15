@@ -11,25 +11,20 @@ import java.util.logging.Logger;
 
 public class AddUserDao {
 
+    protected String sql = "insert into customer values (NULL ,?,?,?)";
     Connection connection = DbConnect.get_Connection();
-
     User user = new User();
 
-    protected String sql = "insert into customer values (NULL ,?,?,?)";
-
-
-    public void addStudent(String sname, String phone , String email)
-    {
+    public void addStudent(String sname, String phone, String email) {
         try {
 
             PreparedStatement ps = connection.prepareStatement(this.sql);
-            ps.setString(1,sname);
+            ps.setString(1, sname);
             ps.setString(2, email);
             ps.setString(3, phone);
             ps.executeUpdate();
 
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(AddUserDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 

@@ -9,24 +9,20 @@ import java.sql.SQLException;
 public class DeleteUserDao {
 
 
+    protected String sql = "DELETE FROM customer WHERE customer.id = ?";
     Connection connection = DbConnect.get_Connection();
 
-    protected  String sql = "DELETE FROM customer WHERE customer.id = ?";
-
-    public void deleteUser (String id)
-    {
+    public void deleteUser(String id) {
 
         try {
 
             PreparedStatement ps = connection.prepareStatement(this.sql);
-            ps.setString(1,id);
+            ps.setString(1, id);
             ps.executeUpdate();
 
+        } catch (SQLException ex) {
+            System.out.println("Error " + ex);
         }
-        catch (SQLException ex) {
-            System.out.println("Error "+ex);
-        }
-
 
 
     }

@@ -12,22 +12,19 @@ import java.util.ArrayList;
 public class UsersFetchDao {
 
 
-    Connection connection = DbConnect.get_Connection();
     protected String sql = "select * from customer";
-
+    Connection connection = DbConnect.get_Connection();
     ArrayList<User> usersList = new ArrayList<>();
 
 
-    public ArrayList<User> fetchUser ()
-    {
+    public ArrayList<User> fetchUser() {
 
 
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(this.sql);
 
-            while(rs.next())
-            {
+            while (rs.next()) {
 
                 User u = new User();
 
@@ -40,9 +37,7 @@ public class UsersFetchDao {
 
             }
 
-        }
-
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex);
         }
 

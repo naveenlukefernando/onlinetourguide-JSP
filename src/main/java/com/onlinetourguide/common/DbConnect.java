@@ -8,12 +8,12 @@ import java.sql.PreparedStatement;
 
 public class DbConnect {
 
-
     public static void main(String[] args) {
         System.out.println(DbConnect.get_Connection());
     }
-
     public static Connection get_Connection() {
+
+
 
         Connection connection = null;
         PreparedStatement ps = null;

@@ -1,5 +1,6 @@
 <%@ page import="com.onlinetourguide.dao.UsersFetchDao" %>
 <%@ page import="com.onlinetourguide.model.User" %>
+<%@ page import="com.onlinetourguide.dao.UpdateUserDao" %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 		 pageEncoding="ISO-8859-1"%>
@@ -87,6 +88,7 @@
 			}
 		}
 	</style>
+
 
 
 </head>
@@ -240,7 +242,17 @@
 								<a id="deletebtn" class="btn btn-danger"
 								   onclick="deleteFunction(<%out.print(u.getId());%>)">Delete </a>
 
-								<button type="button" class="btn btn-info" onclick="editFunction()" >Update</button>
+                                    <button class="btn btn-info" first-name="<% out.print(u.getName());%>"
+                                            phone="<% out.print(u.getPhone());%>"
+                                            email="<% out.print(u.getEmail());%>"
+                                            data-toggle="modal" data-target="#editUserModal">
+                                        Edit
+                                    </button>
+
+
+<%--                                    <button type="button" class="btn btn-info" data-toggle="modal"--%>
+<%--                                            data-target="#editUserModal">Update</button>--%>
+
 								</div>
 							</td>
 						</tr>
@@ -264,50 +276,73 @@
 
 
 
-	<div class="modal fade" id="editUserModal" role="dialog">
-		<div class="modal-dialog">
+<%--	<div class="modal fade" id="editUserModal" role="dialog">--%>
+<%--		<div class="modal-dialog">--%>
+<%--                <% UpdateUserDao updateDao = new UpdateUserDao();--%>
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Update Details</h4>
-				</div>
-				<div class="modal-body">
-					<p>Please fill details</p>
+<%--                %>--%>
+<%--			<!-- Modal content-->--%>
+<%--			<div class="modal-content">--%>
+<%--				<div class="modal-header">--%>
+<%--					<button type="button" class="close" data-dismiss="modal">&times;</button>--%>
+<%--					<h4 class="modal-title">Update Details</h4>--%>
+<%--				</div>--%>
+<%--				<div class="modal-body">--%>
+<%--					<p>Please fill details</p>--%>
 
-					<div class="Form Form--centered">
-						<form action="AddUser" method="post">
-							<div class="form-group ">
-								<label for="name">Name:</label><input  type="text"
-																	   class="form-control" id="edit_name" placeholder="Enter name"
-																	   name="name">
-							</div>
-							<div class="form-group">
-								<label for="email">Email :</label> <input type="email"
-																		  class="form-control" id="edit_email" placeholder="Enter Email"
-																		  name="email">
-							</div>
-							<div class="form-group">
-								<label for="phone">Phone :</label> <input type="text"
-																		  class="form-control" id="edit_phone" placeholder="Enter Phone"
-																		  name="phone">
-							</div>
-
-
-
-							<div class="modal-footer">
-								<button type="submit" class="btn btn-primary  btn-md">Done</button>
-						</form>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
+<%--					<div class="Form Form--centered">--%>
+<%--						<form action="AddUser" method="post">--%>
+<%--							<div class="form-group ">--%>
+<%--								<label for="name">Name:</label><input  type="text"--%>
+<%--																	   class="form-control" id="edit_name" placeholder="Enter name"--%>
+<%--																	   name="name">--%>
+<%--							</div>--%>
+<%--							<div class="form-group">--%>
+<%--								<label for="email">Email :</label> <input type="email"--%>
+<%--																		  class="form-control" id="edit_email" placeholder="Enter Email"--%>
+<%--																		  name="email">--%>
+<%--							</div>--%>
+<%--							<div class="form-group">--%>
+<%--								<label for="phone">Phone :</label> <input type="text"--%>
+<%--																		  class="form-control" id="edit_phone" placeholder="Enter Phone"--%>
+<%--																		  name="phone">--%>
+<%--							</div>--%>
 
 
+
+<%--							<div class="modal-footer">--%>
+<%--								<button type="submit" class="btn btn-primary  btn-md">Done</button>--%>
+<%--						</form>--%>
+<%--						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
+<%--					</div>--%>
+<%--				</div>--%>
+<%--			</div>--%>
+<%--		</div>--%>
+
+<%--	</div>--%>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="profileForm" action="" method="post">
+                        Firstname : <input class="form-control" name="firstname" value="" placeholder="firstname">
+                        Phone : <input class="form-control" name="phone" value="" placeholder="phone">
+                        E-Mail : <input class="form-control" name="email" value="" placeholder="email">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -362,6 +397,27 @@
 
 </div>
 
+
+
+<script>
+
+    $('#editUserModal').on('show.bs.modal', function (e) {
+        // get information to update quickly to modal view as loading begins
+        var opener=e.relatedTarget;//this holds the element who called the modal
+
+        //we get details from attributes
+        var firstname=$(opener).attr('first-name');
+        var phone = $(opener).attr('phone');
+        var email = $(opener).attr('email');
+
+        //set what we got to our form
+        $('#profileForm').find('[name="firstname"]').val(firstname);
+        $('#profileForm').find('[name="phone"]').val(phone);
+        $('#profileForm').find('[name="email"]').val(email);
+
+    });
+
+</script>
 
 
 
