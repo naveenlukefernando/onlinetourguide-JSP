@@ -7,17 +7,17 @@ import java.sql.*;
 
 public class UpdateUserDao {
 
-    public static void main(String[] args) {
-
-        UpdateUserDao dao = new UpdateUserDao();
-
-        dao.UpdateUser("103","Luke Fdo","jjnlfernando@gmail.com","0312227683");
-
-        User user = dao.selectedUser("103");
-        System.out.println(user.getName());
-        System.out.println(user.getPhone());
-        System.out.println(user.getEmail());
-    }
+//    public static void main(String[] args) {
+//
+//        UpdateUserDao dao = new UpdateUserDao();
+//
+//        dao.UpdateUser("103","Luke Fdo","jjnlfernando@gmail.com","0312227683");
+//
+//        User user = dao.selectedUser("103");
+//        System.out.println(user.getName());
+//        System.out.println(user.getPhone());
+//        System.out.println(user.getEmail());
+//    }
 
 
     protected String sql = "UPDATE customer SET name = ?, email = ?, phone = ?  WHERE customer.id = ?";
