@@ -2,7 +2,7 @@ package com.onlinetourguide.model;
 
 public class User {
 
-    private String id,name,phone,email;
+    private String id, name, phone, email;
 
     public String getId() {
         return id;

@@ -1,3 +1,12 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Luke
+  Date: 2019-04-18
+  Time: 2:16 PM
+  To change this template use File | Settings | File Templates.
+--%>
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -124,7 +133,7 @@ body {
 					<li class="active"><a href="#">Dashboard</a></li>
 					<li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
 					<li><a href="#">Current Bookings</a></li>
-					<li><a href="#">Manage Tours</a></li>
+					<li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
 					<li><a href="manageUsers.jsp">Manage Users</a></li>
 				</ul>
 			</div>
@@ -158,7 +167,7 @@ body {
 					<li class="active"><a href="#section1">Dashboard</a></li>
 					<li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
 					<li><a href="#section2">Current Bookings</a></li>
-					<li><a href="#section3">Manage Tours</a></li>
+					<li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
 					<li><a href="manageUsers.jsp">Manage Users</a></li>
 				</ul>
 				<br>

@@ -151,7 +151,7 @@
                 <li><a href="index.jsp">Dashboard</a></li>
                 <li><a href="#">New Bookings</a></li>
                 <li><a href="#">Current Bookings</a></li>
-                <li><a href="#">Manage Tours</a></li>
+                <li><a href="#">Manage Tour Packages</a></li>
                 <li class="active"><a href="#">Manage Users</a></li>
             </ul>
         </div>
@@ -186,7 +186,7 @@
                 <li><a href="index.jsp">Dashboard</a></li>
                 <li><a href="#">New Bookings</a></li>
                 <li><a href="#section2">Current Bookings</a></li>
-                <li><a href="#section3">Manage Tours</a></li>
+                <li><a href="#section3">Manage Tour Packages</a></li>
                 <li class="active"><a href="#section3">Manage Users</a></li>
             </ul>
             <br>
