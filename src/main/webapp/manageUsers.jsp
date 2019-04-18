@@ -202,8 +202,6 @@
         <br>
 
 
-
-
         <%--            <div class="input-group">--%>
         <%--                <span class="input-group-addon">Search</span>--%>
         <%--                <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">--%>
@@ -242,74 +240,74 @@
                 <input type="text" id="myInput" class="form-control" onkeyup="myFunction()"
                        placeholder="Search for names.." title="Type in a name">
             </div>
-         <div class="panel-body">
+            <div class="panel-body">
 
-            <table id="userTable" class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>E-mail</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
+                <table id="userTable" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>E-mail</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-                <%
-                    UsersFetchDao dao = new UsersFetchDao();
-                    for (User u : dao.fetchUser()) {
-                %>
+                    <%
+                        UsersFetchDao dao = new UsersFetchDao();
+                        for (User u : dao.fetchUser()) {
+                    %>
 
-                <tr>
-                    <td>
-                        <%
-                            out.print(u.getId());
-                        %>
-                    </td>
-                    <td>
-                        <%
-                            out.print(u.getName());
-                        %>
-                    </td>
-                    <td>
-                        <%
-                            out.print(u.getPhone());
-                        %>
-                    </td>
-                    <td>
-                        <%
-                            out.print(u.getEmail());
-                        %>
-                    </td>
+                    <tr>
+                        <td>
+                            <%
+                                out.print(u.getId());
+                            %>
+                        </td>
+                        <td>
+                            <%
+                                out.print(u.getName());
+                            %>
+                        </td>
+                        <td>
+                            <%
+                                out.print(u.getPhone());
+                            %>
+                        </td>
+                        <td>
+                            <%
+                                out.print(u.getEmail());
+                            %>
+                        </td>
 
-                    <td>
-                        <div class="text-center">
-                            <a id="deletebtn" class="btn btn-danger"
-                               onclick="deleteFunction(<%out.print(u.getId());%>)">Delete </a>
+                        <td>
+                            <div class="text-center">
+                                <a id="deletebtn" class="btn btn-danger"
+                                   onclick="deleteFunction(<%out.print(u.getId());%>)">Delete </a>
 
-                            <button class="btn btn-info" first-name="<% out.print(u.getName());%>"
-                                    phone="<% out.print(u.getPhone());%>"
-                                    email="<% out.print(u.getEmail());%>"
-                                    id="<% out.print(u.getId());%>"
-                                    data-toggle="modal" data-target="#editUserModal">
-                                Edit
-                            </button>
+                                <button class="btn btn-info" first-name="<% out.print(u.getName());%>"
+                                        phone="<% out.print(u.getPhone());%>"
+                                        email="<% out.print(u.getEmail());%>"
+                                        id="<% out.print(u.getId());%>"
+                                        data-toggle="modal" data-target="#editUserModal">
+                                    Edit
+                                </button>
 
 
-                            <%--                                    <button type="button" class="btn btn-info" data-toggle="modal"--%>
-                            <%--                                            data-target="#editUserModal">Update</button>--%>
+                                <%--                                    <button type="button" class="btn btn-info" data-toggle="modal"--%>
+                                <%--                                            data-target="#editUserModal">Update</button>--%>
 
-                        </div>
-                    </td>
-                </tr>
+                            </div>
+                        </td>
+                    </tr>
 
-                <%
-                    }
-                %>
-                </tbody>
-            </table>
-        </div>
+                    <%
+                        }
+                    %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -326,12 +324,12 @@
             </div>
             <div class="modal-body">
 
-                <form id="profileForm" action="UpdateUser" method="post">
+                <form id="profileForm" name="editform" action="UpdateUser" method="post">
                     ID: <input class="form-control" name="id" value="" placeholder="id" readonly="readonly">
                     Firstname : <input class="form-control" type="text" name="firstname" value=""
-                                       placeholder="firstname">
-                    Phone : <input class="form-control" type="tel" name="phone" value="" placeholder="phone">
-                    E-Mail : <input class="form-control" type="email" name="email" value="" placeholder="email">
+                                       placeholder="firstname" required>
+                    Phone : <input class="form-control" type="tel" name="phone" value="" placeholder="phone" required>
+                    E-Mail : <input class="form-control" type="email" name="email" value="" placeholder="email" required>
 
             </div>
             <div class="modal-footer">
@@ -345,7 +343,28 @@
 </div>
 
 
+<script>
 
+    function validateForm() {
+        var edt_fname = document.forms["editform"]["firstname"].value;
+        var edt_phone = document.forms["editform"]["phone"].value;
+        var edt_email = document.forms["editform"]["email"].value;
+
+
+        if (edt_fname == "") {
+            alert("Name must be filled out");
+            return false;
+        } else if (edt_phone == "") {
+            alert("Phone must be filled out");
+            return false;
+        } else if (edt_email == "") {
+            alert("Email mustbe filled out");
+            return false;
+        }
+    }
+
+
+</script>
 
 
 <div class="modal fade" id="addUserModal" role="dialog">
@@ -366,19 +385,19 @@
                             <label for="name">Name:</label> <input type="text"
                                                                    class="form-control" id="add_name"
                                                                    placeholder="Enter name"
-                                                                   name="name">
+                                                                   name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email :</label> <input type="email"
                                                                       class="form-control" id="add_email"
                                                                       placeholder="Enter Email"
-                                                                      name="email">
+                                                                      name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone :</label> <input type="text"
+                            <label for="phone">Phone :</label> <input type="tel"
                                                                       class="form-control" id="add_phone"
                                                                       placeholder="Enter Phone"
-                                                                      name="phone">
+                                                                      name="phone" required>
                         </div>
 
 
