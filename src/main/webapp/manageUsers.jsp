@@ -98,6 +98,8 @@
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
+    String username = (String) session.getAttribute("username");
+
     if (session.getAttribute("username") == null) {
         response.sendRedirect("loginerror.jsp");
 
@@ -107,6 +109,12 @@
 
 <div class="header">
     <a href="#default" class="logo">Online Tour Guide </a>
+    <div class="header-right">
+
+        <button type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#addUserModal">Add New User
+        </button>
+    </div>
 
 </div>
 
@@ -124,7 +132,7 @@
             <ul class="nav nav-tabs">
 
                 <li class="dropdown"><a class="dropdown-toggle"
-                                        data-toggle="dropdown" href="#"> <b>Hi Naveen!</b> <span
+                                        data-toggle="dropdown" href="#"> <b>Hi! <% out.print(username);%></b> <span
                         class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
@@ -158,10 +166,14 @@
             <ul class="nav nav-tabs">
 
                 <li class="dropdown"><a class="dropdown-toggle"
-                                        data-toggle="dropdown" href="#"> <b>Hi Naveen!</b> <span
+                                        data-toggle="dropdown" href="#"> <b>Hi! <% out.print(username);%></b> <span
                         class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Logout</a></li>
+                        <li>
+                            <form action="Logout" method="get">
+                                <button type="submit" class="btn btn-link">Logout</button>
+                            </form>
+                        </li>
 
                     </ul>
                 </li>
@@ -181,128 +193,159 @@
         </div>
         <br>
 
+
+        <div class="text-left">
+            <h4>Manage Users</h4>
+        </div>
+
+
+        <br>
+
+
+
+
+        <%--            <div class="input-group">--%>
+        <%--                <span class="input-group-addon">Search</span>--%>
+        <%--                <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">--%>
+        <%--            </div>--%>
+
+        <%--            <br>--%>
+
+        <script>
+
+            function myFunction() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("userTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+
+        </script>
+
+        <br>
+
         <div class="col-sm-9">
-            <div class="well">
-                <h4>Manage Users</h4>
-
-                <div class="text-left">
-                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#addUserModal">Add New User
-                    </button>
-                </div>
-
-
+            <div class="input-group">
+                <span class="input-group-addon">Search</span>
+                <input type="text" id="myInput" class="form-control" onkeyup="myFunction()"
+                       placeholder="Search for names.." title="Type in a name">
             </div>
+         <div class="panel-body">
 
+            <table id="userTable" class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>E-mail</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
 
-            <div class="panel panel-default">
-                <div class="panel-body">
+                <%
+                    UsersFetchDao dao = new UsersFetchDao();
+                    for (User u : dao.fetchUser()) {
+                %>
 
-                    <table id="userTable" class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>E-mail</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
+                <tr>
+                    <td>
                         <%
-                            UsersFetchDao dao = new UsersFetchDao();
-                            for (User u : dao.fetchUser()) {
+                            out.print(u.getId());
                         %>
-
-                        <tr>
-                            <td>
-                                <%
-                                    out.print(u.getId());
-                                %>
-                            </td>
-                            <td>
-                                <%
-                                    out.print(u.getName());
-                                %>
-                            </td>
-                            <td>
-                                <%
-                                    out.print(u.getPhone());
-                                %>
-                            </td>
-                            <td>
-                                <%
-                                    out.print(u.getEmail());
-                                %>
-                            </td>
-
-                            <td>
-                                <div class="text-center">
-                                    <a id="deletebtn" class="btn btn-danger"
-                                       onclick="deleteFunction(<%out.print(u.getId());%>)">Delete </a>
-
-                                    <button class="btn btn-info" first-name="<% out.print(u.getName());%>"
-                                            phone="<% out.print(u.getPhone());%>"
-                                            email="<% out.print(u.getEmail());%>"
-                                            id="<% out.print(u.getId());%>"
-                                            data-toggle="modal" data-target="#editUserModal">
-                                        Edit
-                                    </button>
-
-
-                                    <%--                                    <button type="button" class="btn btn-info" data-toggle="modal"--%>
-                                    <%--                                            data-target="#editUserModal">Update</button>--%>
-
-                                </div>
-                            </td>
-                        </tr>
-
+                    </td>
+                    <td>
                         <%
-                            }
+                            out.print(u.getName());
                         %>
-                        </tbody>
-                    </table>
+                    </td>
+                    <td>
+                        <%
+                            out.print(u.getPhone());
+                        %>
+                    </td>
+                    <td>
+                        <%
+                            out.print(u.getEmail());
+                        %>
+                    </td>
+
+                    <td>
+                        <div class="text-center">
+                            <a id="deletebtn" class="btn btn-danger"
+                               onclick="deleteFunction(<%out.print(u.getId());%>)">Delete </a>
+
+                            <button class="btn btn-info" first-name="<% out.print(u.getName());%>"
+                                    phone="<% out.print(u.getPhone());%>"
+                                    email="<% out.print(u.getEmail());%>"
+                                    id="<% out.print(u.getId());%>"
+                                    data-toggle="modal" data-target="#editUserModal">
+                                Edit
+                            </button>
 
 
-                </div>
-            </div>
+                            <%--                                    <button type="button" class="btn btn-info" data-toggle="modal"--%>
+                            <%--                                            data-target="#editUserModal">Update</button>--%>
 
+                        </div>
+                    </td>
+                </tr>
 
+                <%
+                    }
+                %>
+                </tbody>
+            </table>
+        </div>
         </div>
     </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                </div>
-                <div class="modal-body">
-
-                    <form id="profileForm" action="UpdateUser" method="post">
-                        ID: <input class="form-control" name="id" value="" placeholder="id" readonly="readonly" >
-                        Firstname : <input class="form-control" name="firstname" value="" placeholder="firstname">
-                        Phone : <input class="form-control" name="phone" value="" placeholder="phone">
-                        E-Mail : <input class="form-control" name="email" value="" placeholder="email">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                    </form>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Details</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="profileForm" action="UpdateUser" method="post">
+                    ID: <input class="form-control" name="id" value="" placeholder="id" readonly="readonly">
+                    Firstname : <input class="form-control" type="text" name="firstname" value=""
+                                       placeholder="firstname">
+                    Phone : <input class="form-control" type="tel" name="phone" value="" placeholder="phone">
+                    E-Mail : <input class="form-control" type="email" name="email" value="" placeholder="email">
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 <div class="modal fade" id="addUserModal" role="dialog">

@@ -93,6 +93,8 @@ body {
 	<%
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
+		String username = (String) session.getAttribute("username");
+
 		if (session.getAttribute("username") == null) {
 			response.sendRedirect("loginerror.jsp");
 
@@ -137,7 +139,7 @@ body {
 				<ul class="nav nav-tabs">
 
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#"> <b>Hi! ${username} </b> <span
+						data-toggle="dropdown" href="#"> <b>Hi! <% out.print(username);%> </b> <span
 							class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li>
