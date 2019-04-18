@@ -1,3 +1,12 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Luke
+  Date: 2019-04-18
+  Time: 2:16 PM
+  To change this template use File | Settings | File Templates.
+--%>
+
+
 <%@ page import="com.onlinetourguide.dao.UsersFetchDao" %>
 <%@ page import="com.onlinetourguide.model.User" %>
 
@@ -329,7 +338,8 @@
                     Firstname : <input class="form-control" type="text" name="firstname" value=""
                                        placeholder="firstname" required>
                     Phone : <input class="form-control" type="tel" name="phone" value="" placeholder="phone" required>
-                    E-Mail : <input class="form-control" type="email" name="email" value="" placeholder="email" required>
+                    E-Mail : <input class="form-control" type="email" name="email" value="" placeholder="email"
+                                    required>
 
             </div>
             <div class="modal-footer">
