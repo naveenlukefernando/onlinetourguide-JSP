@@ -1,6 +1,6 @@
 <%@ page import="com.onlinetourguide.dao.TourPkgFetchDao" %>
-<%@ page import="com.onlinetourguide.model.User" %>
-<%@ page import="com.onlinetourguide.model.TourPackage" %><%--
+<%@ page import="com.onlinetourguide.model.TourPackage" %>
+<%--
   Created by IntelliJ IDEA.
   User: Luke
   Date: 2019-04-18
@@ -82,14 +82,12 @@
                 display: block;
                 text-align: left;
             }
+
             .header-right {
                 float: none;
             }
         }
     </style>
-
-
-
 
 
 </head>
@@ -109,16 +107,15 @@
 %>
 
 
-
 <div class="header">
     <a href="#default" class="logo">Online Tour Guide </a>
 
     <div class="header-right">
 
-    <button type="button" class="btn btn-primary" data-toggle="modal"
-            data-target="#addUserModal">Add New Package
-    </button>
-</div>
+        <button type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#addPKGModal">Add New Package
+        </button>
+    </div>
 
 </div>
 
@@ -136,7 +133,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Dashboard</a></li>
-                <li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
+                <li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></li>
                 <li><a href="#">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -153,7 +150,7 @@
             <ul class="nav nav-tabs">
 
                 <li class="dropdown"><a class="dropdown-toggle"
-                                        data-toggle="dropdown" href="#"> <b>Hi! <% out.print(username);%> </b> <span
+                                        data-toggle="dropdown" href="#"> <b>Hi! <% out.print(username);%></b> <span
                         class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
@@ -162,7 +159,8 @@
                             </form>
                         </li>
 
-                    </ul></li>
+                    </ul>
+                </li>
 
             </ul>
 
@@ -170,7 +168,7 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="#section1">Dashboard</a></li>
-                <li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
+                <li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></li>
                 <li><a href="#section2">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -202,7 +200,7 @@
                     <tbody>
 
                     <%
-                         TourPkgFetchDao pkgFetchDao = new TourPkgFetchDao();
+                        TourPkgFetchDao pkgFetchDao = new TourPkgFetchDao();
                         for (TourPackage t : pkgFetchDao.fetchPackages()) {
                     %>
 
@@ -239,25 +237,25 @@
                             %>
                         </td>
 
-<%--                        <td>--%>
-<%--                            <div class="text-center">--%>
-<%--                                <a id="deletebtn" class="btn btn-danger"--%>
-<%--                                   onclick="#">Delete </a>--%>
+                        <%--                        <td>--%>
+                        <%--                            <div class="text-center">--%>
+                        <%--                                <a id="deletebtn" class="btn btn-danger"--%>
+                        <%--                                   onclick="#">Delete </a>--%>
 
-<%--                                <button class="btn btn-info" first-name="<% out.print(u.getName());%>"--%>
-<%--                                        phone="<% out.print(u.getPhone());%>"--%>
-<%--                                        email="<% out.print(u.getEmail());%>"--%>
-<%--                                        id="<% out.print(u.getId());%>"--%>
-<%--                                        data-toggle="modal" data-target="#editUserModal">--%>
-<%--                                    Edit--%>
-<%--                                </button>--%>
+                        <%--                                <button class="btn btn-info" first-name="<% out.print(u.getName());%>"--%>
+                        <%--                                        phone="<% out.print(u.getPhone());%>"--%>
+                        <%--                                        email="<% out.print(u.getEmail());%>"--%>
+                        <%--                                        id="<% out.print(u.getId());%>"--%>
+                        <%--                                        data-toggle="modal" data-target="#editUserModal">--%>
+                        <%--                                    Edit--%>
+                        <%--                                </button>--%>
 
 
-<%--                                &lt;%&ndash;                                    <button type="button" class="btn btn-info" data-toggle="modal"&ndash;%&gt;--%>
-<%--                                &lt;%&ndash;                                            data-target="#editUserModal">Update</button>&ndash;%&gt;--%>
+                        <%--                                &lt;%&ndash;                                    <button type="button" class="btn btn-info" data-toggle="modal"&ndash;%&gt;--%>
+                        <%--                                &lt;%&ndash;                                            data-target="#editUserModal">Update</button>&ndash;%&gt;--%>
 
-<%--                            </div>--%>
-<%--                        </td>--%>
+                        <%--                            </div>--%>
+                        <%--                        </td>--%>
                     </tr>
 
                     <%
@@ -268,9 +266,81 @@
             </div>
 
 
-
         </div>
     </div>
+</div>
+
+
+<div class="modal fade" id="addPKGModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Tour Package</h4>
+            </div>
+            <div class="modal-body">
+                <p>Please fill details</p>
+
+                <div class="Form Form--centered">
+                    <form action="AddPkg" method="post">
+                        <div class="form-group ">
+                            <label for="name">Name:</label> <input type="text"
+                                                                   class="form-control" id="add_name"
+                                                                   placeholder="Enter Package Name"
+                                                                   name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">From :</label> <input type="text"
+                                                                     class="form-control" id="add_from"
+                                                                     placeholder="Enter Start Location"
+                                                                     name="from" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">To :</label> <input type="text"
+                                                                   class="form-control" id="add_to"
+                                                                   placeholder="Enter End Location"
+                                                                   name="to" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date :</label> <input type="date"
+                                                                    class="form-control" id="add_date"
+                                                                    placeholder="Select Date"
+                                                                    name="date" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="phone">Price :</label> <input type="number"
+                                                                   class="form-control" id="price"
+                                                                   name="price" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="price">Upload Image 1:</label> <input type="file"
+                                                                              class="form-control" id="add_photo"
+                                                                              name="file" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">Upload Image 2:</label> <input type="file"
+                                                                              class="form-control" id="add_photo1"
+                                                                              name="file1" required>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary  btn-md">Done</button>
+                    </form>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 
