@@ -194,6 +194,8 @@
                         <th>To</th>
                         <th>Date</th>
                         <th>Price</th>
+                        <th>Description_1</th>
+                        <th>Description_2</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -234,6 +236,18 @@
                         <td>
                             <%
                                 out.print(t.getPrice());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(t.getDesp1());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(t.getDesp2());
                             %>
                         </td>
 
@@ -284,7 +298,7 @@
                 <p>Please fill details</p>
 
                 <div class="Form Form--centered">
-                    <form action="AddPkg" method="post">
+                    <form action="AddNewTourPackage" method="post" id="addpkg_form" enctype="multipart/form-data">
                         <div class="form-group ">
                             <label for="name">Name:</label> <input type="text"
                                                                    class="form-control" id="add_name"
@@ -314,21 +328,35 @@
 
                         <div class="form-group">
                             <label for="phone">Price :</label> <input type="number"
-                                                                   class="form-control" id="price"
-                                                                   name="price" required>
+                                                                      class="form-control" id="price"
+                                                                      name="price" required>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="price">Upload Image 1:</label> <input type="file"
-                                                                              class="form-control" id="add_photo"
-                                                                              name="file" required>
+                            <label for="image1">Upload Image 1:</label> <input type="file"
+                                                                               class="form-control" id="add_photo"
+                                                                               name="file" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="price">Upload Image 2:</label> <input type="file"
-                                                                              class="form-control" id="add_photo1"
-                                                                              name="file1" required>
+                            <label for="image2">Upload Image 2:</label> <input type="file"
+                                                                               class="form-control" id="add_photo1"
+                                                                               name="file1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textarea1">Description 1:</label> <textarea class="form-control" rows="5"
+                                                                                    id="add_desp1" name="desp1"
+                                                                                    form="addpkg_form" required>
+                                                                        </textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="textarea2">Description 2:</label> <textarea class="form-control" rows="5"
+                                                                                    id="add_desp2" name="desp2"
+                                                                                    form="addpkg_form" required>
+                                                                        </textarea>
                         </div>
 
 

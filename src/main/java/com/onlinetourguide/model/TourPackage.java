@@ -8,6 +8,40 @@ public class TourPackage {
     private String location_to;
     private String date;
     private String price;
+    private String desp1, desp2;
+    private String imageURL_1 , ImageURL_2;
+
+    public String getImageURL_1() {
+        return imageURL_1;
+    }
+
+    public void setImageURL_1(String imageURL_1) {
+        this.imageURL_1 = imageURL_1;
+    }
+
+    public String getImageURL_2() {
+        return ImageURL_2;
+    }
+
+    public void setImageURL_2(String imageURL_2) {
+        this.ImageURL_2 = imageURL_2;
+    }
+
+    public String getDesp1() {
+        return desp1;
+    }
+
+    public void setDesp1(String desp1) {
+        this.desp1 = desp1;
+    }
+
+    public String getDesp2() {
+        return desp2;
+    }
+
+    public void setDesp2(String desp2) {
+        this.desp2 = desp2;
+    }
 
     public String getId() {
         return id;

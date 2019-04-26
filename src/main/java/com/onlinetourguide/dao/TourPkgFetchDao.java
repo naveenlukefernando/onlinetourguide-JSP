@@ -33,6 +33,10 @@ public class TourPkgFetchDao {
                 t.setLocation_from(rs.getString("location_from"));
                 t.setLocation_to(rs.getString("location_to"));
                 t.setPrice(rs.getString("price"));
+                t.setDesp1(rs.getString("desp1"));
+                t.setDesp2(rs.getString("desp2"));
+                t.setImageURL_1(rs.getString("imageURL_1"));
+                t.setImageURL_2(rs.getString("imageURL_2"));
 
 
                 usersList.add(t);
