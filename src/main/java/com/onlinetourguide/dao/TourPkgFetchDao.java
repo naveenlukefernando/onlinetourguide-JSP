@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class TourPkgFetchDao {
 
-    protected String sql = "select * from tourpakages";
+    protected final String sql = "select * from tourpakages";
     Connection connection = DbConnect.get_Connection();
     ArrayList<TourPackage> usersList = new ArrayList<>();
 

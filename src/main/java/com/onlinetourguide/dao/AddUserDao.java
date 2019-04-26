@@ -11,10 +11,10 @@ import java.util.logging.Logger;
 
 public class AddUserDao {
 
-    protected String sql = "insert into customer values (NULL ,?,?,?)";
+
+    protected final String sql = "insert into customer values (NULL ,?,?,?)";
     Connection connection = DbConnect.get_Connection();
     User user = new User();
-
     public void addStudent(String sname, String phone, String email) {
         try {
 

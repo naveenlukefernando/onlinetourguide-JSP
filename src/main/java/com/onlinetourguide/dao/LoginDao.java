@@ -12,7 +12,7 @@ public class LoginDao {
 
     Connection connection = DbConnect.get_Connection();
 
-    String sql = "select * from admin where username=? AND password=?";
+    protected final String sql = "select * from admin where username=? AND password=?";
 
     public boolean check(String username, String password) {
         PreparedStatement ps;

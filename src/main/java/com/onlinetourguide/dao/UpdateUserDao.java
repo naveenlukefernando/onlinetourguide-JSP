@@ -20,8 +20,8 @@ public class UpdateUserDao {
 //    }
 
 
-    protected String sql = "UPDATE customer SET name = ?, email = ?, phone = ?  WHERE customer.id = ?";
-    protected String sql_update = "select * from customer WHERE customer.id = ?";
+    protected final String sql = "UPDATE customer SET name = ?, email = ?, phone = ?  WHERE customer.id = ?";
+    protected final String sql_update = "select * from customer WHERE customer.id = ?";
     Connection connection = DbConnect.get_Connection();
     User u = new User();
 
