@@ -196,6 +196,8 @@
                         <th>Price</th>
                         <th>Description_1</th>
                         <th>Description_2</th>
+                        <th>Image_1</th>
+                        <th>Image_2</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -249,6 +251,19 @@
                             <%
                                 out.print(t.getDesp2());
                             %>
+                        </td>
+
+                        <td>
+
+<%--                            <%--%>
+<%--                                out.print(t.getImageURL_1());--%>
+<%--                            %>--%>
+                        </td>
+
+                        <td>
+<%--                            <%--%>
+<%--                                out.print(t.getImageURL_2());--%>
+<%--                            %>--%>
                         </td>
 
                         <%--                        <td>--%>
