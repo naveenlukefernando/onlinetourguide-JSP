@@ -255,12 +255,16 @@
 
                         <td>
 
+                            <img src="data:image/jpg;base64,<%out.print(t.getImageURL_1()); %>" width="50" height="50" />
+
 <%--                            <%--%>
 <%--                                out.print(t.getImageURL_1());--%>
 <%--                            %>--%>
                         </td>
 
                         <td>
+
+                            <img src="data:image/jpg;base64,<%out.print(t.getImageURL_2()); %>" width="50" height="50" />
 <%--                            <%--%>
 <%--                                out.print(t.getImageURL_2());--%>
 <%--                            %>--%>
