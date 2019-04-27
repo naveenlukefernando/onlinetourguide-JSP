@@ -17,15 +17,6 @@ public class TourPkgFetchDao {
     Connection connection = DbConnect.get_Connection();
     ArrayList<TourPackage> usersList = new ArrayList<>();
 
-    public static void main(String[] args) {
-        TourPkgFetchDao pkgFetchDao = new TourPkgFetchDao();
-        for (TourPackage t : pkgFetchDao.fetchPackages()) {
-           // System.out.println(t.getId());
-//            System.out.println(t.getImageURL_1());
-//
-//            System.out.println(t.getImageURL_2());
-        }
-    }
 
     public ArrayList<TourPackage> fetchPackages() {
 
