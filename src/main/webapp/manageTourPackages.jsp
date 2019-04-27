@@ -24,7 +24,7 @@
     <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-
+    <script src="scripts/manage.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -257,38 +257,23 @@
 
                             <img src="data:image/jpg;base64,<%out.print(t.getImageURL_1()); %>" width="50" height="50" />
 
-<%--                            <%--%>
-<%--                                out.print(t.getImageURL_1());--%>
-<%--                            %>--%>
+
                         </td>
 
                         <td>
 
                             <img src="data:image/jpg;base64,<%out.print(t.getImageURL_2()); %>" width="50" height="50" />
-<%--                            <%--%>
-<%--                                out.print(t.getImageURL_2());--%>
-<%--                            %>--%>
+
                         </td>
 
-                        <%--                        <td>--%>
-                        <%--                            <div class="text-center">--%>
-                        <%--                                <a id="deletebtn" class="btn btn-danger"--%>
-                        <%--                                   onclick="#">Delete </a>--%>
+                        <td>
 
-                        <%--                                <button class="btn btn-info" first-name="<% out.print(u.getName());%>"--%>
-                        <%--                                        phone="<% out.print(u.getPhone());%>"--%>
-                        <%--                                        email="<% out.print(u.getEmail());%>"--%>
-                        <%--                                        id="<% out.print(u.getId());%>"--%>
-                        <%--                                        data-toggle="modal" data-target="#editUserModal">--%>
-                        <%--                                    Edit--%>
-                        <%--                                </button>--%>
+                            <div class="text-center">
+                                <a id="deletebtn" class="btn btn-danger"
+                                   onclick="deletePackageFunction(<%out.print(t.getId());%>)">Delete </a>
 
-
-                        <%--                                &lt;%&ndash;                                    <button type="button" class="btn btn-info" data-toggle="modal"&ndash;%&gt;--%>
-                        <%--                                &lt;%&ndash;                                            data-target="#editUserModal">Update</button>&ndash;%&gt;--%>
-
-                        <%--                            </div>--%>
-                        <%--                        </td>--%>
+                            </div>
+                        </td>
                     </tr>
 
                     <%
@@ -353,13 +338,13 @@
 
 
                         <div class="form-group">
-                            <label for="image1">Upload Image 1:</label> <input type="file"
+                            <label for="image1">Upload Image 1 (4 MB):</label> <input type="file"
                                                                                class="form-control" id="add_photo"
                                                                                name="file" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="image2">Upload Image 2:</label> <input type="file"
+                            <label for="image2">Upload Image 2: (4 MB)</label> <input type="file"
                                                                                class="form-control" id="add_photo1"
                                                                                name="file1" required>
                         </div>

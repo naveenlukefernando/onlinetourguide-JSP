@@ -34,6 +34,7 @@ public class TourPkgFetchDao {
 
                 InputStream inputStream = blob1.getBinaryStream();
                 InputStream inputStream1 = blob2.getBinaryStream();
+                
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 ByteArrayOutputStream outputStream1 = new ByteArrayOutputStream();
                 byte[] buffer = new byte[4096];

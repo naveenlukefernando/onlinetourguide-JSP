@@ -1,4 +1,4 @@
-function deleteFunction(id) {
+function deleteUserFunction(id) {
 			
 			var uid = id;
 			
@@ -18,6 +18,26 @@ function deleteFunction(id) {
 			
 		}
 
+
+function deletePackageFunction(id) {
+
+	var uid = id;
+
+	var r = confirm("Are you sure ? ");
+	if (r == true) {
+		txt = "You pressed OK!";
+		console.log(txt);
+		document.location.href="DeletePackage?id="+uid+"&action=2";
+		console.log(txt);
+
+	} else {
+		txt = "You pressed Cancel!";
+		console.log(txt);
+	}
+
+
+
+}
 
 
 

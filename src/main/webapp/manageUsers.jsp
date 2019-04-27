@@ -293,7 +293,7 @@
                         <td>
                             <div class="text-center">
                                 <a id="deletebtn" class="btn btn-danger"
-                                   onclick="deleteFunction(<%out.print(u.getId());%>)">Delete </a>
+                                   onclick="deleteUserFunction(<%out.print(u.getId());%>)">Delete </a>
 
                                 <button class="btn btn-info" first-name="<% out.print(u.getName());%>"
                                         phone="<% out.print(u.getPhone());%>"
