@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DeletePackageDao {
+public class TourPkgDeleteDao {
 
 
     protected final String sql = "DELETE FROM tourpakages WHERE tourpakages.id = ?";

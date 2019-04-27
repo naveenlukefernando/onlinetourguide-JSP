@@ -1,6 +1,6 @@
 package com.onlinetourguide.controller;
 
-import com.onlinetourguide.dao.DeletePackageDao;
+import com.onlinetourguide.dao.TourPkgDeleteDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +19,7 @@ public class DeletePackage extends HttpServlet {
 
         if (request.getParameter("action").equals("2") == true)
         {
-            DeletePackageDao dao = new DeletePackageDao();
+            TourPkgDeleteDao dao = new TourPkgDeleteDao();
             dao.deletePackage(t);
             response.sendRedirect("manageTourPackages.jsp");
         }

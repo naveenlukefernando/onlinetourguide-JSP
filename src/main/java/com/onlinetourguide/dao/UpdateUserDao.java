@@ -3,21 +3,11 @@ package com.onlinetourguide.dao;
 import com.onlinetourguide.common.DbConnect;
 import com.onlinetourguide.model.User;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class UpdateUserDao {
-
-//    public static void main(String[] args) {
-//
-//        UpdateUserDao dao = new UpdateUserDao();
-//
-//        dao.UpdateUser("103","Luke Fdo","jjnlfernando@gmail.com","0312227683");
-//
-//        User user = dao.selectedUser("103");
-//        System.out.println(user.getName());
-//        System.out.println(user.getPhone());
-//        System.out.println(user.getEmail());
-//    }
 
 
     protected final String sql = "UPDATE customer SET name = ?, email = ?, phone = ?  WHERE customer.id = ?";
@@ -42,29 +32,6 @@ public class UpdateUserDao {
         }
 
 
-    }
-
-
-    public User selectedUser(String id) {
-
-        try {
-            PreparedStatement pst = connection.prepareStatement(this.sql_update);
-            pst.setString(1, id);
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-                u.setId(rs.getString("id"));
-                u.setName(rs.getString("name"));
-                u.setPhone(rs.getString("phone"));
-                u.setEmail(rs.getString("email"));
-            }
-
-
-        } catch (SQLException sq) {
-            System.out.println(sq);
-        }
-
-       return u;
     }
 
 
