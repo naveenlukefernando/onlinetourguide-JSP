@@ -255,14 +255,14 @@
 
                         <td>
 
-                            <img src="data:image/jpg;base64,<%out.print(t.getImageURL_1()); %>" width="50" height="50" />
+                            <img src="data:image/jpg;base64,<%out.print(t.getImageURL_1()); %>" width="50" height="50"/>
 
 
                         </td>
 
                         <td>
 
-                            <img src="data:image/jpg;base64,<%out.print(t.getImageURL_2()); %>" width="50" height="50" />
+                            <img src="data:image/jpg;base64,<%out.print(t.getImageURL_2()); %>" width="50" height="50"/>
 
                         </td>
 
@@ -273,6 +273,22 @@
                                    onclick="deletePackageFunction(<%out.print(t.getId());%>)">Delete </a>
 
                             </div>
+
+
+                            <button class="btn btn-info" tour_name="<% out.print(t.getTour_name());%>"
+                                    id = "<%out.print(t.getId());%>"
+                                    from="<% out.print(t.getLocation_from());%>"
+                                    to="<% out.print(t.getLocation_to());%>"
+                                    date="<% out.print(t.getDate());%>"
+                                    price="<% out.print(t.getPrice());%>"
+                                    desp1="<% out.print(t.getDesp1());%>"
+                                    desp2="<%out.print(t.getDesp2());%>"
+<%--                                    file = "<%out.print(t.getImageURL_1());%>"--%>
+<%--                                    file1="<%out.print(t.getImageURL_2());%>"--%>
+                                    data-toggle="modal" data-target="#editPackageModal">
+                                Edit
+                            </button>
+
                         </td>
                     </tr>
 
@@ -289,6 +305,57 @@
 </div>
 
 
+<!-- Modal New Package -->
+<div class="modal fade" id="editPackageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Details</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="profileForm" name="editform" action="UpdateUser" method="post">
+                    ID: <input class="form-control" name="id" value="" placeholder="id" readonly="readonly">
+                    Name: : <input class="form-control" type="text" name="tour_name" value=""
+                                   placeholder="Tour Package Name" required>
+                    From : <input class="form-control" type="text" name="from" value="" placeholder="From" required>
+                    To : <input class="form-control" type="text" name="to" value="" placeholder="to"
+                                required>
+                    Price : <input class="form-control" type="number" name="price" value="" placeholder="price"
+                                   required>
+                    Date : <input class="form-control" type="date" name="date" value="" placeholder="date"
+                                  required>
+
+                    <img src="data:image/jpg;base64," width="50" height="50" name="file"/>
+
+                    Upload Image 1 (4 MB): <input class="form-control" type="file" name="file" value=""
+                                                  placeholder="file"
+                                                  required>
+                    Upload Image 2: (4 MB)<input class="form-control" type="file" name="file1" value=""
+                                                 placeholder="file1"
+                                                 required>
+                    Description 1: (4 MB)<input class="form-control" type="text" name="desp1" value=""
+                                                placeholder="desp1"
+                                                required>
+                    Description 2: (4 MB)<input class="form-control" type="text" name="desp2" value=""
+                                                placeholder="desp2"
+                                                required>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal New Package -->
 <div class="modal fade" id="addPKGModal" role="dialog">
     <div class="modal-dialog">
 
@@ -339,14 +406,16 @@
 
                         <div class="form-group">
                             <label for="image1">Upload Image 1 (4 MB):</label> <input type="file"
-                                                                               class="form-control" id="add_photo"
-                                                                               name="file" required>
+                                                                                      class="form-control"
+                                                                                      id="add_photo"
+                                                                                      name="file" required>
                         </div>
 
                         <div class="form-group">
                             <label for="image2">Upload Image 2: (4 MB)</label> <input type="file"
-                                                                               class="form-control" id="add_photo1"
-                                                                               name="file1" required>
+                                                                                      class="form-control"
+                                                                                      id="add_photo1"
+                                                                                      name="file1" required>
                         </div>
 
                         <div class="form-group">
@@ -374,6 +443,45 @@
     </div>
 
 </div>
+
+
+<script>
+
+    $('#editPackageModal').on('show.bs.modal', function (e) {
+        // get information to update quickly to modal view as loading begins
+        var opener = e.relatedTarget;//this holds the element who called the modal
+
+        //we get details from attributes
+        var id = $(opener).attr('id');
+        var tour_name = $(opener).attr('tour_name');
+        var location_from = $(opener).attr('from');
+        var location_to = $(opener).attr('to');
+        var date= $(opener).attr('date');
+        var price= $(opener).attr('price');
+        var desp1= $(opener).attr('desp1');
+        var desp2= $(opener).attr('desp2');
+        //var imageURL_1= $(opener).attr('file');
+        //var imageURL_2= $(opener).attr('file1');
+
+        //set what we got to our form
+        $('#profileForm').find('[name="tour_name"]').val(tour_name);
+        $('#profileForm').find('[name="from"]').val(location_from);
+        $('#profileForm').find('[name="to"]').val(location_to);
+        $('#profileForm').find('[name="date"]').val(date);
+        $('#profileForm').find('[name="price"]').val(price);
+        $('#profileForm').find('[name="desp1"]').val(desp1);
+        $('#profileForm').find('[name="desp2"]').val(desp2);
+        $('#profileForm').find('[name="id"]').val(id);
+       // $('#profileForm').find('[name="file"]').val(imageURL_1);
+       // $('#profileForm').find('[name="file1"]').val(imageURL_2);
+
+        console.log(id);
+
+
+    });
+
+</script>
+
 
 
 </body>
