@@ -21,7 +21,8 @@ public class UpdateTourPackage extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String tour_name = request.getParameter("name");
+        String id = request.getParameter("id");
+        String tour_name = request.getParameter("tour_name");
         String location_from = request.getParameter("from");
         String location_to = request.getParameter("to");
         String date = request.getParameter("date");
@@ -34,30 +35,30 @@ public class UpdateTourPackage extends HttpServlet {
 
         TourPkgUpdateDao pkgUpdateDao = new TourPkgUpdateDao();
 
-        if (filePart != null && filePart2 != null) {
+
+        if (filePart.getName() == "file") {
+            imageUrl_1 = filePart.getInputStream();
+            pkgUpdateDao.updatePackageImageOne(id, tour_name, location_from, location_to, date, price, desp1, desp2, imageUrl_1);
+            System.out.println("Image 1 Updated  " + filePart.getName());
+            response.sendRedirect("manageTourPackages.jsp");
+        } else if (filePart2.getName() == "file1") {
+            imageUrl_2 = filePart2.getInputStream();
+            pkgUpdateDao.updatePackageImageTwo(id, tour_name, location_from, location_to, date, price, desp1, desp2, imageUrl_2);
+            System.out.println("Image 2 Updated  " + filePart2.getName());
+            response.sendRedirect("manageTourPackages.jsp");
+
+        } else if (filePart.getName() == "file" && filePart2.getName() == "file1") {
             imageUrl_1 = filePart.getInputStream();
             imageUrl_2 = filePart2.getInputStream();
-            pkgUpdateDao.UpdatePackageImage(tour_name,location_from,location_to,date,price,desp1,desp2,imageUrl_1,imageUrl_2);
+            pkgUpdateDao.updatePackageImageAll(id, tour_name, location_from, location_to, date, price, desp1, desp2, imageUrl_1, imageUrl_2);
             System.out.println("All updated");
+            response.sendRedirect("manageTourPackages.jsp");
 
-        }
-        else if (filePart != null)
-        {
-            imageUrl_1 = filePart.getInputStream();
-            pkgUpdateDao.UpdatePackageImageOne(tour_name,location_from,location_to,date,price,desp1,desp2,imageUrl_1);
-            System.out.println("Image 1 Updated");
-        }
-        else if (filePart2 != null)
-        {
-            imageUrl_2 = filePart.getInputStream();
-            pkgUpdateDao.UpdatePackageImageTwo(tour_name,location_from,location_to,date,price,desp1,desp2,imageUrl_2);
-            System.out.println("Image 2 Updated");
-
-        }
-
-        else {
-            pkgUpdateDao.UpdatePackageNoImage(tour_name,location_from,location_to,date,price,desp1,desp2);
+        } else {
+            pkgUpdateDao.updatePackageNoImage(id, tour_name, location_from, location_to, date, price, desp1, desp2);
             System.out.println("No Image Update");
+            response.sendRedirect("manageTourPackages.jsp");
+            System.out.println("Details only updated.");
         }
 
     }

@@ -276,15 +276,15 @@
 
 
                             <button class="btn btn-info" tour_name="<% out.print(t.getTour_name());%>"
-                                    id = "<%out.print(t.getId());%>"
+                                    id="<%out.print(t.getId());%>"
                                     from="<% out.print(t.getLocation_from());%>"
                                     to="<% out.print(t.getLocation_to());%>"
                                     date="<% out.print(t.getDate());%>"
                                     price="<% out.print(t.getPrice());%>"
                                     desp1="<% out.print(t.getDesp1());%>"
                                     desp2="<%out.print(t.getDesp2());%>"
-<%--                                    file = "<%out.print(t.getImageURL_1());%>"--%>
-<%--                                    file1="<%out.print(t.getImageURL_2());%>"--%>
+                            <%--                                    file = "<%out.print(t.getImageURL_1());%>"--%>
+                            <%--                                    file1="<%out.print(t.getImageURL_2());%>"--%>
                                     data-toggle="modal" data-target="#editPackageModal">
                                 Edit
                             </button>
@@ -316,7 +316,8 @@
             </div>
             <div class="modal-body">
 
-                <form id="profileForm" name="editform" action="UpdateUser" method="post">
+                <form id="profileForm" name="editform" action="UpdateTourPackage" method="post"
+                      enctype="multipart/form-data">
                     ID: <input class="form-control" name="id" value="" placeholder="id" readonly="readonly">
                     Name: : <input class="form-control" type="text" name="tour_name" value=""
                                    placeholder="Tour Package Name" required>
@@ -331,11 +332,11 @@
                     <img src="data:image/jpg;base64," width="50" height="50" name="file"/>
 
                     Upload Image 1 (4 MB): <input class="form-control" type="file" name="file" value=""
-                                                  placeholder="file"
-                                                  required>
+                                                  placeholder="file">
+
                     Upload Image 2: (4 MB)<input class="form-control" type="file" name="file1" value=""
-                                                 placeholder="file1"
-                                                 required>
+                                                 placeholder="file1">
+
                     Description 1: (4 MB)<input class="form-control" type="text" name="desp1" value=""
                                                 placeholder="desp1"
                                                 required>
@@ -456,10 +457,10 @@
         var tour_name = $(opener).attr('tour_name');
         var location_from = $(opener).attr('from');
         var location_to = $(opener).attr('to');
-        var date= $(opener).attr('date');
-        var price= $(opener).attr('price');
-        var desp1= $(opener).attr('desp1');
-        var desp2= $(opener).attr('desp2');
+        var date = $(opener).attr('date');
+        var price = $(opener).attr('price');
+        var desp1 = $(opener).attr('desp1');
+        var desp2 = $(opener).attr('desp2');
         //var imageURL_1= $(opener).attr('file');
         //var imageURL_2= $(opener).attr('file1');
 
@@ -472,8 +473,8 @@
         $('#profileForm').find('[name="desp1"]').val(desp1);
         $('#profileForm').find('[name="desp2"]').val(desp2);
         $('#profileForm').find('[name="id"]').val(id);
-       // $('#profileForm').find('[name="file"]').val(imageURL_1);
-       // $('#profileForm').find('[name="file1"]').val(imageURL_2);
+        // $('#profileForm').find('[name="file"]').val(imageURL_1);
+        // $('#profileForm').find('[name="file1"]').val(imageURL_2);
 
         console.log(id);
 
@@ -481,7 +482,6 @@
     });
 
 </script>
-
 
 
 </body>
