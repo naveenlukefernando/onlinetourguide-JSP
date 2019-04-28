@@ -33,9 +33,6 @@ public class UpdateTourPackage extends HttpServlet {
         Part filePart = request.getPart("file");
         Part filePart2 = request.getPart("file1");
 
-        System.out.println(filePart.getSubmittedFileName().isEmpty());
-        System.out.println(filePart2.getSubmittedFileName().isEmpty());
-
         TourPkgUpdateDao pkgUpdateDao = new TourPkgUpdateDao();
 
 

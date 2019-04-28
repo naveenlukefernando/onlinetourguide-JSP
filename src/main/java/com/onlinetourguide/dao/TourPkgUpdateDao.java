@@ -16,23 +16,11 @@ public class TourPkgUpdateDao {
     protected final String sql_ImageOne = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ?, imageURL_1 = ?  WHERE tourpakages.id = ?";
 
     protected final String sql_ImageTwo = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ?, imageURL_2 = ? WHERE tourpakages.id = ?";
+
     Connection connection = DbConnect.get_Connection();
 
-    public static void main(String[] args) {
-        TourPkgUpdateDao tourPkgUpdateDao = new TourPkgUpdateDao();
-        System.out.println(tourPkgUpdateDao.sql_AllDetail);
-        System.out.println(tourPkgUpdateDao.sql_NoImage);
-        System.out.println(tourPkgUpdateDao.sql_ImageOne);
-        System.out.println(tourPkgUpdateDao.sql_ImageTwo);
-        tourPkgUpdateDao.updatePackageNoImage("11","Good Colombo","dmb","cmb","2019-04-28","250","Good Place","Niceee");
-
-    }
-
-
-
-
     //updating only image one
-    public void updatePackageImageOne(String id , String tour_name, String location_from, String location_to, String date,
+    public void updatePackageImageOne(String id, String tour_name, String location_from, String location_to, String date,
                                       String price, String desp_1, String desp_2, InputStream image_URL_1) {
 
         try {
@@ -46,7 +34,6 @@ public class TourPkgUpdateDao {
             pst.setString(6, desp_1);
             pst.setString(7, desp_2);
             pst.setString(9, id);
-
 
 
             if (image_URL_1 != null) {
@@ -70,9 +57,6 @@ public class TourPkgUpdateDao {
 
 
     }
-
-
-
 
 
     //updating without image
@@ -113,7 +97,7 @@ public class TourPkgUpdateDao {
             pst.setString(5, price);
             pst.setString(6, desp_1);
             pst.setString(7, desp_2);
-            pst.setString(10,id);
+            pst.setString(10, id);
 
 
             if (image_URL_1 != null && image_URL_2 != null) {
@@ -139,9 +123,8 @@ public class TourPkgUpdateDao {
     }
 
 
-
-        // update details without  ImageTwo
-    public void updatePackageImageTwo(String id ,String tour_name, String location_from, String location_to, String date,
+    // update details without  ImageTwo
+    public void updatePackageImageTwo(String id, String tour_name, String location_from, String location_to, String date,
                                       String price, String desp_1, String desp_2, InputStream image_URL_2) {
 
         try {
@@ -178,7 +161,6 @@ public class TourPkgUpdateDao {
 
 
     }
-
 
 
 }
