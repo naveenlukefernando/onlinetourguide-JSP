@@ -33,21 +33,25 @@ public class UpdateTourPackage extends HttpServlet {
         Part filePart = request.getPart("file");
         Part filePart2 = request.getPart("file1");
 
+        System.out.println(filePart.getSubmittedFileName().isEmpty());
+        System.out.println(filePart2.getSubmittedFileName().isEmpty());
+
         TourPkgUpdateDao pkgUpdateDao = new TourPkgUpdateDao();
 
 
-        if (filePart.getName() == "file") {
+        if (!filePart.getSubmittedFileName().isEmpty()) {
             imageUrl_1 = filePart.getInputStream();
             pkgUpdateDao.updatePackageImageOne(id, tour_name, location_from, location_to, date, price, desp1, desp2, imageUrl_1);
             System.out.println("Image 1 Updated  " + filePart.getName());
             response.sendRedirect("manageTourPackages.jsp");
-        } else if (filePart2.getName() == "file1") {
+
+        } else if (!filePart2.getSubmittedFileName().isEmpty()) {
             imageUrl_2 = filePart2.getInputStream();
             pkgUpdateDao.updatePackageImageTwo(id, tour_name, location_from, location_to, date, price, desp1, desp2, imageUrl_2);
             System.out.println("Image 2 Updated  " + filePart2.getName());
             response.sendRedirect("manageTourPackages.jsp");
 
-        } else if (filePart.getName() == "file" && filePart2.getName() == "file1") {
+        } else if (!filePart.getSubmittedFileName().isEmpty() && !filePart2.getSubmittedFileName().isEmpty()) {
             imageUrl_1 = filePart.getInputStream();
             imageUrl_2 = filePart2.getInputStream();
             pkgUpdateDao.updatePackageImageAll(id, tour_name, location_from, location_to, date, price, desp1, desp2, imageUrl_1, imageUrl_2);

@@ -329,20 +329,18 @@
                     Date : <input class="form-control" type="date" name="date" value="" placeholder="date"
                                   required>
 
-                    <img src="data:image/jpg;base64," width="50" height="50" name="file"/>
-
                     Upload Image 1 (4 MB): <input class="form-control" type="file" name="file" value=""
                                                   placeholder="file">
 
                     Upload Image 2: (4 MB)<input class="form-control" type="file" name="file1" value=""
                                                  placeholder="file1">
 
-                    Description 1: (4 MB)<input class="form-control" type="text" name="desp1" value=""
-                                                placeholder="desp1"
-                                                required>
-                    Description 2: (4 MB)<input class="form-control" type="text" name="desp2" value=""
-                                                placeholder="desp2"
-                                                required>
+                    Description 1: <input class="form-control" type="text" name="desp1" value=""
+                                          placeholder="desp1"
+                                          required>
+                    Description 2: <input class="form-control" type="text" name="desp2" value=""
+                                          placeholder="desp2"
+                                          required>
 
             </div>
             <div class="modal-footer">

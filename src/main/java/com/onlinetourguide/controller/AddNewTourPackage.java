@@ -32,7 +32,7 @@ public class AddNewTourPackage extends HttpServlet {
         String imageUrl = request.getParameter("file");
 //        String imageUrl_2 = request.getParameter("file1");
 
-
+        System.out.println(imageUrl);
 
         // input stream of the upload file
         Part filePart = request.getPart("file");
