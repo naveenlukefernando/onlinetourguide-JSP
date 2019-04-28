@@ -108,7 +108,7 @@
 
 
 <div class="header">
-    <a href="#default" class="logo">Online Tour Guide </a>
+    <a href="index.jsp" class="logo">Online Tour Guide </a>
 
     <div class="header-right">
 
@@ -132,10 +132,10 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Dashboard</a></li>
+                <li><a href="index.jsp">Dashboard</a></li>
                 <li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></li>
                 <li><a href="#">Current Bookings</a></li>
-                <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
+                <li class="active"><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
             </ul>
         </div>
@@ -167,20 +167,51 @@
             <br>
 
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#section1">Dashboard</a></li>
+                <li><a href="index.jsp">Dashboard</a></li>
                 <li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></li>
                 <li><a href="#section2">Current Bookings</a></li>
-                <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
+                <li class="active"><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
             </ul>
             <br>
         </div>
         <br>
 
+
+        <script>
+
+            function myFunction() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("userTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+
+        </script>
+
+
         <div class="col-sm-9">
             <div class="well">
                 <h4>Manage Tour Packages</h4>
 
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon">Search</span>
+                <input type="text" id="myInput" class="form-control" onkeyup="myFunction()"
+                       placeholder="Search for names.." title="Type in a name">
             </div>
 
             <div class="panel-body">
@@ -272,23 +303,22 @@
                                 <a id="deletebtn" class="btn btn-danger"
                                    onclick="deletePackageFunction(<%out.print(t.getId());%>)">Delete </a>
 
+
+                                <button class="btn btn-info" tour_name="<% out.print(t.getTour_name());%>"
+                                        id="<%out.print(t.getId());%>"
+                                        from="<% out.print(t.getLocation_from());%>"
+                                        to="<% out.print(t.getLocation_to());%>"
+                                        date="<% out.print(t.getDate());%>"
+                                        price="<% out.print(t.getPrice());%>"
+                                        desp1="<% out.print(t.getDesp1());%>"
+                                        desp2="<%out.print(t.getDesp2());%>"
+                                <%--                                    file = "<%out.print(t.getImageURL_1());%>"--%>
+                                <%--                                    file1="<%out.print(t.getImageURL_2());%>"--%>
+                                        data-toggle="modal" data-target="#editPackageModal">
+                                    Edit
+                                </button>
+
                             </div>
-
-
-                            <button class="btn btn-info" tour_name="<% out.print(t.getTour_name());%>"
-                                    id="<%out.print(t.getId());%>"
-                                    from="<% out.print(t.getLocation_from());%>"
-                                    to="<% out.print(t.getLocation_to());%>"
-                                    date="<% out.print(t.getDate());%>"
-                                    price="<% out.print(t.getPrice());%>"
-                                    desp1="<% out.print(t.getDesp1());%>"
-                                    desp2="<%out.print(t.getDesp2());%>"
-                            <%--                                    file = "<%out.print(t.getImageURL_1());%>"--%>
-                            <%--                                    file1="<%out.print(t.getImageURL_2());%>"--%>
-                                    data-toggle="modal" data-target="#editPackageModal">
-                                Edit
-                            </button>
-
                         </td>
                     </tr>
 

@@ -117,7 +117,7 @@
 
 
 <div class="header">
-    <a href="#default" class="logo">Online Tour Guide </a>
+    <a href="index.jsp" class="logo">Online Tour Guide </a>
     <div class="header-right">
 
         <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -160,8 +160,8 @@
                 <li><a href="index.jsp">Dashboard</a></li>
                 <li><a href="#">New Bookings</a></li>
                 <li><a href="#">Current Bookings</a></li>
-                <li><a href="#">Manage Tour Packages</a></li>
-                <li class="active"><a href="#">Manage Users</a></li>
+                <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
+                <li class="active"><a href="manageUsers.jsp">Manage Users</a></li>
             </ul>
         </div>
     </div>
@@ -195,7 +195,7 @@
                 <li><a href="index.jsp">Dashboard</a></li>
                 <li><a href="#">New Bookings</a></li>
                 <li><a href="#section2">Current Bookings</a></li>
-                <li><a href="#section3">Manage Tour Packages</a></li>
+                <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li class="active"><a href="#section3">Manage Users</a></li>
             </ul>
             <br>
