@@ -448,14 +448,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="textarea1">Description 1:</label> <textarea class="form-control" rows="5"
+                            <label for="textarea1">Description 1:</label> <textarea class="form-control" rows="2"
                                                                                     id="add_desp1" name="desp1"
                                                                                     form="addpkg_form" required>
                                                                         </textarea>
                         </div>
 
                         <div class="form-group">
-                            <label for="textarea2">Description 2:</label> <textarea class="form-control" rows="5"
+                            <label for="textarea2">Description 2:</label> <textarea class="form-control" rows="2"
                                                                                     id="add_desp2" name="desp2"
                                                                                     form="addpkg_form" required>
                                                                         </textarea>
