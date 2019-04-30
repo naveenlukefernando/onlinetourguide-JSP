@@ -355,9 +355,14 @@
                     ID: <input class="form-control" name="id" value="" placeholder="id" readonly="readonly">
                     Firstname : <input class="form-control" type="text" name="firstname" value=""
                                        placeholder="firstname" required>
-                    Phone : <input class="form-control" type="tel" name="phone" value="" placeholder="phone" required>
+                    Lastname : <input class="form-control" type="text" name="edit_lname" value=""
+                                       placeholder="lastname" required>
+
                     E-Mail : <input class="form-control" type="email" name="email" value="" placeholder="email"
                                     required>
+                    Password : <input class="form-control" type="password" name="edit_pwd" value=""
+                                      placeholder="password" required>
+                    Phone : <input class="form-control" type="tel" name="phone" value="" placeholder="phone" required>
 
             </div>
             <div class="modal-footer">
@@ -479,8 +484,8 @@
         $('#profileForm').find('[name="phone"]').val(phone);
         $('#profileForm').find('[name="email"]').val(email);
         $('#profileForm').find('[name="id"]').val(id);
-        $('#profileForm').find('[name="pwd"]').val(password);
-        $('#profileForm').find('[name="lname"]').val(lname);
+        $('#profileForm').find('[name="edit_pwd"]').val(password);
+        $('#profileForm').find('[name="edit_lname"]').val(lname);
 
         console.log(id);
 

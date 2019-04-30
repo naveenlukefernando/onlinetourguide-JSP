@@ -29,7 +29,7 @@ public class UsersFetchDao {
                 User u = new User();
 
                 u.setId(rs.getString("id"));
-                u.setName(rs.getString("name"));
+                u.setName(rs.getString("firstname"));
                 u.setPhone(rs.getString("phone"));
                 u.setEmail(rs.getString("email"));
                 u.setLastname(rs.getString("lastname"));
