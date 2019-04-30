@@ -13,7 +13,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
+    <title>Login | Online Tour Guide </title>
 
 
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">

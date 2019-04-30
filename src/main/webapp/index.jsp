@@ -131,7 +131,7 @@ body {
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Dashboard</a></li>
-					<li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
+					<li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
 					<li><a href="#">Current Bookings</a></li>
 					<li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
 					<li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -165,7 +165,7 @@ body {
 
 				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="#section1">Dashboard</a></li>
-					<li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
+					<li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
 					<li><a href="#section2">Current Bookings</a></li>
 					<li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
 					<li><a href="manageUsers.jsp">Manage Users</a></li>

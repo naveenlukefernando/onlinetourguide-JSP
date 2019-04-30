@@ -49,11 +49,11 @@ public class NewCustomerBookingDao {
 
             PreparedStatement ps = connection.prepareStatement(confirmSql);
             ps.setInt(1, requestId);
-            System.out.println("Insert Success . | "+ps.executeUpdate());
+            ps.executeUpdate();
 
             PreparedStatement psDel = connection.prepareStatement(deleteSql);
             psDel.setInt(1, requestId);
-            System.out.println("Delete success. | "+psDel.executeUpdate());
+            psDel.executeUpdate();
 
             System.out.println("Confirmed");
 
