@@ -17,11 +17,13 @@ public class AddUser extends HttpServlet {
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
+        String lname = request.getParameter("lastname");
+        String password = request.getParameter("password");
 
 
         AddUserDao dao = new AddUserDao();
 
-        dao.addStudent(name, phone, email);
+        dao.addStudent(name,lname,email,password, phone);
 
 
         response.sendRedirect("manageUsers.jsp");

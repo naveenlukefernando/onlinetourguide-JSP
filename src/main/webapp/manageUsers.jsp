@@ -256,8 +256,10 @@
                     <tr>
                         <th>id</th>
                         <th>Name</th>
+                        <th>Last Name</th>
                         <th>Phone</th>
                         <th>E-mail</th>
+                        <th>Password</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -279,6 +281,14 @@
                                 out.print(u.getName());
                             %>
                         </td>
+
+                        <td>
+                            <%
+                                out.print(u.getLastname());
+                            %>
+                        </td>
+
+
                         <td>
                             <%
                                 out.print(u.getPhone());
@@ -291,13 +301,21 @@
                         </td>
 
                         <td>
+                            <%
+                                out.print(u.getPassword());
+                            %>
+                        </td>
+
+                        <td>
                             <div class="text-center">
                                 <a id="deletebtn" class="btn btn-danger"
                                    onclick="deleteUserFunction(<%out.print(u.getId());%>)">Delete </a>
 
                                 <button class="btn btn-info" first-name="<% out.print(u.getName());%>"
+                                        lname="<% out.print(u.getLastname());%>"
                                         phone="<% out.print(u.getPhone());%>"
                                         email="<% out.print(u.getEmail());%>"
+                                        password="<% out.print(u.getPassword());%>"
                                         id="<% out.print(u.getId());%>"
                                         data-toggle="modal" data-target="#editUserModal">
                                     Edit
@@ -397,12 +415,31 @@
                                                                    placeholder="Enter name"
                                                                    name="name" required>
                         </div>
+
+                        <div class="form-group ">
+                            <label for="name">LastName:</label> <input type="text"
+                                                                   class="form-control" id="add_name"
+                                                                   placeholder="Enter name"
+                                                                   name="lname" required>
+                        </div>
+
                         <div class="form-group">
                             <label for="email">Email :</label> <input type="email"
                                                                       class="form-control" id="add_email"
                                                                       placeholder="Enter Email"
                                                                       name="email" required>
                         </div>
+
+                        <div class="form-group">
+                            <label for="email">Password :</label> <input type="password"
+                                                                      class="form-control" id="add_email"
+                                                                      placeholder="Enter Email"
+                                                                      name="pwd" required>
+                        </div>
+
+
+
+
                         <div class="form-group">
                             <label for="phone">Phone :</label> <input type="tel"
                                                                       class="form-control" id="add_phone"
@@ -433,6 +470,8 @@
         var firstname = $(opener).attr('first-name');
         var phone = $(opener).attr('phone');
         var email = $(opener).attr('email');
+        var password = $(opener).attr('password');
+        var lname = $(opener).attr('lname');
         var id = $(opener).attr('id');
 
         //set what we got to our form
@@ -440,6 +479,8 @@
         $('#profileForm').find('[name="phone"]').val(phone);
         $('#profileForm').find('[name="email"]').val(email);
         $('#profileForm').find('[name="id"]').val(id);
+        $('#profileForm').find('[name="pwd"]').val(password);
+        $('#profileForm').find('[name="lname"]').val(lname);
 
         console.log(id);
 

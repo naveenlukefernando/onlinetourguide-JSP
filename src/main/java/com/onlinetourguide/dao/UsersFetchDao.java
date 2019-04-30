@@ -32,6 +32,8 @@ public class UsersFetchDao {
                 u.setName(rs.getString("name"));
                 u.setPhone(rs.getString("phone"));
                 u.setEmail(rs.getString("email"));
+                u.setLastname(rs.getString("lastname"));
+                u.setPassword(rs.getString("password"));
 
                 usersList.add(u);
 

@@ -12,16 +12,18 @@ import java.util.logging.Logger;
 public class AddUserDao {
 
 
-    protected final String sql = "insert into customer values (NULL ,?,?,?)";
+    protected final String sql = "insert into customer values (NULL ,?,?,?,?,?)";
     Connection connection = DbConnect.get_Connection();
-    User user = new User();
-    public void addStudent(String sname, String phone, String email) {
+
+    public void addStudent(String name, String lname, String email, String password, String phone) {
         try {
 
             PreparedStatement ps = connection.prepareStatement(this.sql);
-            ps.setString(1, sname);
-            ps.setString(2, email);
-            ps.setString(3, phone);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ps.setString(3, name);
+            ps.setString(4, lname);
+            ps.setString(5, phone);
             ps.executeUpdate();
 
         } catch (SQLException ex) {

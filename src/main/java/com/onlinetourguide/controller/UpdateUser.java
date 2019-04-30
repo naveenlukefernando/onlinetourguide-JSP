@@ -17,10 +17,12 @@ public class UpdateUser extends HttpServlet {
         String name = request.getParameter("firstname");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
+        String password = request.getParameter("edit_password");
+        String lname  = request.getParameter("edit_lname");
 
         UpdateUserDao updateUserDao = new UpdateUserDao();
 
-        updateUserDao.UpdateUser(id, name, email, phone);
+        updateUserDao.UpdateUser(id, name,lname,email,password, phone);
 
         response.sendRedirect("manageUsers.jsp");
 
