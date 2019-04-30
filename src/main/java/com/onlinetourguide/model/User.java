@@ -2,7 +2,20 @@ package com.onlinetourguide.model;
 
 public class User {
 
-    private String id, name, phone, email;
+    private String id;
+    private String name;
+    private String lastname;
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    private String phone;
+    private String email;
 
     public String getId() {
         return id;
