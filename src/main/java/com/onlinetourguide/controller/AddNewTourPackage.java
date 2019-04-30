@@ -1,6 +1,6 @@
 package com.onlinetourguide.controller;
 
-import com.onlinetourguide.dao.AddTourPackageDao;
+import com.onlinetourguide.dao.TourPkgAddDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -52,8 +52,8 @@ public class AddNewTourPackage extends HttpServlet {
             imageUrl_2 = filePart2.getInputStream();
         }
 
-        AddTourPackageDao addTourPackageDao = new AddTourPackageDao();
-        addTourPackageDao.addTourPackage(tour_name,location_from,location_to,date,price,desp1,desp2,imageUrl_1,imageUrl_2,hotel,transport);
+        TourPkgAddDao tourPkgAddDao = new TourPkgAddDao();
+        tourPkgAddDao.addTourPackage(tour_name,location_from,location_to,date,price,desp1,desp2,imageUrl_1,imageUrl_2,hotel,transport);
 
         response.sendRedirect("manageTourPackages.jsp");
 

@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class AddTourPackageDao {
+public class TourPkgAddDao {
 
 
     protected final String sql = "INSERT INTO tourpakages VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?)";
