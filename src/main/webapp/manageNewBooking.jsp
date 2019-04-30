@@ -116,7 +116,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Dashboard</a></li>
-                <li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></li>
+                <li class="active"><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></li>
                 <li><a href="#">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -151,8 +151,9 @@
             <br>
 
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#section1">Dashboard</a></li>
-                <li><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></li>
+                <li><a href="#section1">Dashboard</a></li>
+                <li class="active"><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></
+                >
                 <li><a href="#section2">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -162,71 +163,34 @@
         <br>
 
         <div class="col-sm-9">
+
             <div class="well">
-                <h4>Dashboard</h4>
-                <p>Some text..</p>
+                <h4>New Bookings</h4>
             </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Users</h4>
-                        <p>1 Million</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Pages</h4>
-                        <p>100 Million</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Sessions</h4>
-                        <p>10 Million</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Bounce</h4>
-                        <p>30%</p>
-                    </div>
-                </div>
+
+            <div class="panel-body">
+
+                <table id="userTable" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <td>
+                            d
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
             </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="well">
-                        <p>Text</p>
-                        <p>Text</p>
-                        <p>Text</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="well">
-                        <p>Text</p>
-                        <p>Text</p>
-                        <p>Text</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="well">
-                        <p>Text</p>
-                        <p>Text</p>
-                        <p>Text</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="well">
-                        <p>Text</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="well">
-                        <p>Text</p>
-                    </div>
-                </div>
-            </div>
+
+
         </div>
     </div>
 </div>
