@@ -27,6 +27,8 @@ public class AddNewTourPackage extends HttpServlet {
         String location_to = request.getParameter("to");
         String date = request.getParameter("date");
         String price = request.getParameter("price");
+        String hotel = request.getParameter("hotel");
+        String transport = request.getParameter("trans_type");
         String desp1 = request.getParameter("desp1");
         String desp2 = request.getParameter("desp2");
         String imageUrl = request.getParameter("file");
@@ -51,7 +53,7 @@ public class AddNewTourPackage extends HttpServlet {
         }
 
         AddTourPackageDao addTourPackageDao = new AddTourPackageDao();
-        addTourPackageDao.addTourPackage(tour_name,location_from,location_to,date,price,desp1,desp2,imageUrl_1,imageUrl_2);
+        addTourPackageDao.addTourPackage(tour_name,location_from,location_to,date,price,desp1,desp2,imageUrl_1,imageUrl_2,hotel,transport);
 
         response.sendRedirect("manageTourPackages.jsp");
 

@@ -65,6 +65,8 @@ public class TourPkgFetchDao {
                 t.setLocation_from(rs.getString("location_from"));
                 t.setLocation_to(rs.getString("location_to"));
                 t.setPrice(rs.getString("price"));
+                t.setHotel_type(rs.getString("hotel"));
+                t.setTransport_type(rs.getString("transport_type"));
                 t.setDesp1(rs.getString("desp1"));
                 t.setDesp2(rs.getString("desp2"));
                 t.setImageURL_1(base64Image);

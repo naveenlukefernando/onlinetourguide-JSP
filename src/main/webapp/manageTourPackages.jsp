@@ -224,6 +224,8 @@
                         <th>From</th>
                         <th>To</th>
                         <th>Date</th>
+                        <th>Hotel</th>
+                        <th>Transport Type</th>
                         <th>Price</th>
                         <th>Description_1</th>
                         <th>Description_2</th>
@@ -265,6 +267,21 @@
                                 out.print(t.getDate());
                             %>
                         </td>
+
+                        <td>
+                            <%
+                                out.print(t.getHotel_type());
+                            %>
+
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(t.getTransport_type());
+                            %>
+
+                        </td>
+
 
                         <td>
                             <%
@@ -312,8 +329,9 @@
                                         price="<% out.print(t.getPrice());%>"
                                         desp1="<% out.print(t.getDesp1());%>"
                                         desp2="<%out.print(t.getDesp2());%>"
-                                <%--                                    file = "<%out.print(t.getImageURL_1());%>"--%>
-                                <%--                                    file1="<%out.print(t.getImageURL_2());%>"--%>
+                                        hotel_type="<%out.print(t.getHotel_type());%>"
+                                        transport_type="<%out.print(t.getTransport_type());%>"
+
                                         data-toggle="modal" data-target="#editPackageModal">
                                     Edit
                                 </button>
@@ -359,6 +377,12 @@
                     Date : <input class="form-control" type="date" name="date" value="" placeholder="date"
                                   required>
 
+                    Hotel: <input class="form-control" type="text" name="hotel_type" value="" placeholder="Hotel" required>
+
+                    Transport Type : <input class="form-control" type="text" name="transport_type" value="" placeholder="Transport type" required>
+
+
+
                     Upload Image 1 (4 MB): <input class="form-control" type="file" name="file" value=""
                                                   placeholder="file">
 
@@ -400,26 +424,26 @@
                 <div class="Form Form--centered">
                     <form action="AddNewTourPackage" method="post" id="addpkg_form" enctype="multipart/form-data">
                         <div class="form-group ">
-                            <label for="name">Name:</label> <input type="text"
+                            <label for="add_name">Name:</label> <input type="text"
                                                                    class="form-control" id="add_name"
                                                                    placeholder="Enter Package Name"
                                                                    name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">From :</label> <input type="text"
+                            <label for="add_from">From :</label> <input type="text"
                                                                      class="form-control" id="add_from"
                                                                      placeholder="Enter Start Location"
                                                                      name="from" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">To :</label> <input type="text"
+                            <label for="add_to">To :</label> <input type="text"
                                                                    class="form-control" id="add_to"
                                                                    placeholder="Enter End Location"
                                                                    name="to" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="date">Date :</label> <input type="date"
+                            <label for="add_date">Date :</label> <input type="date"
                                                                     class="form-control" id="add_date"
                                                                     placeholder="Select Date"
                                                                     name="date" required>
@@ -427,35 +451,50 @@
 
 
                         <div class="form-group">
-                            <label for="phone">Price :</label> <input type="number"
+                            <label for="price">Price :</label> <input type="number"
                                                                       class="form-control" id="price"
                                                                       name="price" required>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="image1">Upload Image 1 (4 MB):</label> <input type="file"
+                            <label for="add_hotel">Hotel :</label> <input type="text"
+                                                                   class="form-control" id="add_hotel"
+                                                                   placeholder="Enter Hotel Name"
+                                                                   name="hotel" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add_trans_type">Transport Type :</label> <input type="text"
+                                                                      class="form-control" id="add_trans_type"
+                                                                      placeholder="Enter Transport type"
+                                                                      name="trans_type" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="add_photo">Upload Image 1 (4 MB):</label> <input type="file"
                                                                                       class="form-control"
                                                                                       id="add_photo"
                                                                                       name="file" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="image2">Upload Image 2: (4 MB)</label> <input type="file"
+                            <label for="add_photo1">Upload Image 2: (4 MB)</label> <input type="file"
                                                                                       class="form-control"
                                                                                       id="add_photo1"
                                                                                       name="file1" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="textarea1">Description 1:</label> <textarea class="form-control" rows="2"
+                            <label for="add_desp1">Description 1:</label> <textarea class="form-control" rows="2"
                                                                                     id="add_desp1" name="desp1"
                                                                                     form="addpkg_form" required>
                                                                         </textarea>
                         </div>
 
                         <div class="form-group">
-                            <label for="textarea2">Description 2:</label> <textarea class="form-control" rows="2"
+                            <label for="add_desp2">Description 2:</label> <textarea class="form-control" rows="2"
                                                                                     id="add_desp2" name="desp2"
                                                                                     form="addpkg_form" required>
                                                                         </textarea>
@@ -487,6 +526,8 @@
         var location_to = $(opener).attr('to');
         var date = $(opener).attr('date');
         var price = $(opener).attr('price');
+        var hotel = $(opener).attr('hotel_type');
+        var transport = $(opener).attr('transport_type');
         var desp1 = $(opener).attr('desp1');
         var desp2 = $(opener).attr('desp2');
         //var imageURL_1= $(opener).attr('file');
@@ -501,8 +542,8 @@
         $('#profileForm').find('[name="desp1"]').val(desp1);
         $('#profileForm').find('[name="desp2"]').val(desp2);
         $('#profileForm').find('[name="id"]').val(id);
-        // $('#profileForm').find('[name="file"]').val(imageURL_1);
-        // $('#profileForm').find('[name="file1"]').val(imageURL_2);
+        $('#profileForm').find('[name="hotel_type"]').val(hotel);
+        $('#profileForm').find('[name="transport_type"]').val(transport);
 
         console.log(id);
 

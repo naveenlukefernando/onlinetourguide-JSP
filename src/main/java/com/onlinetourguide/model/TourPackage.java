@@ -9,7 +9,25 @@ public class TourPackage {
     private String date;
     private String price;
     private String desp1, desp2;
-    private String imageURL_1 , ImageURL_2;
+    private String imageURL_1, ImageURL_2;
+    private String transport_type;
+    private String hotel_type;
+
+    public String getTransport_type() {
+        return transport_type;
+    }
+
+    public void setTransport_type(String transport_type) {
+        this.transport_type = transport_type;
+    }
+
+    public String getHotel_type() {
+        return hotel_type;
+    }
+
+    public void setHotel_type(String hotel_type) {
+        this.hotel_type = hotel_type;
+    }
 
     public String getImageURL_1() {
         return imageURL_1;

@@ -10,12 +10,12 @@ import java.sql.SQLException;
 public class AddTourPackageDao {
 
 
-    protected final String sql = "INSERT INTO tourpakages VALUES (NULL,?,?,?,?,?,?,?,?,?)";
+    protected final String sql = "INSERT INTO tourpakages VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?)";
     Connection connection = DbConnect.get_Connection();
 
 
     public void addTourPackage(String tour_name, String location_from, String location_to, String date,
-                               String price, String desp1, String desp2, InputStream imageURL_1, InputStream imageURL_2) {
+                               String price, String desp1, String desp2, InputStream imageURL_1, InputStream imageURL_2,String hotel,String transport) {
 
         PreparedStatement ps = null;
         try {
@@ -27,6 +27,8 @@ public class AddTourPackageDao {
             ps.setString(5, price);
             ps.setString(6, desp1);
             ps.setString(7, desp2);
+            ps.setString(10, hotel);
+            ps.setString(11, transport);
 
             if (imageURL_1 != null && imageURL_2 != null) {
                 // fetches input stream of the upload file for the blob column
