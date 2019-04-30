@@ -17,6 +17,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="stylesheets/index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script
@@ -225,7 +228,7 @@
                         <th>To</th>
                         <th>Date</th>
                         <th>Hotel</th>
-                        <th>Transport Type</th>
+                        <th><div class="text-center">Transport Type</div></th>
                         <th>Price</th>
                         <th>Description_1</th>
                         <th>Description_2</th>
@@ -318,7 +321,9 @@
 
                             <div class="text-center">
                                 <a id="deletebtn" class="btn btn-danger"
-                                   onclick="deletePackageFunction(<%out.print(t.getId());%>)">Delete </a>
+                                   onclick="deletePackageFunction(<%out.print(t.getId());%>)">
+                                    <i class="fa fa-trash"></i>
+                                    </a>
 
 
                                 <button class="btn btn-info" tour_name="<% out.print(t.getTour_name());%>"
@@ -333,7 +338,9 @@
                                         transport_type="<%out.print(t.getTransport_type());%>"
 
                                         data-toggle="modal" data-target="#editPackageModal">
-                                    Edit
+
+                                    <span class="glyphicon glyphicon-pencil"></span>
+
                                 </button>
 
                             </div>
