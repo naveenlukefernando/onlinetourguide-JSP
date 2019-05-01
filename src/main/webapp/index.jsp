@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %><%--
   Created by IntelliJ IDEA.
   User: Luke
   Date: 2019-04-18
@@ -108,6 +108,9 @@ body {
 			response.sendRedirect("loginerror.jsp");
 
 		}
+
+		NewCustomerBookingDao dao = new NewCustomerBookingDao();
+
 	%>
 
 
@@ -131,7 +134,7 @@ body {
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Dashboard</a></li>
-					<li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
+					<li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>   </span></a>  </li>
 					<li><a href="#">Current Bookings</a></li>
 					<li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
 					<li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -165,7 +168,7 @@ body {
 
 				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="#section1">Dashboard</a></li>
-					<li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> 24  </span></a>  </li>
+					<li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"><% out.print(dao.bookingRequestCount());%>  </span></a>  </li>
 					<li><a href="#section2">Current Bookings</a></li>
 					<li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
 					<li><a href="manageUsers.jsp">Manage Users</a></li>

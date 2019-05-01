@@ -40,6 +40,27 @@ function deletePackageFunction(id) {
 }
 
 
+function confirmBooking(id) {
+
+	var uid = id;
+
+	var r = confirm("Are you sure ? ");
+	if (r == true) {
+		txt = "You pressed OK!";
+		console.log(txt);
+		document.location.href="ConfirmBooking?id="+uid+"&confirm=3";
+		console.log(txt);
+
+	} else {
+		txt = "You pressed Cancel!";
+		console.log(txt);
+	}
+
+
+
+}
+
+
 
 
 

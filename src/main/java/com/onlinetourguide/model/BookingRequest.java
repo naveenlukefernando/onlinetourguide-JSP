@@ -3,9 +3,15 @@ package com.onlinetourguide.model;
 public class BookingRequest {
 
     private int bid;
-    private String packageId;
-    private String customer_id;
-    private  String datetime;
+    private int packageId;
+    private int customer_id;
+    private String book_date;
+    private String fname;
+    private String lname;
+    private String tourPkgName;
+    private String price;
+    private String email;
+    private String phone;
 
     public int getBid() {
         return bid;
@@ -15,27 +21,75 @@ public class BookingRequest {
         this.bid = bid;
     }
 
-    public String getPackageId() {
+    public int getPackageId() {
         return packageId;
     }
 
-    public void setPackageId(String packageId) {
+    public void setPackageId(int packageId) {
         this.packageId = packageId;
     }
 
-    public String getCustomer_id() {
+    public int getCustomer_id() {
         return customer_id;
     }
 
-    public void setCustomer_id(String customer_id) {
+    public void setCustomer_id(int customer_id) {
         this.customer_id = customer_id;
     }
 
-    public String getDatetime() {
-        return datetime;
+    public String getBook_date() {
+        return book_date;
     }
 
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
+    public void setBook_date(String book_date) {
+        this.book_date = book_date;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    public String getTourPkgName() {
+        return tourPkgName;
+    }
+
+    public void setTourPkgName(String tourPkgName) {
+        this.tourPkgName = tourPkgName;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

@@ -1,3 +1,5 @@
+<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
+<%@ page import="com.onlinetourguide.model.BookingRequest" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -10,10 +12,14 @@
     <link rel="stylesheet" href="stylesheets/index.css">
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
 
 
     <style>
@@ -94,6 +100,9 @@
         response.sendRedirect("loginerror.jsp");
 
     }
+
+    NewCustomerBookingDao dao = new NewCustomerBookingDao();
+
 %>
 
 
@@ -116,7 +125,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Dashboard</a></li>
-                <li class="active"><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></li>
+                <li class="active"><a href="#">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>   </span></a></li>
                 <li><a href="#">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -152,7 +161,7 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="#section1">Dashboard</a></li>
-                <li class="active"><a href="#">New Bookings <span class="label label-danger"> 24  </span></a></
+                <li class="active"><a href="#">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></
                 >
                 <li><a href="#section2">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
@@ -173,16 +182,109 @@
                 <table id="userTable" class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>id</th>
+                        <th>ID</th>
+                        <th>Customer ID</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>E-mail</th>
+                        <th>Phone</th>
+                        <th>TourPkgID</th>
+                        <th>TourName</th>
+                        <th>Price</th>
+                        <th>Booked Date</th>
+                        <th>Actions</th>
+
                     </tr>
                     </thead>
                     <tbody>
 
+                    <script src="scripts/manage.js"></script>
+
+                    <%
+
+                        for (BookingRequest b : dao.fetchBookingRequest()) {
+                    %>
+
                     <tr>
                         <td>
-                            d
+                            <%
+                                out.print(b.getBid());
+                            %>
                         </td>
+
+                        <td>
+                            <%
+                                out.print(b.getCustomer_id());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getLname());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getFname());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getEmail());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getPhone());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getPackageId());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getTourPkgName());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getPrice());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getBook_date());
+                            %>
+                        </td>
+
+                        <td>
+                            <a id="deletebtn" class="btn btn-success"
+                               onclick="confirmBooking(<%out.print(b.getBid());%>)">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </a>
+
+
+                            <button class="btn btn-danger">
+                            <i class="glyphicon glyphicon-remove"></i>
+
+                            </button>
+                        </td>
+
+
                     </tr>
+
+                    <%
+                        }
+                    %>
 
                     </tbody>
 

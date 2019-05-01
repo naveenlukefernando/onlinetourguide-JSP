@@ -1,27 +1,35 @@
 package com.onlinetourguide.dao;
 
 import com.onlinetourguide.common.DbConnect;
+import com.onlinetourguide.model.BookingRequest;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class NewCustomerBookingDao {
 
     protected final String sql = "INSERT INTO newbooking VALUES (NULL, ?,?, ?,?)";
+
     Connection connection = DbConnect.get_Connection();
+    ArrayList<BookingRequest> bookingRequestsList = new ArrayList<>();
 
     public static void main(String[] args) {
         NewCustomerBookingDao newCustomerBookingDao = new NewCustomerBookingDao();
-//        newCustomerBookingDao.addBooking(28, 2, "2018-04-21",true);
+        newCustomerBookingDao.addBooking(29, 2, "2018-04-21", true);
+        System.out.println(newCustomerBookingDao.bookingRequestCount());
+        newCustomerBookingDao.confirmBooking(15);
 
-        newCustomerBookingDao.confirmBooking(10);
+
+        for (BookingRequest  b :newCustomerBookingDao.fetchBookingRequest() )
+        {
+            System.out.println(b.getFname() + " "+ b.getLname()+ " | "+ b.getTourPkgName()+ " | "+ b.getBook_date());
+        }
 
     }
 
-    public void addBooking(int tourPacID, int cusID, String date,boolean booking_status) {
+    public void addBooking(int tourPacID, int cusID, String date, boolean booking_status) {
         try {
 
             PreparedStatement ps = connection.prepareStatement(this.sql);
@@ -58,12 +66,67 @@ public class NewCustomerBookingDao {
             System.out.println("Confirmed");
 
 
-
         } catch (SQLException ex) {
             Logger.getLogger(AddUserDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
+    }
+
+
+    public ArrayList<BookingRequest> fetchBookingRequest() {
+        final String sqlBooking = "select n.id as booking_id ,c.id as cust_id ,c.firstname as customer_name, c.lastname as lastname ,c.email as email,c.phone,t.id as TourPackageID ,t.tour_name as TourPackage, t.price as price ,n.datetime as booked_date from newbooking n INNER JOIN customer c ON c.id = n.customer_id INNER JOIN tourpakages t  ON t.id = n.package_id";
+
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sqlBooking);
+
+            while (rs.next()) {
+
+                BookingRequest b = new BookingRequest();
+
+                b.setBid(rs.getInt("booking_id"));
+                b.setCustomer_id(rs.getInt("cust_id"));
+                b.setFname(rs.getString("customer_name"));
+                b.setLname(rs.getString("lastname"));
+                b.setEmail(rs.getString("email"));
+                b.setPhone(rs.getString("phone"));
+                b.setPackageId(rs.getInt("TourPackageID"));
+                b.setTourPkgName(rs.getString("TourPackage"));
+                b.setPrice(rs.getString("price"));
+                b.setBook_date(rs.getString("booked_date"));
+
+                bookingRequestsList.add(b);
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return bookingRequestsList;
+    }
+
+    public int bookingRequestCount() {
+        final String sqlCount = "select count(id) as id from newbooking";
+        int count = 0;
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sqlCount);
+
+            while (rs.next()) {
+
+
+                count = rs.getInt("id");
+
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return count;
     }
 
 

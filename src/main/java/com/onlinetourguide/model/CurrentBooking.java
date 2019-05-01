@@ -5,7 +5,7 @@ public class CurrentBooking {
     private int bid;
     private int packageId;
     private int customer_id;
-    private int book_date;
+    private String book_date;
     private boolean booking_status;
 
     public int getBid() {
@@ -32,11 +32,11 @@ public class CurrentBooking {
         this.customer_id = customer_id;
     }
 
-    public int getBook_date() {
+    public String getBook_date() {
         return book_date;
     }
 
-    public void setBook_date(int book_date) {
+    public void setBook_date(String book_date) {
         this.book_date = book_date;
     }
 
