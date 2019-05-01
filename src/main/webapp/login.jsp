@@ -13,7 +13,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Login | Online Tour Guide </title>
+    <title>Sign IN | Online Tour Guide </title>
 
 
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -45,7 +45,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Sign In</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Register</a>
                 </li>
             </ul>
@@ -60,7 +60,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Register</div>
+                    <div class="card-header">Sign In</div>
                     <div class="card-body">
                         <form action="Login" method="post">
                             <div class="form-group row">
@@ -93,10 +93,11 @@
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">Register
+                                <button type="submit" class="btn btn-primary">Sign In
                                 </button>
                                 <a href="#" class="btn btn-link"> Forgot Your Password? </a>
                             </div>
+                        </form>
                     </div>
                     </form>
 
