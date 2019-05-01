@@ -198,54 +198,37 @@
         <div class="col-sm-9">
             <div class="well">
                 <h4>Dashboard</h4>
-                <p>Some text..</p>
+
             </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Users</h4>
-                        <p>1 Million</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Pages</h4>
-                        <p>100 Million</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Sessions</h4>
-                        <p>10 Million</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="well">
-                        <h4>Bounce</h4>
-                        <p>30%</p>
-                    </div>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-sm-4">
                     <div class="well">
-                        <p>Text</p>
-                        <p>Text</p>
-                        <p>Text</p>
+
+                        <h4>New Bookings</h4>
+                        <h4>
+                            <%
+                                if (0 == dao.bookingRequestCount()) {
+                                    out.print("<div class=\"text-center\"><h3>Not available</h3></div>");
+                                } else {
+                                    out.print("<div class=\"text-center\">" + "<h1>" + dao.bookingRequestCount() + "</h1></div>");
+                                    //out.print("<span class=\"label label-danger\">" + dao.bookingRequestCount() + "</span>");
+                                }
+                            %>
+                        </h4>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="well">
-                        <p>Text</p>
-                        <p>Text</p>
-                        <p>Text</p>
+                        <h4>Current Bookings</h4>
+
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="well">
+                        <h4>Current Clients</h4>
                         <p>Text</p>
-                        <p>Text</p>
-                        <p>Text</p>
+
                     </div>
                 </div>
             </div>

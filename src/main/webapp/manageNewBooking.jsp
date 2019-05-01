@@ -122,8 +122,8 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Dashboard</a></li>
-                <li class="active"><a href="#">New Bookings
+                <li class="active"><a href="index.jsp">Dashboard</a></li>
+                <li class="active"><a href="manageNewBooking.jsp">New Bookings
 
                     <%
                         if (0 == dao.bookingRequestCount()) {
@@ -169,8 +169,8 @@
             <br>
 
             <ul class="nav nav-pills nav-stacked">
-                <li><a href="#section1">Dashboard</a></li>
-                <li class="active"><a href="#">New Bookings
+                <li><a href="index.jsp">Dashboard</a></li>
+                <li class="active"><a href="manageNewBooking.jsp">New Bookings
 
                     <%
                         if (0 == dao.bookingRequestCount()) {
@@ -198,7 +198,6 @@
                 <br>
 
             </div>
-
 
 
             <div class="panel-body">
