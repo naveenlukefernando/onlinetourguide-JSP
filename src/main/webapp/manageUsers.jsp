@@ -162,7 +162,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp">Dashboard</a></li>
                 <li><a href="manageNewBooking.jsp">New Bookings<span class="label label-danger"> <% out.print(bookingDao.bookingRequestCount());%>  </span></a></li>
-                <li><a href="#">Current Bookings</a></li>
+                <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li class="active"><a href="manageUsers.jsp">Manage Users</a></li>
             </ul>
@@ -197,7 +197,7 @@
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="index.jsp">Dashboard</a></li>
                 <li><a href="manageNewBooking.jsp">New Bookings<span class="label label-danger"> <% out.print(bookingDao.bookingRequestCount());%>  </span></a></li>
-                <li><a href="#section2">Current Bookings</a></li>
+                <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li class="active"><a href="#section3">Manage Users</a></li>
             </ul>

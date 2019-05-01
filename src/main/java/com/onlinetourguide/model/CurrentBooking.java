@@ -2,11 +2,26 @@ package com.onlinetourguide.model;
 
 public class CurrentBooking {
 
+
     private int bid;
     private int packageId;
     private int customer_id;
     private String book_date;
-    private boolean booking_status;
+    private String fname;
+    private String lname;
+    private String tourPkgName;
+    private String price;
+    private String email;
+    private String phone;
+    private boolean book_status;
+
+    public boolean isBook_status() {
+        return book_status;
+    }
+
+    public void setBook_status(boolean book_status) {
+        this.book_status = book_status;
+    }
 
     public int getBid() {
         return bid;
@@ -40,11 +55,51 @@ public class CurrentBooking {
         this.book_date = book_date;
     }
 
-    public boolean isBooking_status() {
-        return booking_status;
+    public String getFname() {
+        return fname;
     }
 
-    public void setBooking_status(boolean booking_status) {
-        this.booking_status = booking_status;
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    public String getTourPkgName() {
+        return tourPkgName;
+    }
+
+    public void setTourPkgName(String tourPkgName) {
+        this.tourPkgName = tourPkgName;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

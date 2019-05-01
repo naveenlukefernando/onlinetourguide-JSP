@@ -1,8 +1,9 @@
+<%@ page import="com.onlinetourguide.dao.CurrentBookingDao" %>
 <%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
-<%@ page import="com.onlinetourguide.model.BookingRequest" %>
+<%@ page import="com.onlinetourguide.model.CurrentBooking" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +19,6 @@
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-
 
 
     <style>
@@ -91,6 +90,7 @@
 
 <body>
 
+
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
@@ -125,7 +125,8 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Dashboard</a></li>
-                <li class="active"><a href="#">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>   </span></a></li>
+                <li class="active"><a href="#">New Bookings <span
+                        class="label label-danger"> <% out.print(dao.bookingRequestCount());%>   </span></a></li>
                 <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -157,13 +158,14 @@
 
             </ul>
 
+
             <br>
 
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="#section1">Dashboard</a></li>
-                <li class="active"><a href="#">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></
-                >
-                <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
+                <li><a href="#">New Bookings <span
+                        class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></li>
+                <li class="active"><a href="#manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
             </ul>
@@ -174,7 +176,7 @@
         <div class="col-sm-9">
 
             <div class="well">
-                <h4>New Bookings</h4>
+                <h4>Current Bookings</h4>
             </div>
 
             <div class="panel-body">
@@ -192,17 +194,18 @@
                         <th>TourName</th>
                         <th>Price</th>
                         <th>Booked Date</th>
+                        <th>Booking Status</th>
                         <th>Actions</th>
 
                     </tr>
                     </thead>
-                    <tbody>
 
+                    <tbody>
                     <script src="scripts/manage.js"></script>
 
                     <%
-
-                        for (BookingRequest b : dao.fetchBookingRequest()) {
+                        CurrentBookingDao currentBookingDao = new CurrentBookingDao();
+                        for (CurrentBooking b : currentBookingDao.fetchCurrentBooking()) {
                     %>
 
                     <tr>
@@ -267,36 +270,40 @@
                         </td>
 
                         <td>
-                            <a id="deletebtn" class="btn btn-success"
-                               onclick="confirmBooking(<%out.print(b.getBid());%>)">
+                            <%
+                                out.print(b.isBook_status());
+                            %>
+                        </td>
+
+
+                        <td>
+                            <a id="deletebtn" class="btn btn-success">
+
                                 <i class="glyphicon glyphicon-ok"></i>
                             </a>
 
 
-                            <button class="btn btn-danger" onclick="declineBooking(<%out.print(b.getBid());%>)">
-                            <i class="glyphicon glyphicon-remove"></i>
+                            <button class="btn btn-danger">
+                                <i class="glyphicon glyphicon-remove"></i>
 
                             </button>
                         </td>
 
 
                     </tr>
-
                     <%
                         }
                     %>
 
                     </tbody>
 
-                </table>
 
+                </table>
             </div>
 
 
         </div>
-    </div>
-</div>
+
 
 </body>
-
 </html>
