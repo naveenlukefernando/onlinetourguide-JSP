@@ -1,6 +1,6 @@
+<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
 <%@ page import="com.onlinetourguide.dao.TourPkgFetchDao" %>
 <%@ page import="com.onlinetourguide.model.TourPackage" %>
-<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
 <%--
   Created by IntelliJ IDEA.
   User: Luke
@@ -139,7 +139,17 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp">Dashboard</a></li>
-                <li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings
+
+                    <%
+                        if (0 == dao.bookingRequestCount()) {
+                            out.print("");
+                        } else {
+                            out.print("<span class=\"label label-danger\">" + dao.bookingRequestCount() + "</span>");
+                        }
+                    %>
+
+                </a></li>
                 <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li class="active"><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -174,7 +184,17 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="index.jsp">Dashboard</a></li>
-                <li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings
+
+                    <%
+                        if (0 == dao.bookingRequestCount()) {
+                            out.print("");
+                        } else {
+                            out.print("<span class=\"label label-danger\">" + dao.bookingRequestCount() + "</span>");
+                        }
+                    %>
+
+                </a></li>
                 <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li class="active"><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -231,7 +251,9 @@
                         <th>To</th>
                         <th>Date</th>
                         <th>Hotel</th>
-                        <th><div class="text-center">Transport Type</div></th>
+                        <th>
+                            <div class="text-center">Transport Type</div>
+                        </th>
                         <th>Price</th>
                         <th>Description_1</th>
                         <th>Description_2</th>
@@ -326,7 +348,7 @@
                                 <a id="deletebtn" class="btn btn-danger"
                                    onclick="deletePackageFunction(<%out.print(t.getId());%>)">
                                     <i class="fa fa-trash"></i>
-                                    </a>
+                                </a>
 
 
                                 <button class="btn btn-info" tour_name="<% out.print(t.getTour_name());%>"
@@ -387,10 +409,11 @@
                     Date : <input class="form-control" type="date" name="date" value="" placeholder="date"
                                   required>
 
-                    Hotel: <input class="form-control" type="text" name="hotel_type" value="" placeholder="Hotel" required>
+                    Hotel: <input class="form-control" type="text" name="hotel_type" value="" placeholder="Hotel"
+                                  required>
 
-                    Transport Type : <input class="form-control" type="text" name="transport_type" value="" placeholder="Transport type" required>
-
+                    Transport Type : <input class="form-control" type="text" name="transport_type" value=""
+                                            placeholder="Transport type" required>
 
 
                     Upload Image 1 (4 MB): <input class="form-control" type="file" name="file" value=""
@@ -435,28 +458,28 @@
                     <form action="AddNewTourPackage" method="post" id="addpkg_form" enctype="multipart/form-data">
                         <div class="form-group ">
                             <label for="add_name">Name:</label> <input type="text"
-                                                                   class="form-control" id="add_name"
-                                                                   placeholder="Enter Package Name"
-                                                                   name="name" required>
+                                                                       class="form-control" id="add_name"
+                                                                       placeholder="Enter Package Name"
+                                                                       name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="add_from">From :</label> <input type="text"
-                                                                     class="form-control" id="add_from"
-                                                                     placeholder="Enter Start Location"
-                                                                     name="from" required>
+                                                                        class="form-control" id="add_from"
+                                                                        placeholder="Enter Start Location"
+                                                                        name="from" required>
                         </div>
                         <div class="form-group">
                             <label for="add_to">To :</label> <input type="text"
-                                                                   class="form-control" id="add_to"
-                                                                   placeholder="Enter End Location"
-                                                                   name="to" required>
+                                                                    class="form-control" id="add_to"
+                                                                    placeholder="Enter End Location"
+                                                                    name="to" required>
                         </div>
 
                         <div class="form-group">
                             <label for="add_date">Date :</label> <input type="date"
-                                                                    class="form-control" id="add_date"
-                                                                    placeholder="Select Date"
-                                                                    name="date" required>
+                                                                        class="form-control" id="add_date"
+                                                                        placeholder="Select Date"
+                                                                        name="date" required>
                         </div>
 
 
@@ -469,31 +492,32 @@
 
                         <div class="form-group">
                             <label for="add_hotel">Hotel :</label> <input type="text"
-                                                                   class="form-control" id="add_hotel"
-                                                                   placeholder="Enter Hotel Name"
-                                                                   name="hotel" required>
+                                                                          class="form-control" id="add_hotel"
+                                                                          placeholder="Enter Hotel Name"
+                                                                          name="hotel" required>
                         </div>
 
                         <div class="form-group">
                             <label for="add_trans_type">Transport Type :</label> <input type="text"
-                                                                      class="form-control" id="add_trans_type"
-                                                                      placeholder="Enter Transport type"
-                                                                      name="trans_type" required>
+                                                                                        class="form-control"
+                                                                                        id="add_trans_type"
+                                                                                        placeholder="Enter Transport type"
+                                                                                        name="trans_type" required>
                         </div>
 
 
                         <div class="form-group">
                             <label for="add_photo">Upload Image 1 (4 MB):</label> <input type="file"
-                                                                                      class="form-control"
-                                                                                      id="add_photo"
-                                                                                      name="file" required>
+                                                                                         class="form-control"
+                                                                                         id="add_photo"
+                                                                                         name="file" required>
                         </div>
 
                         <div class="form-group">
                             <label for="add_photo1">Upload Image 2: (4 MB)</label> <input type="file"
-                                                                                      class="form-control"
-                                                                                      id="add_photo1"
-                                                                                      name="file1" required>
+                                                                                          class="form-control"
+                                                                                          id="add_photo1"
+                                                                                          name="file1" required>
                         </div>
 
                         <div class="form-group">

@@ -7,9 +7,9 @@
 --%>
 
 
+<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
 <%@ page import="com.onlinetourguide.dao.UsersFetchDao" %>
 <%@ page import="com.onlinetourguide.model.User" %>
-<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
@@ -161,7 +161,17 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp">Dashboard</a></li>
-                <li><a href="manageNewBooking.jsp">New Bookings<span class="label label-danger"> <% out.print(bookingDao.bookingRequestCount());%>  </span></a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings
+
+                    <%
+                        if (0 == bookingDao.bookingRequestCount()) {
+                            out.print("");
+                        } else {
+                            out.print("<span class=\"label label-danger\">" + bookingDao.bookingRequestCount() + "</span>");
+                        }
+                    %>
+
+                </a></li>
                 <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li class="active"><a href="manageUsers.jsp">Manage Users</a></li>
@@ -196,7 +206,17 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="index.jsp">Dashboard</a></li>
-                <li><a href="manageNewBooking.jsp">New Bookings<span class="label label-danger"> <% out.print(bookingDao.bookingRequestCount());%>  </span></a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings
+
+                    <%
+                        if (0 == bookingDao.bookingRequestCount()) {
+                            out.print("");
+                        } else {
+                            out.print("<span class=\"label label-danger\">" + bookingDao.bookingRequestCount() + "</span>");
+                        }
+                    %>
+
+                </a></li>
                 <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li class="active"><a href="#section3">Manage Users</a></li>
@@ -360,7 +380,7 @@
                     Firstname : <input class="form-control" type="text" name="firstname" value=""
                                        placeholder="firstname" required>
                     Lastname : <input class="form-control" type="text" name="edit_lname" value=""
-                                       placeholder="lastname" required>
+                                      placeholder="lastname" required>
 
                     E-Mail : <input class="form-control" type="email" name="email" value="" placeholder="email"
                                     required>
@@ -427,9 +447,9 @@
 
                         <div class="form-group ">
                             <label for="name">LastName:</label> <input type="text"
-                                                                   class="form-control" id="add_name"
-                                                                   placeholder="Enter name"
-                                                                   name="lname" required>
+                                                                       class="form-control" id="add_name"
+                                                                       placeholder="Enter name"
+                                                                       name="lname" required>
                         </div>
 
                         <div class="form-group">
@@ -441,12 +461,10 @@
 
                         <div class="form-group">
                             <label for="email">Password :</label> <input type="password"
-                                                                      class="form-control" id="add_email"
-                                                                      placeholder="Enter Email"
-                                                                      name="pwd" required>
+                                                                         class="form-control" id="add_email"
+                                                                         placeholder="Enter Email"
+                                                                         name="pwd" required>
                         </div>
-
-
 
 
                         <div class="form-group">

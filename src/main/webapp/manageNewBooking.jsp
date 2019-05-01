@@ -20,8 +20,6 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 
-
-
     <style>
         * {
             box-sizing: border-box;
@@ -125,7 +123,18 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Dashboard</a></li>
-                <li class="active"><a href="#">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>   </span></a></li>
+                <li class="active"><a href="#">New Bookings
+
+                    <%
+                        if (0 == dao.bookingRequestCount()) {
+                            out.print("");
+                        } else {
+                            out.print("<span class=\"label label-danger\">" + dao.bookingRequestCount() + "</span>");
+                        }
+                    %>
+
+
+                </a></li>
                 <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -161,8 +170,19 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="#section1">Dashboard</a></li>
-                <li class="active"><a href="#">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></
-                >
+                <li class="active"><a href="#">New Bookings
+
+                    <%
+                        if (0 == dao.bookingRequestCount()) {
+                            out.print("");
+                        } else {
+                            out.print("<span class=\"label label-danger\">" + dao.bookingRequestCount() + "</span>");
+                        }
+                    %>
+
+
+                </a></li>
+
                 <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -175,7 +195,11 @@
 
             <div class="well">
                 <h4>New Bookings</h4>
+                <br>
+
             </div>
+
+
 
             <div class="panel-body">
 
@@ -274,7 +298,7 @@
 
 
                             <button class="btn btn-danger" onclick="declineBooking(<%out.print(b.getBid());%>)">
-                            <i class="glyphicon glyphicon-remove"></i>
+                                <i class="glyphicon glyphicon-remove"></i>
 
                             </button>
                         </td>
@@ -289,6 +313,18 @@
                     </tbody>
 
                 </table>
+
+                <br>
+
+                <%
+                    if (0 == dao.bookingRequestCount()) {
+                        out.print("<div class=\"text-center\"><h3>New Bookings not available</h3></div>");
+
+                    } else {
+                        out.print("");
+                    }
+                %>
+
 
             </div>
 

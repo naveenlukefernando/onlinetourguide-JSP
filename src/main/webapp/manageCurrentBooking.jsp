@@ -125,8 +125,17 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.jsp">Dashboard</a></li>
-                <li class="active"><a href="manageNewBooking.jsp">New Bookings <span
-                        class="label label-danger"> <% out.print(dao.bookingRequestCount());%>   </span></a></li>
+                <li class="active"><a href="manageNewBooking.jsp">New Bookings
+
+                    <%
+                        if (0 == dao.bookingRequestCount()) {
+                            out.print("");
+                        } else {
+                            out.print("<span class=\"label label-danger\">" + dao.bookingRequestCount() + "</span>");
+                        }
+                    %>
+
+                </a></li>
                 <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -163,8 +172,17 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="index.jsp">Dashboard</a></li>
-                <li><a href="manageNewBooking.jsp">New Bookings <span
-                        class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings
+
+                    <%
+                        if (0 == dao.bookingRequestCount()) {
+                            out.print("");
+                        } else {
+                            out.print("<span class=\"label label-danger\">" + dao.bookingRequestCount() + "</span>");
+                        }
+                    %>
+
+                </a></li>
                 <li class="active"><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
