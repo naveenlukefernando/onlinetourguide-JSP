@@ -19,12 +19,11 @@ public class NewCustomerBookingDao {
         NewCustomerBookingDao newCustomerBookingDao = new NewCustomerBookingDao();
         newCustomerBookingDao.addBooking(29, 2, "2018-04-21", true);
         System.out.println(newCustomerBookingDao.bookingRequestCount());
-        newCustomerBookingDao.confirmBooking(15);
 
 
-        for (BookingRequest  b :newCustomerBookingDao.fetchBookingRequest() )
-        {
-            System.out.println(b.getFname() + " "+ b.getLname()+ " | "+ b.getTourPkgName()+ " | "+ b.getBook_date());
+
+        for (BookingRequest b : newCustomerBookingDao.fetchBookingRequest()) {
+            System.out.println(b.getFname() + " " + b.getLname() + " | " + b.getTourPkgName() + " | " + b.getBook_date());
         }
 
     }
@@ -70,6 +69,23 @@ public class NewCustomerBookingDao {
             Logger.getLogger(AddUserDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+
+    }
+
+
+    public void declineRequest(int requestId) {
+        final String declineSql = "DELETE FROM newbooking WHERE newbooking.id = ?";
+        try {
+
+            PreparedStatement ps = connection.prepareStatement(declineSql);
+            ps.setInt(1, requestId);
+            ps.executeUpdate();
+            System.out.println("declined");
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AddUserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

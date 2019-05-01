@@ -9,6 +9,7 @@
 
 <%@ page import="com.onlinetourguide.dao.UsersFetchDao" %>
 <%@ page import="com.onlinetourguide.model.User" %>
+<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
@@ -113,6 +114,8 @@
         response.sendRedirect("loginerror.jsp");
 
     }
+
+    NewCustomerBookingDao bookingDao = new NewCustomerBookingDao();
 %>
 
 
@@ -158,7 +161,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp">Dashboard</a></li>
-                <li><a href="manageNewBooking.jsp">New Bookings</a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings<span class="label label-danger"> <% out.print(bookingDao.bookingRequestCount());%>  </span></a></li>
                 <li><a href="#">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li class="active"><a href="manageUsers.jsp">Manage Users</a></li>
@@ -193,7 +196,7 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="index.jsp">Dashboard</a></li>
-                <li><a href="manageNewBooking.jsp">New Bookings</a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings<span class="label label-danger"> <% out.print(bookingDao.bookingRequestCount());%>  </span></a></li>
                 <li><a href="#section2">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li class="active"><a href="#section3">Manage Users</a></li>

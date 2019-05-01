@@ -1,5 +1,6 @@
 <%@ page import="com.onlinetourguide.dao.TourPkgFetchDao" %>
 <%@ page import="com.onlinetourguide.model.TourPackage" %>
+<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
 <%--
   Created by IntelliJ IDEA.
   User: Luke
@@ -107,6 +108,8 @@
         response.sendRedirect("loginerror.jsp");
 
     }
+
+    NewCustomerBookingDao dao = new NewCustomerBookingDao();
 %>
 
 
@@ -136,7 +139,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp">Dashboard</a></li>
-                <li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> 24  </span></a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></li>
                 <li><a href="#">Current Bookings</a></li>
                 <li class="active"><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
@@ -171,7 +174,7 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="index.jsp">Dashboard</a></li>
-                <li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> 24  </span></a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings <span class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></li>
                 <li><a href="#section2">Current Bookings</a></li>
                 <li class="active"><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
