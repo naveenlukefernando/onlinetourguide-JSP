@@ -3,11 +3,10 @@ package com.onlinetourguide.dao;
 import com.onlinetourguide.common.DbConnect;
 import com.onlinetourguide.model.CurrentBooking;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CurrentBookingDao {
 
@@ -58,5 +57,24 @@ public class CurrentBookingDao {
 
         return currentBookingsList;
     }
+
+
+
+    public void deleteBooking(int requestId) {
+        final String deleteSQL = "DELETE FROM current_booking WHERE current_booking.id = ?";
+        try {
+
+            PreparedStatement ps = connection.prepareStatement(deleteSQL);
+            ps.setInt(1, requestId);
+            ps.executeUpdate();
+            System.out.println("deleted ! ");
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AddUserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
 
 }

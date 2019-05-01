@@ -124,8 +124,8 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Dashboard</a></li>
-                <li class="active"><a href="#">New Bookings <span
+                <li class="active"><a href="index.jsp">Dashboard</a></li>
+                <li class="active"><a href="manageNewBooking.jsp">New Bookings <span
                         class="label label-danger"> <% out.print(dao.bookingRequestCount());%>   </span></a></li>
                 <li><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
@@ -162,10 +162,10 @@
             <br>
 
             <ul class="nav nav-pills nav-stacked">
-                <li><a href="#section1">Dashboard</a></li>
-                <li><a href="#">New Bookings <span
+                <li><a href="index.jsp">Dashboard</a></li>
+                <li><a href="manageNewBooking.jsp">New Bookings <span
                         class="label label-danger"> <% out.print(dao.bookingRequestCount());%>  </span></a></li>
-                <li class="active"><a href="#manageCurrentBooking.jsp">Current Bookings</a></li>
+                <li class="active"><a href="manageCurrentBooking.jsp">Current Bookings</a></li>
                 <li><a href="manageTourPackages.jsp">Manage Tour Packages</a></li>
                 <li><a href="manageUsers.jsp">Manage Users</a></li>
             </ul>
@@ -277,13 +277,9 @@
 
 
                         <td>
-                            <a id="deletebtn" class="btn btn-success">
-
-                                <i class="glyphicon glyphicon-ok"></i>
-                            </a>
 
 
-                            <button class="btn btn-danger">
+                            <button class="btn btn-danger" onclick="deleteBooking(<%out.print(b.getBid());%>)">
                                 <i class="glyphicon glyphicon-remove"></i>
 
                             </button>
@@ -304,6 +300,7 @@
 
         </div>
 
-
+    </div>
+</div>
 </body>
 </html>
