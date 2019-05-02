@@ -250,6 +250,7 @@
                         <th>From</th>
                         <th>To</th>
                         <th>Date</th>
+                        <th>Duration</th>
                         <th>Hotel</th>
                         <th>
                             <div class="text-center">Transport Type</div>
@@ -293,6 +294,12 @@
                         <td>
                             <%
                                 out.print(t.getDate());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(t.getDuration());
                             %>
                         </td>
 
@@ -356,6 +363,7 @@
                                         from="<% out.print(t.getLocation_from());%>"
                                         to="<% out.print(t.getLocation_to());%>"
                                         date="<% out.print(t.getDate());%>"
+                                        duration="<% out.print(t.getDuration());%>"
                                         price="<% out.print(t.getPrice());%>"
                                         desp1="<% out.print(t.getDesp1());%>"
                                         desp2="<%out.print(t.getDesp2());%>"
@@ -408,6 +416,8 @@
                                    required>
                     Date : <input class="form-control" type="date" name="date" value="" placeholder="date"
                                   required>
+                    Number of Days : <input class="form-control" type="number" name="duration" value="" placeholder="Number of days "
+                                   required>
 
                     Hotel: <input class="form-control" type="text" name="hotel_type" value="" placeholder="Hotel"
                                   required>
@@ -480,6 +490,12 @@
                                                                         class="form-control" id="add_date"
                                                                         placeholder="Select Date"
                                                                         name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duration">Number of days :</label> <input type="number"
+                                                                      class="form-control" id="duration"
+                                                                      name="duration" required>
                         </div>
 
 
@@ -559,6 +575,7 @@
         var location_from = $(opener).attr('from');
         var location_to = $(opener).attr('to');
         var date = $(opener).attr('date');
+        var duration = $(opener).attr('duration');
         var price = $(opener).attr('price');
         var hotel = $(opener).attr('hotel_type');
         var transport = $(opener).attr('transport_type');
@@ -578,7 +595,7 @@
         $('#profileForm').find('[name="id"]').val(id);
         $('#profileForm').find('[name="hotel_type"]').val(hotel);
         $('#profileForm').find('[name="transport_type"]').val(transport);
-
+        $('#profileForm').find('[name="duration"]').val(duration);
         console.log(id);
 
 

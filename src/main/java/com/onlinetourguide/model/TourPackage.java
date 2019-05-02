@@ -12,6 +12,15 @@ public class TourPackage {
     private String imageURL_1, ImageURL_2;
     private String transport_type;
     private String hotel_type;
+    private int duration;
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
 
     public String getTransport_type() {
         return transport_type;

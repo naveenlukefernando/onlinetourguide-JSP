@@ -9,18 +9,18 @@ import java.sql.SQLException;
 
 public class TourPkgUpdateDao {
 
-    protected final String sql_AllDetail = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ?, imageURL_1 = ? ,imageURL_2 = ?, hotel = ? , transport_type = ? WHERE tourpakages.id = ?";
+    protected final String sql_AllDetail = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ?, imageURL_1 = ? ,imageURL_2 = ?, hotel = ? , transport_type = ?, duration = ? WHERE tourpakages.id = ?";
 
-    protected final String sql_NoImage = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ? ,hotel = ? , transport_type = ? WHERE tourpakages.id = ?";
+    protected final String sql_NoImage = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ? ,hotel = ? , transport_type = ?, duration = ? WHERE tourpakages.id = ?";
 
-    protected final String sql_ImageOne = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ?, imageURL_1 = ?, hotel = ? , transport_type = ?  WHERE tourpakages.id = ?";
+    protected final String sql_ImageOne = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ?, imageURL_1 = ?, hotel = ? , transport_type = ?, duration = ?  WHERE tourpakages.id = ?";
 
-    protected final String sql_ImageTwo = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ?, imageURL_2 = ? , hotel = ? , transport_type = ? WHERE tourpakages.id = ?";
+    protected final String sql_ImageTwo = "UPDATE tourpakages SET tour_name = ? ,location_from = ?, location_to = ? ,date = ? ,price = ? ,desp1 = ? ,desp2 = ?, imageURL_2 = ? , hotel = ? , transport_type = ?, duration = ? WHERE tourpakages.id = ?";
 
     Connection connection = DbConnect.get_Connection();
 
     //updating only image one
-    public void updatePackageImageOne(String id, String tour_name, String location_from, String location_to, String date,
+    public void updatePackageImageOne(String id, String tour_name, String location_from, String location_to, String date,String duration,
                                       String price, String desp_1, String desp_2, InputStream image_URL_1,String hotel, String transport) {
 
         try {
@@ -63,7 +63,7 @@ public class TourPkgUpdateDao {
 
 
     //updating without image
-    public void updatePackageNoImage(String id, String tour_name, String location_from, String location_to, String date,
+    public void updatePackageNoImage(String id, String tour_name, String location_from, String location_to, String date,String duration,
                                      String price, String desp_1, String desp_2,String hotel , String transport) {
         try {
 
@@ -90,7 +90,7 @@ public class TourPkgUpdateDao {
 
 
     //Updating full package
-    public void updatePackageImageAll(String id, String tour_name, String location_from, String location_to, String date,
+    public void updatePackageImageAll(String id, String tour_name, String location_from, String location_to, String date,String duration,
                                       String price, String desp_1, String desp_2, InputStream image_URL_1, InputStream image_URL_2,String hotel, String transport) {
 
         try {
@@ -133,7 +133,7 @@ public class TourPkgUpdateDao {
 
 
     // update details without  ImageTwo
-    public void updatePackageImageTwo(String id, String tour_name, String location_from, String location_to, String date,
+    public void updatePackageImageTwo(String id, String tour_name, String location_from, String location_to, String date,String duration,
                                       String price, String desp_1, String desp_2, InputStream image_URL_2,String hotel ,String transport) {
 
         try {

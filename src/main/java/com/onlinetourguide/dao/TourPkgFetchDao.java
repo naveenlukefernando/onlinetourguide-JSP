@@ -62,6 +62,7 @@ public class TourPkgFetchDao {
                 t.setId(rs.getString("id"));
                 t.setTour_name(rs.getString("tour_name"));
                 t.setDate(rs.getString("date"));
+                t.setDuration(rs.getInt("duration"));
                 t.setLocation_from(rs.getString("location_from"));
                 t.setLocation_to(rs.getString("location_to"));
                 t.setPrice(rs.getString("price"));
