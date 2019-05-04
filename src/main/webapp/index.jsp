@@ -157,16 +157,14 @@
 
             <ul class="nav nav-tabs">
 
-                <li class="dropdown"><a class="dropdown-toggle"
-                                        data-toggle="dropdown" href="#"> <b>Hi! <% out.print(username);%></b> <span
-                        class="caret"></span></a>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <b>Hi! <% out.print(username);%></b> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <form action="Logout" method="get">
                                 <button type="submit" class="btn btn-link">Logout</button>
                             </form>
                         </li>
-
                     </ul>
                 </li>
 

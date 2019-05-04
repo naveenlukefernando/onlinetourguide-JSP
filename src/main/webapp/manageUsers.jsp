@@ -278,6 +278,7 @@
                     <thead>
                     <tr>
                         <th>id</th>
+                        <th>user_level</th>
                         <th>Name</th>
                         <th>Last Name</th>
                         <th>Phone</th>
@@ -300,6 +301,12 @@
                                 out.print(u.getId());
                             %>
                         </td>
+                        <td>
+                            <%
+                                out.print(u.getLevel());
+                            %>
+                        </td>
+
                         <td>
                             <%
                                 out.print(u.getName());
@@ -341,6 +348,7 @@
                                         email="<% out.print(u.getEmail());%>"
                                         password="<% out.print(u.getPassword());%>"
                                         id="<% out.print(u.getId());%>"
+                                        level="<%out.print(u.getLevel());%>"
                                         data-toggle="modal" data-target="#editUserModal">
                                     Edit
                                 </button>
@@ -381,6 +389,10 @@
                                        placeholder="firstname" required>
                     Lastname : <input class="form-control" type="text" name="edit_lname" value=""
                                       placeholder="lastname" required>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="admin" value="admin">Admin User</label>
+                    </div>
+
 
                     E-Mail : <input class="form-control" type="email" name="email" value="" placeholder="email"
                                     required>
@@ -451,6 +463,12 @@
                                                                        placeholder="Enter name"
                                                                        name="lname" required>
                         </div>
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="admin" value="admin">Admin User</label>
+                        </div>
+
 
                         <div class="form-group">
                             <label for="email">Email :</label> <input type="email"

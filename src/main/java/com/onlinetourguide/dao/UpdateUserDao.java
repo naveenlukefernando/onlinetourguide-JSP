@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class UpdateUserDao {
 
 
-    protected final String sql = "UPDATE customer SET email = ?,password = ?,firstname = ?,lastname = ?, phone = ?  WHERE customer.id = ?";
+    protected final String sql = "UPDATE users SET email = ?,password = ?,firstname = ?,lastname = ?, phone = ?  WHERE users.id = ?";
     protected final String sql_update = "select * from customer WHERE customer.id = ?";
     Connection connection = DbConnect.get_Connection();
 

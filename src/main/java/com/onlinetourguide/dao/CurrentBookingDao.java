@@ -26,7 +26,7 @@ public class CurrentBookingDao {
 
 
     public ArrayList<CurrentBooking> fetchCurrentBooking() {
-        final String sqlBooking = "select b.id as booking_id , c.id as cust_id , c.firstname as customer_name , c.lastname as lastname , c.email as email , c.phone,t.id as TourPackageID , t.tour_name as TourPackage , t.price as price , b.datetime as booked_date , b.booking_status from current_booking b INNER JOIN customer c ON c.id = b.customer_id INNER JOIN tourpakages t  ON t.id = b.package_id";
+        final String sqlBooking = "select b.id as booking_id , c.id as cust_id , c.firstname as customer_name , c.lastname as lastname , c.email as email , c.phone,t.id as TourPackageID , t.tour_name as TourPackage , t.price as price , b.datetime as booked_date , b.booking_status from current_booking b INNER JOIN users c ON c.id = b.customer_id INNER JOIN tourpakages t  ON t.id = b.package_id";
 
         try {
             Statement st = connection.createStatement();

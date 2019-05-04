@@ -5,11 +5,12 @@
   Time: 10:26 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Traveland - Online Tour Agent</title>
+    <title>Luke Travels | Online Tour Guide</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -35,6 +36,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<%
+    response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+
+    String username = (String) session.getAttribute("username");
+
+
+%>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="index.html"><span>LUKE TRAVELS</span></a>
@@ -49,8 +60,21 @@
                 <li class="nav-item"><a href="tourPackages.jsp" class="nav-link">Tour Packages</a></li>
                 <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">Register</a></li>
+<%--                <li class="nav-item"><a class="nav-link">Hi </a></li>--%>
+
+<%--                <li class="nav-item"><a href="login1.jsp" class="nav-link">Sign In</a></li>--%>
+<%--                <li class="nav-item"><a href="#" class="nav-link">Register</a></li>--%>
+                    <%
+                        if (session.getAttribute("username") == null) {
+                            out.print("<li class=\"nav-item\"><a href=\"login.jsp\" class=\"nav-link\">Sign In</a></li>");
+                            out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
+                        } else
+                        {
+                            //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
+                            out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! "+username+"</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                        }
+                    %>
+
                 <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
 
 
@@ -75,6 +99,7 @@
         </div>
     </div>
 </div>
+
 
 <section class="ftco-section ftco-no-pb ftco-no-pt">
     <div class="container">

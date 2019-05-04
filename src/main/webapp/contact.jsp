@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Luke Travels | Online Tour Guide</title>
+    <title>Contact | Luke Travels | Online Tour Guide</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -35,6 +35,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+
+<%
+    response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+
+    String username = (String) session.getAttribute("username");
+
+
+%>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="index.html"><span>LUKE TRAVELS</span></a>
@@ -49,8 +60,21 @@
                 <li class="nav-item"><a href="tourPackages.jsp" class="nav-link">Tour Packages</a></li>
                 <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
                 <li class="nav-item active"><a href="contact.jsp" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">Register</a></li>
+<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>--%>
+<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Register</a></li>--%>
+
+                <%
+                    if (session.getAttribute("username") == null) {
+                        out.print("<li class=\"nav-item\"><a href=\"login.jsp\" class=\"nav-link\">Sign In</a></li>");
+                        out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
+                    } else
+                    {
+                        //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
+                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! "+username+"</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                    }
+                %>
+
+
                 <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
 
 
@@ -60,13 +84,16 @@
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');"
+         data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
             <div class="col-md-9 ftco-animate pb-5 text-center">
                 <h1 class="mb-3 bread">Contact Information</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
+                        class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i
+                        class="ion-ios-arrow-forward"></i></span></p>
             </div>
         </div>
     </div>
@@ -130,7 +157,8 @@
                         <input type="text" class="form-control" placeholder="Subject">
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                        <textarea name="" id="" cols="30" rows="7" class="form-control"
+                                  placeholder="Message"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
@@ -227,9 +255,14 @@
 </footer>
 
 
-
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
 
 <script src="js/jquery.min.js"></script>

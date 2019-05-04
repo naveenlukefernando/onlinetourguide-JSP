@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DeleteUserDao {
 
 
-    protected final String sql = "DELETE FROM customer WHERE customer.id = ?";
+    protected final String sql = "DELETE FROM users WHERE users.id = ?";
     Connection connection = DbConnect.get_Connection();
 
     public void deleteUser(String id) {

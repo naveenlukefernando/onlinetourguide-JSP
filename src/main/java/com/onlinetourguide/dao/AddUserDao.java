@@ -11,11 +11,15 @@ import java.util.logging.Logger;
 
 public class AddUserDao {
 
+    public static void main(String[] args) {
+        AddUserDao addUserDao = new AddUserDao();
+        addUserDao.addStudent("Amila","fernando","amila@gmail.com","123","0775645789",2);
+    }
 
-    protected final String sql = "insert into customer values (NULL ,?,?,?,?,?)";
+    protected final String sql = "insert into users values (NULL ,?,?,?,?,?,?)";
     Connection connection = DbConnect.get_Connection();
 
-    public void addStudent(String name, String lname, String email, String password, String phone) {
+    public void addStudent(String name, String lname, String email, String password, String phone,int level) {
         try {
 
             PreparedStatement ps = connection.prepareStatement(this.sql);
@@ -24,6 +28,7 @@ public class AddUserDao {
             ps.setString(3, name);
             ps.setString(4, lname);
             ps.setString(5, phone);
+            ps.setInt(6,level);
             ps.executeUpdate();
 
         } catch (SQLException ex) {

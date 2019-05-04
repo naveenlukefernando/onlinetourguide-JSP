@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>LUKE TRAVELS | Online Tour Guide </title>
+    <title>About | LUKE TRAVELS | Online Tour Guide </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -35,6 +35,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+
+<%
+    response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+
+    String username = (String) session.getAttribute("username");
+
+
+%>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="index.html"><span>LUKE TRAVELS</span></a>
@@ -49,8 +60,21 @@
                 <li class="nav-item"><a href="tourPackages.jsp" class="nav-link">Tour Packages</a></li>
                 <li class="nav-item active"><a href="about.jsp" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">Register</a></li>
+<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>--%>
+<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Register</a></li>--%>
+
+                <%
+                    if (session.getAttribute("username") == null) {
+                        out.print("<li class=\"nav-item\"><a href=\"login.jsp\" class=\"nav-link\">Sign In</a></li>");
+                        out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
+                    } else
+                    {
+                        //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
+                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! "+username+"</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                    }
+                %>
+
+
                 <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
 
 
@@ -60,13 +84,16 @@
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');"
+         data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
             <div class="col-md-9 ftco-animate pb-5 text-center">
                 <h1 class="mb-3 bread">About Us</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
+                        class="ion-ios-arrow-forward"></i></a></span> <span>About us <i
+                        class="ion-ios-arrow-forward"></i></span></p>
             </div>
         </div>
     </div>
@@ -80,7 +107,7 @@
                     <div class="icon"><span class="flaticon-yatch"></span></div>
                     <div class="media-body">
                         <h3 class="heading mb-3">Activities</h3>
-                        <p>	203 Fake St. Mountain View, San Francisco, California, USA</p>
+                        <p> 203 Fake St. Mountain View, San Francisco, California, USA</p>
                     </div>
                 </div>
             </div>
@@ -167,72 +194,7 @@
     </div>
 </section>
 
-<section class="ftco-section ftco-no-pb testimony-section" style="background-image: url(images/bg_1.jpg);">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                <h2 class="mb-4">Happy Traveler Says</h2>
-            </div>
-        </div>
-        <div class="row ftco-animate">
-            <div class="col-md-12 testimonial">
-                <div class="carousel-testimony owl-carousel ftco-owl">
-                    <div class="item">
-                        <div class="testimony-wrap img" style="background-image: url(images/traveler-1.jpg);">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                <p class="name">Roger Scott</p>
-                                <span class="position">Marketing Manager</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap" style="background-image: url(images/traveler-2.jpg);">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                <p class="name">Roger Scott</p>
-                                <span class="position">Interface Designer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap" style="background-image: url(images/traveler-3.jpg);">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                <p class="name">Roger Scott</p>
-                                <span class="position">UI Designer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap" style="background-image: url(images/traveler-4.jpg);">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                <p class="name">Roger Scott</p>
-                                <span class="position">Web Developer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap" style="background-image: url(images/traveler-5.jpg);">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                <p class="name">Roger Scott</p>
-                                <span class="position">System Analyst</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 
 <section class="ftco-counter img" id="section-counter">
@@ -250,9 +212,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="ftco-animate tips"><span>1.</span> A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        <p class="ftco-animate tips"><span>2.</span> A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        <p class="ftco-animate tips"><span>3.</span> It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <p class="ftco-animate tips"><span>1.</span> A small river named Duden flows by their place and
+                            supplies it with the necessary regelialia.</p>
+                        <p class="ftco-animate tips"><span>2.</span> A small river named Duden flows by their place and
+                            supplies it with the necessary regelialia. It is a paradisematic country, in which roasted
+                            parts of sentences fly into your mouth.</p>
+                        <p class="ftco-animate tips"><span>3.</span> It is a paradisematic country, in which roasted
+                            parts of sentences fly into your mouth.</p>
                         <p class="ftco-animate mt-4"><a href="#" class="btn btn-primary py-3 px-5">Read more</a></p>
                     </div>
                 </div>
@@ -290,7 +256,7 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Traveland</h2>
+                    <h2 class="ftco-heading-2">LUKE TRAVELS</h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
                         live the blind texts.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
@@ -344,9 +310,14 @@
 </footer>
 
 
-
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
 
 <script src="js/jquery.min.js"></script>

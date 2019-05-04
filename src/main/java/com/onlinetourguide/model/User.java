@@ -8,6 +8,15 @@ public class User {
     private String password;
     private String phone;
     private String email;
+    private int level;
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
     public String getPassword() {
         return password;

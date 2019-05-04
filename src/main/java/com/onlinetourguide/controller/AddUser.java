@@ -19,11 +19,17 @@ public class AddUser extends HttpServlet {
         String email = request.getParameter("email");
         String lname = request.getParameter("lname");
         String password = request.getParameter("pwd");
+        String userLevel = request.getParameter("admin");
 
 
         AddUserDao dao = new AddUserDao();
 
-        dao.addStudent(name,lname,email,password, phone);
+        if (userLevel != null && !userLevel.isEmpty()) {
+            dao.addStudent(name, lname, email, password, phone, 1);
+        } else {
+            dao.addStudent(name, lname, email, password, phone, 2);
+
+        }
 
 
         response.sendRedirect("manageUsers.jsp");

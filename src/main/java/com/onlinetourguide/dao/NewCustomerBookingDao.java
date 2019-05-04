@@ -17,9 +17,11 @@ public class NewCustomerBookingDao {
 
     public static void main(String[] args) {
         NewCustomerBookingDao newCustomerBookingDao = new NewCustomerBookingDao();
-        newCustomerBookingDao.addBooking(29, 2, "2018-04-21", true);
+        //newCustomerBookingDao.addBooking(32, 2, "2018-04-21", true);
         //System.out.println(newCustomerBookingDao.bookingRequestCount());
+        String k = "";
 
+        System.out.println(k);
 
     }
 
@@ -86,7 +88,7 @@ public class NewCustomerBookingDao {
 
 
     public ArrayList<BookingRequest> fetchBookingRequest() {
-        final String sqlBooking = "select n.id as booking_id ,c.id as cust_id ,c.firstname as customer_name, c.lastname as lastname ,c.email as email,c.phone,t.id as TourPackageID ,t.tour_name as TourPackage, t.price as price ,n.datetime as booked_date from newbooking n INNER JOIN customer c ON c.id = n.customer_id INNER JOIN tourpakages t  ON t.id = n.package_id";
+        final String sqlBooking = "select n.id as booking_id ,c.id as cust_id ,c.firstname as customer_name, c.lastname as lastname ,c.email as email,c.phone,t.id as TourPackageID ,t.tour_name as TourPackage, t.price as price ,n.datetime as booked_date from newbooking n INNER JOIN users c ON c.id = n.customer_id INNER JOIN tourpakages t  ON t.id = n.package_id";
 
         try {
             Statement st = connection.createStatement();

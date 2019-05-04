@@ -21,13 +21,13 @@ public class Login extends HttpServlet {
 
         String uname = request.getParameter("uname");
         String pass = request.getParameter("pass");
-
+        String error = "true";
         LoginDao dao = new LoginDao();
 
         if (dao.check(uname, pass)) {
             HttpSession session = request.getSession();
             session.setAttribute("username", uname);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("indexc.jsp");
         } else {
             request.setAttribute("error", "error");
             RequestDispatcher rd = request.getRequestDispatcher("login.jsp");

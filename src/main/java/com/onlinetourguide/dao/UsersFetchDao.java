@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class UsersFetchDao {
 
 
-    protected final String sql = "select * from customer";
+    protected final String sql = "select * from users";
     Connection connection = DbConnect.get_Connection();
     ArrayList<User> usersList = new ArrayList<>();
 
@@ -34,7 +34,7 @@ public class UsersFetchDao {
                 u.setEmail(rs.getString("email"));
                 u.setLastname(rs.getString("lastname"));
                 u.setPassword(rs.getString("password"));
-
+                u.setLevel(rs.getInt("level"));
                 usersList.add(u);
 
             }

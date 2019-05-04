@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>LUKE TRAVELS | Online Tour guide</title>
+    <title>Tour Packages - LUKE TRAVELS | Online Tour guide</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -37,8 +37,19 @@
 </head>
 <body>
 
-<% TourPkgFetchDao fetchDao = new TourPkgFetchDao();
+<%
 
+
+    TourPkgFetchDao fetchDao = new TourPkgFetchDao();
+
+
+%>
+
+
+<%
+    response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+
+    String username = (String) session.getAttribute("username");
 
 %>
 
@@ -56,8 +67,21 @@
                 <li class="nav-item active"><a href="tourPackages.jsp" class="nav-link">Tour Packages</a></li>
                 <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="login.jsp" class="nav-link">Register</a></li>
+<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>--%>
+<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Register</a></li>--%>
+
+                <%
+                    if (session.getAttribute("username") == null) {
+                        out.print("<li class=\"nav-item\"><a href=\"login.jsp\" class=\"nav-link\">Sign In</a></li>");
+                        out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
+                    } else
+                    {
+                        //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
+                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! "+username+"</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                    }
+                %>
+
+
                 <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
 
 
@@ -81,6 +105,9 @@
         </div>
     </div>
 </section>
+
+
+
 
 <section class="ftco-section ftco-no-pb ftco-no-pt">
     <div class="container">
@@ -171,7 +198,8 @@
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="project">
                     <div class="img">
-                        <img src="data:image/jpg;base64,<%out.print(tp.getImageURL_1()); %>"  class="img-fluid" alt="Colorlib Template">
+                        <img src="data:image/jpg;base64,<%out.print(tp.getImageURL_1()); %>" class="img-fluid"
+                             alt="Colorlib Template">
                     </div>
                     <div class="text">
                         <h4 class="price"><%out.print(tp.getPrice());%> LKR</h4>
@@ -190,36 +218,33 @@
                             </div>
                         </div>
                     </div>
-<%--                    <a href="images/destination-1.jpg"--%>
-<%--                       class="icon image-popup d-flex justify-content-center align-items-center">--%>
-<%--                        <span class="icon-expand"></span>--%>
-<%--                    </a>--%>
+                    <%--                    <a href="images/destination-1.jpg"--%>
+                    <%--                       class="icon image-popup d-flex justify-content-center align-items-center">--%>
+                    <%--                        <span class="icon-expand"></span>--%>
+                    <%--                    </a>--%>
                 </div>
             </div>
             <%}%>
 
 
-
         </div>
 
 
-
-
-<%--        <div class="row mt-5">--%>
-<%--            <div class="col text-center">--%>
-<%--                <div class="block-27">--%>
-<%--                    <ul>--%>
-<%--                        <li><a href="#">&lt;</a></li>--%>
-<%--                        <li class="active"><span>1</span></li>--%>
-<%--                        <li><a href="#">2</a></li>--%>
-<%--                        <li><a href="#">3</a></li>--%>
-<%--                        <li><a href="#">4</a></li>--%>
-<%--                        <li><a href="#">5</a></li>--%>
-<%--                        <li><a href="#">&gt;</a></li>--%>
-<%--                    </ul>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+        <%--        <div class="row mt-5">--%>
+        <%--            <div class="col text-center">--%>
+        <%--                <div class="block-27">--%>
+        <%--                    <ul>--%>
+        <%--                        <li><a href="#">&lt;</a></li>--%>
+        <%--                        <li class="active"><span>1</span></li>--%>
+        <%--                        <li><a href="#">2</a></li>--%>
+        <%--                        <li><a href="#">3</a></li>--%>
+        <%--                        <li><a href="#">4</a></li>--%>
+        <%--                        <li><a href="#">5</a></li>--%>
+        <%--                        <li><a href="#">&gt;</a></li>--%>
+        <%--                    </ul>--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
 
 
     </div>
