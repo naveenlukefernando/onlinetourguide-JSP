@@ -11,6 +11,16 @@ public class LoginDao {
 
 
     private int userLevel;
+    private int id;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getUserLevel() {
         return userLevel;
@@ -35,7 +45,7 @@ public class LoginDao {
             if (rs.next()) {
 
                 setUserLevel(rs.getInt("level"));
-
+                setId(rs.getInt("id"));
                 return true;
             }
 
@@ -46,5 +56,8 @@ public class LoginDao {
 
         return false;
     }
+
+
+
 
 }

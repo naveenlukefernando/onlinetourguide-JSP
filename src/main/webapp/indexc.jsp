@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.onlinetourguide.dao.UsersFetchDao" %>
+<%@ page import="com.onlinetourguide.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Luke
   Date: 2019-05-02
@@ -40,8 +41,6 @@
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
-    String username = (String) session.getAttribute("username");
-
 
 %>
 
@@ -65,13 +64,14 @@
 <%--                <li class="nav-item"><a href="login1.jsp" class="nav-link">Sign In</a></li>--%>
 <%--                <li class="nav-item"><a href="#" class="nav-link">Register</a></li>--%>
                     <%
-                        if (session.getAttribute("username") == null) {
+                        if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
                             out.print("<li class=\"nav-item\"><a href=\"login.jsp\" class=\"nav-link\">Sign In</a></li>");
                             out.print("<li class=\"nav-item\"><a href=\"register.jsp\" class=\"nav-link\">Register</a></li>");
                         } else
                         {
+
                             //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
-                            out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! "+username+"</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                            out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! "+((User) session.getAttribute("cid")).getName()+" </a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
                         }
                     %>
 
@@ -466,7 +466,7 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Traveland</h2>
+                    <h2 class="ftco-heading-2">LUKE TRAVELS</h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
                         live the blind texts.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">

@@ -22,10 +22,12 @@ public class Logout extends HttpServlet {
         if (level == null) {
 
             session.removeAttribute("admin_username");
+            session.removeAttribute("aid");
             session.invalidate();
             response.sendRedirect("indexc.jsp");
         } else {
             session.removeAttribute("username");
+            session.removeAttribute("cid");
             session.invalidate();
             response.sendRedirect("indexc.jsp");
 

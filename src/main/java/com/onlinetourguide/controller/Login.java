@@ -1,6 +1,8 @@
 package com.onlinetourguide.controller;
 
 import com.onlinetourguide.dao.LoginDao;
+import com.onlinetourguide.dao.UsersFetchDao;
+import com.onlinetourguide.model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +16,8 @@ import java.io.IOException;
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
+    private static User user;
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -21,17 +25,21 @@ public class Login extends HttpServlet {
 
         String uname = request.getParameter("uname");
         String pass = request.getParameter("pass");
-        String error = "true";
         LoginDao dao = new LoginDao();
+
 
         if (dao.check(uname, pass)) {
             HttpSession session = request.getSession();
+            int id = dao.getId();
+            user = new UsersFetchDao().fetchCustomer(id);
 
-            if (1 == dao.getUserLevel() ) {
+            if (1 == dao.getUserLevel()) {
                 session.setAttribute("admin_username", uname);
+                session.setAttribute("aid", user);
                 response.sendRedirect("index.jsp");
             } else {
                 session.setAttribute("username", uname);
+                session.setAttribute("cid", user);
                 response.sendRedirect("indexc.jsp");
             }
 

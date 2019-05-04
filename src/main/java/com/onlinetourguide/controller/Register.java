@@ -31,8 +31,10 @@ public class Register extends HttpServlet {
         addUserDao.addUser(fname, lname, email, password, phone, userLevel);
 
         if (loginDao.check(email, password)) {
+            String id = String.valueOf(loginDao.getId());
             HttpSession session = request.getSession();
             session.setAttribute("username", email);
+            session.setAttribute("cid", id);
             response.sendRedirect("indexc.jsp");
     }
         else
