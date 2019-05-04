@@ -205,6 +205,7 @@
                         <h4 class="price"><%out.print(tp.getPrice());%> LKR</h4>
                         <span> <%out.print(tp.getDuration());%> Days Tour</span>
                         <h3><a href="project.html"><%out.print(tp.getTour_name());%></a></h3>
+                        <a href="#" class="nav-link cta">Book Now</a>
                         <div class="star d-flex clearfix">
                             <div class="mr-auto float-left">
                                 <span class="ion-ios-star"></span>

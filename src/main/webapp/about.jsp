@@ -60,17 +60,15 @@
                 <li class="nav-item"><a href="tourPackages.jsp" class="nav-link">Tour Packages</a></li>
                 <li class="nav-item active"><a href="about.jsp" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
-<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>--%>
-<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Register</a></li>--%>
+
 
                 <%
                     if (session.getAttribute("username") == null) {
                         out.print("<li class=\"nav-item\"><a href=\"login.jsp\" class=\"nav-link\">Sign In</a></li>");
                         out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
-                    } else
-                    {
+                    } else {
                         //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
-                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! "+username+"</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + username + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
                     }
                 %>
 
@@ -193,8 +191,6 @@
         </div>
     </div>
 </section>
-
-
 
 
 <section class="ftco-counter img" id="section-counter">

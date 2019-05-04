@@ -67,7 +67,7 @@
                     <%
                         if (session.getAttribute("username") == null) {
                             out.print("<li class=\"nav-item\"><a href=\"login.jsp\" class=\"nav-link\">Sign In</a></li>");
-                            out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
+                            out.print("<li class=\"nav-item\"><a href=\"register.jsp\" class=\"nav-link\">Register</a></li>");
                         } else
                         {
                             //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
@@ -84,17 +84,15 @@
 </nav>
 <!-- END nav -->
 
-<div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');"
+<div class="hero-wrap js-fullheight" style="background-image: url('images/home/home2.jpg');"
      data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end"
              data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate mt-5" data-scrollax=" properties: { translateY: '70%' }">
-                <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Be a Traveler not a
-                    Tourist</h1>
-                <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner
-                    of the world, without going around in circles</p>
+                <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Welcome to the Land of Serendipity.</h1>
+                <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Sri Lanka is one of the leading romantic destinations in the whole world. The land of serendipity brings spiritual tranquility and a chance to rediscover oneself. </p>
             </div>
         </div>
     </div>
@@ -183,7 +181,7 @@
         <div class="row justify-content-center pb-5">
             <div class="col-md-12 heading-section text-center ftco-animate">
                 <h2 class="mb-4">Best Place to Travel</h2>
-                <p>Far far away, behind the word mountains, far from the Beautuful Sri Lanka.</p>
+                <p>The beauty of this tiny island is simply breath-taking.</p>
             </div>
         </div>
         <div class="row">

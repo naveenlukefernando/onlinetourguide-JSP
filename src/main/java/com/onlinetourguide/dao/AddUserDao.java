@@ -1,7 +1,6 @@
 package com.onlinetourguide.dao;
 
 import com.onlinetourguide.common.DbConnect;
-import com.onlinetourguide.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,13 +12,13 @@ public class AddUserDao {
 
     public static void main(String[] args) {
         AddUserDao addUserDao = new AddUserDao();
-        addUserDao.addStudent("Amila","fernando","amila@gmail.com","123","0775645789",2);
+        addUserDao.addUser("Amila","fernando","amila@gmail.com","123","0775645789",2);
     }
 
     protected final String sql = "insert into users values (NULL ,?,?,?,?,?,?)";
     Connection connection = DbConnect.get_Connection();
 
-    public void addStudent(String name, String lname, String email, String password, String phone,int level) {
+    public void addUser(String name, String lname, String email, String password, String phone, int level) {
         try {
 
             PreparedStatement ps = connection.prepareStatement(this.sql);

@@ -25,9 +25,9 @@ public class AddUser extends HttpServlet {
         AddUserDao dao = new AddUserDao();
 
         if (userLevel != null && !userLevel.isEmpty()) {
-            dao.addStudent(name, lname, email, password, phone, 1);
+            dao.addUser(name, lname, email, password, phone, 1);
         } else {
-            dao.addStudent(name, lname, email, password, phone, 2);
+            dao.addUser(name, lname, email, password, phone, 2);
 
         }
 

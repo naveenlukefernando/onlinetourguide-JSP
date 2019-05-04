@@ -1,15 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: Luke
-  Date: 2019-05-02
-  Time: 10:26 AM
+  Date: 2019-05-04
+  Time: 12:13 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sign In - LUKE Travels - Online Tour Agent</title>
+    <title>Register - LUKE Travels - Online Tour Agent</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -46,13 +47,13 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="indexc.jsp" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="indexc.jsp" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="tourPackages.jsp" class="nav-link">Tour Packages</a></li>
                 <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
-                <li class="nav-item active"><a href="#"class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>
 
-                <li class="nav-item"><a href="register.jsp" class="nav-link">Register</a></li>
+                <li class="nav-item active"><a href="#" class="nav-link">Register</a></li>
 
                 <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
 
@@ -64,24 +65,54 @@
 <!-- END nav -->
 
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');"
-         data-stellar-background-ratio="0.5">
+<section class="ftco-section services-section bg-dark">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
             <div class="col-md-9 ftco-animate pb-5 mb-5 text-center">
+                <br>
 
                 <div class="card">
-                    <div class="card-header">Sign In</div>
+                    <div class="card-header">Register</div>
                     <div class="card-body">
-                        <form action="Login" method="post">
+                        <form action="Register" method="post">
+
+
+                            <div class="form-group row">
+                                <label for="fname"
+                                       class="col-md-4 col-form-label text-md-right">First Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="fname" class="form-control"
+                                           name="fname" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="lname"
+                                       class="col-md-4 col-form-label text-md-right">Last Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="lname" class="form-control"
+                                           name="lname" required autofocus>
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <label for="email_address"
                                        class="col-md-4 col-form-label text-md-right">E-Mail
                                     Address</label>
                                 <div class="col-md-6">
                                     <input type="email" id="email_address" class="form-control"
-                                           name="uname" required autofocus>
+                                           name="email" required autofocus>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="phone"
+                                       class="col-md-4 col-form-label text-md-right">Phone Number :</label>
+                                <div class="col-md-6">
+                                    <input type="tel" id="phone" class="form-control"
+                                           name="phone" required autofocus>
                                 </div>
                             </div>
 
@@ -90,7 +121,16 @@
                                        class="col-md-4 col-form-label text-md-right">Password</label>
                                 <div class="col-md-6">
                                     <input type="password" id="password" class="form-control"
-                                           name="pass" required>
+                                           name="pwd" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="retype_pwd"
+                                       class="col-md-4 col-form-label text-md-right">Retype Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" id="retype_pwd" class="form-control"
+                                           name="retype_pwd" required>
                                 </div>
                             </div>
 
@@ -104,18 +144,11 @@
                     </div>
                     </form>
 
-
                 </div>
-
-
             </div>
         </div>
     </div>
 </section>
-
-<br>
-<br>
-<br>
 
 
 <footer class="ftco-footer ftco-footer-2 ftco-section">
@@ -206,5 +239,6 @@
 
 </body>
 </html>
+
 
 
