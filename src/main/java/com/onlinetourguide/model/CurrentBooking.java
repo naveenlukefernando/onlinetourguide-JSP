@@ -12,6 +12,16 @@ public class CurrentBooking {
     private String tourPkgName;
     private String price;
     private String email;
+
+    public String getImageURL_1() {
+        return imageURL_1;
+    }
+
+    public void setImageURL_1(String imageURL_1) {
+        this.imageURL_1 = imageURL_1;
+    }
+
+    private String imageURL_1;
     private String phone;
     private boolean book_status;
 
