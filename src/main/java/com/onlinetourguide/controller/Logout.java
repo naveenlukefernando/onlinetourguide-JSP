@@ -11,14 +11,27 @@ import java.io.IOException;
 @WebServlet(name = "Logout", urlPatterns = {"/Logout"})
 public class Logout extends HttpServlet {
 
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        session.removeAttribute("username");
-        session.invalidate();
 
-        response.sendRedirect("indexc.jsp");
+        String level = (String) session.getAttribute("username");
+
+        if (level == null) {
+
+            session.removeAttribute("admin_username");
+            session.invalidate();
+            response.sendRedirect("indexc.jsp");
+        } else {
+            session.removeAttribute("username");
+            session.invalidate();
+            response.sendRedirect("indexc.jsp");
+
+        }
+
+
     }
 }
 

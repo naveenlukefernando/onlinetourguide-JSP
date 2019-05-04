@@ -18,6 +18,10 @@ public class CurrentBookingDao {
     public static void main(String[] args) {
         CurrentBookingDao currentBookingDao = new CurrentBookingDao();
 
+        LoginDao loginDao = new LoginDao();
+        loginDao.check("naveen@gmail.com","123");
+
+
         for (CurrentBooking t : currentBookingDao.fetchCurrentBooking() ){
             System.out.println(t.getBid()+"|"+t.getCustomer_id()+"|"+t.getFname()+ "|"+ t.getLname()+ "|"+ t.isBook_status());
 

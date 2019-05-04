@@ -100,9 +100,9 @@
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
-    String username = (String) session.getAttribute("username");
+    String username = (String) session.getAttribute("admin_username");
 
-    if (session.getAttribute("username") == null) {
+    if (session.getAttribute("admin_username") == null) {
         response.sendRedirect("loginerror.jsp");
 
     }

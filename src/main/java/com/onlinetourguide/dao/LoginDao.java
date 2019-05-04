@@ -10,6 +10,16 @@ import java.sql.SQLException;
 public class LoginDao {
 
 
+    private int userLevel;
+
+    public int getUserLevel() {
+        return userLevel;
+    }
+
+    public void setUserLevel(int userLevel) {
+        this.userLevel = userLevel;
+    }
+
     Connection connection = DbConnect.get_Connection();
 
     protected final String sql = "select * from users where email=? AND password=?";
@@ -23,6 +33,9 @@ public class LoginDao {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+
+                setUserLevel(rs.getInt("level"));
+
                 return true;
             }
 
