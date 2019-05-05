@@ -1,4 +1,6 @@
 <%@ page import="com.onlinetourguide.model.User" %>
+<%@ page import="com.onlinetourguide.model.TourPackage" %>
+<%@ page import="com.onlinetourguide.dao.TourPkgFetchDao" %>
 <%--
   Created by IntelliJ IDEA.
   User: Luke
@@ -185,15 +187,22 @@
             </div>
         </div>
         <div class="row">
+
+            <%
+                TourPkgFetchDao pkgFetchDao = new TourPkgFetchDao();
+                for (TourPackage t : pkgFetchDao.fetchRandomPackages())
+                {
+            %>
+
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="project">
                     <div class="img">
-                        <img src="images/destination-1.jpg" class="img-fluid" alt="Colorlib Template">
+                        <img src="data:image/jpg;base64,<%out.print(t.getImageURL_1()); %>" class="img-fluid" alt="Colorlib Template">
                     </div>
                     <div class="text">
-                        <h4 class="price">$400</h4>
-                        <span>15 Days Tour</span>
-                        <h3><a href="project.html">Gurtnellen, Swetzerland</a></h3>
+                        <h4 class="price"><%out.print(t.getPrice());%> LKR </h4>
+                        <span><%out.print(t.getDuration());%></span>
+                        <h3><a href="project.html"><%out.print(t.getTour_name());%></h3>
                         <div class="star d-flex clearfix">
                             <div class="mr-auto float-left">
                                 <span class="ion-ios-star"></span>
@@ -207,40 +216,18 @@
                             </div>
                         </div>
                     </div>
-                    <a href="images/destination-1.jpg"
-                       class="icon image-popup d-flex justify-content-center align-items-center">
-                        <span class="icon-expand"></span>
-                    </a>
+
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="project">
-                    <div class="img">
-                        <img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template">
-                    </div>
-                    <div class="text">
-                        <h4 class="price">$400</h4>
-                        <span>15 Days Tour</span>
-                        <h3><a href="project.html">Gurtnellen, Swetzerland</a></h3>
-                        <div class="star d-flex clearfix">
-                            <div class="mr-auto float-left">
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                            </div>
-                            <div class="float-right">
-                                <span class="rate"><a href="#">(120)</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="images/destination-2.jpg"
-                       class="icon image-popup d-flex justify-content-center align-items-center">
-                        <span class="icon-expand"></span>
-                    </a>
-                </div>
-            </div>
+
+            <%}%>
+
+
+
+
+
+
+
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="project">
                     <div class="img">
