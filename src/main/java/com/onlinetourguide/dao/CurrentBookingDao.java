@@ -24,11 +24,10 @@ public class CurrentBookingDao {
     public static void main(String[] args) {
         CurrentBookingDao currentBookingDao = new CurrentBookingDao();
 
-        LoginDao loginDao = new LoginDao();
-        loginDao.check("naveen@gmail.com","123");
+
 
         for (CurrentBooking t : currentBookingDao.fetchCustomerBooking(8) ){
-            System.out.println(t.getBid()+"|"+t.getTourPkgName()+"|"+ t.isBook_status()+"|"+t.getImageURL_1());
+            System.out.println(t.getBid()+"|"+t.getTourPkgName()+"|"+t.getPrice()+"|"+ t.isBook_status()+"|"+t.getImageURL_1());
 
         }
 

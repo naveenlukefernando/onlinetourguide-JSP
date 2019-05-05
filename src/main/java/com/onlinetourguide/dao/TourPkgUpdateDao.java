@@ -20,8 +20,8 @@ public class TourPkgUpdateDao {
     Connection connection = DbConnect.get_Connection();
 
     //updating only image one
-    public void updatePackageImageOne(String id, String tour_name, String location_from, String location_to, String date,String duration,
-                                      String price, String desp_1, String desp_2, InputStream image_URL_1,String hotel, String transport) {
+    public void updatePackageImageOne(String id, String tour_name, String location_from, String location_to, String date, String duration,
+                                      String price, String desp_1, String desp_2, InputStream image_URL_1, String hotel, String transport) {
 
         try {
 
@@ -33,10 +33,10 @@ public class TourPkgUpdateDao {
             pst.setString(5, price);
             pst.setString(6, desp_1);
             pst.setString(7, desp_2);
-            pst.setString(9,hotel);
-            pst.setString(10,transport);
-
-            pst.setString(11, id);
+            pst.setString(9, hotel);
+            pst.setString(10, transport);
+            pst.setString(11, duration);
+            pst.setString(12, id);
 
 
             if (image_URL_1 != null) {
@@ -63,8 +63,8 @@ public class TourPkgUpdateDao {
 
 
     //updating without image
-    public void updatePackageNoImage(String id, String tour_name, String location_from, String location_to, String date,String duration,
-                                     String price, String desp_1, String desp_2,String hotel , String transport) {
+    public void updatePackageNoImage(String id, String tour_name, String location_from, String location_to, String date, String duration,
+                                     String price, String desp_1, String desp_2, String hotel, String transport) {
         try {
 
             PreparedStatement pst = connection.prepareStatement(this.sql_NoImage);
@@ -77,8 +77,8 @@ public class TourPkgUpdateDao {
             pst.setString(7, desp_2);
             pst.setString(8, hotel);
             pst.setString(9, transport);
-
-            pst.setString(10, id);
+            pst.setString(10, duration);
+            pst.setString(11, id);
 
             pst.executeUpdate();
 
@@ -90,8 +90,8 @@ public class TourPkgUpdateDao {
 
 
     //Updating full package
-    public void updatePackageImageAll(String id, String tour_name, String location_from, String location_to, String date,String duration,
-                                      String price, String desp_1, String desp_2, InputStream image_URL_1, InputStream image_URL_2,String hotel, String transport) {
+    public void updatePackageImageAll(String id, String tour_name, String location_from, String location_to, String date, String duration,
+                                      String price, String desp_1, String desp_2, InputStream image_URL_1, InputStream image_URL_2, String hotel, String transport) {
 
         try {
 
@@ -105,8 +105,8 @@ public class TourPkgUpdateDao {
             pst.setString(7, desp_2);
             pst.setString(10, hotel);
             pst.setString(11, transport);
-
-            pst.setString(12, id);
+            pst.setString(12, duration);
+            pst.setString(13, id);
 
 
             if (image_URL_1 != null && image_URL_2 != null) {
@@ -133,8 +133,8 @@ public class TourPkgUpdateDao {
 
 
     // update details without  ImageTwo
-    public void updatePackageImageTwo(String id, String tour_name, String location_from, String location_to, String date,String duration,
-                                      String price, String desp_1, String desp_2, InputStream image_URL_2,String hotel ,String transport) {
+    public void updatePackageImageTwo(String id, String tour_name, String location_from, String location_to, String date, String duration,
+                                      String price, String desp_1, String desp_2, InputStream image_URL_2, String hotel, String transport) {
 
         try {
 
@@ -149,9 +149,9 @@ public class TourPkgUpdateDao {
 
             pst.setString(9, hotel);
             pst.setString(10, transport);
+            pst.setString(11, duration);
 
-            pst.setString(11, id);
-
+            pst.setString(12, id);
 
 
             if (image_URL_2 != null) {

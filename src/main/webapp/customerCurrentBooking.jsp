@@ -1,3 +1,5 @@
+<%@ page import="com.onlinetourguide.dao.CurrentBookingDao" %>
+<%@ page import="com.onlinetourguide.model.CurrentBooking" %>
 <%@ page import="com.onlinetourguide.model.User" %>
 <%--
   Created by IntelliJ IDEA.
@@ -40,6 +42,10 @@
 
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+
+    if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
+        response.sendRedirect("indexc.jsp");
+    } else {
 
 
 %>
@@ -95,88 +101,93 @@
             </tr>
             </thead>
             <tbody>
+
+                <% CurrentBookingDao currentBookingDao = new CurrentBookingDao();
+
+                   int count = 0;
+
+                     for (CurrentBooking t : currentBookingDao.fetchCustomerBooking( Integer.parseInt(((User) session.getAttribute("cid")).getId())) )
+                    {       count = count + 1;
+                %>
+
             <tr>
                 <td>
                     <div class="card">
-                        <div class="card-header">Package 1</div>
+                        <div class="card-header"><%out.print(count + " : " + t.getTourPkgName());%></div>
                         <div class="card-body">
 
                             <div class="table-responsive">
-                            <table class="table table-borderless">
+                                <table class="table table-borderless">
 
-                                <thead>
-                                <tr>
-                                    <th>Booking ID</th>
-                                    <th>Package Name</th>
-                                    <th>Booked Date</th>
-                                    <th>Price</th>
-                                    <th><div class="text-center">Status</div> </th>
-                                </tr>
-                                </thead>
+                                    <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Package Name</th>
+                                        <th>Booked Date</th>
+                                        <th>Price</th>
+                                        <th>
+                                            <div class="text-center">Status</div>
+                                        </th>
+                                    </tr>
+                                    </thead>
 
-                                <tbody>
-                                <tr>
-                                    <td>01</td>
-                                    <td>
+                                    <tbody>
+                                    <tr>
+                                        <td><%out.print(t.getBid());%></td>
+                                        <td>
+                                            <%out.print(t.getTourPkgName());%>
 
-                                        Beautiful Sigiriya
-                                        <br>
-                                            <span class="icon icon-envelope"></span>
-                                    </td>
-                                    <td> 2019-04-28 </td>
-                                    <td>11500 LKR </td>
-                                    <td>
-                                        <div class="text-center">
-                                        Booking Confirmed.
-                                        <br>
-                                        Agent will contact you soon.
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
+                                            <br>
+                                            <img src="data:image/jpg;base64,<%out.print(t.getImageURL_1()); %>"
+                                                 width="100" height="80"/>
+                                        </td>
+                                        <td><%out.print(t.getBook_date());%></td>
+                                        <td><%out.print(t.getPrice());%> LKR</td>
+                                        <td>
+                                            <div class="text-center">
 
-                            </table>
+                                                <% if (t.isBook_status()) {
+                                                    out.print("Booking Confirmed. Agent will contact you soon.");
+                                                } else {
+                                                    out.print("Booking Confirmation Pending.");
+                                                }
+                                                %>
+
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
                             </div>
-
-                            </div>
-
-
-
-
-
-                            </div>
-
-
-
-
-
-
-
-
 
                         </div>
                     </div>
-                    </div>
 
-                            <br>
+    </div>
+    </div>
+    </div>
 
-                            <div class="card">
-                            <div class="card-header">PACAKGE 2</div>
-                            <div class="card-body">
-                            </div>
-                        </div>
-                        </div>
+    <br>
 
 
-
-                </td>
-
+    </div>
 
 
-            </tr>
+    </td>
 
-            </tbody>
-        </table>
+
+    </tr>
+
+    <%
+            }
+        }
+    %>
+
+    </tbody>
+    </table>
 
     </div>
 

@@ -34,7 +34,7 @@ public class User {
         this.lastname = lastname;
     }
 
-    public String getId() {
+    public String getId() throws NullPointerException {
         return id;
     }
 

@@ -18,12 +18,12 @@ public class NewCustomerBookingDao {
     public static void main(String[] args) {
         NewCustomerBookingDao newCustomerBookingDao = new NewCustomerBookingDao();
 //        newCustomerBookingDao.addBooking(32, 8, "2018-04-21", true);
-//        newCustomerBookingDao.addBooking(32, 9, "2018-04-21", true);
+        newCustomerBookingDao.addBooking(32, 11, "2018-04-21", true);
+        newCustomerBookingDao.addBooking(32, 10, "2018-04-21", true);
+        newCustomerBookingDao.addBooking(33, 10, "2018-04-21", true);
 
         //System.out.println(newCustomerBookingDao.bookingRequestCount());
-        String k = "";
 
-        System.out.println(k);
 
     }
 
