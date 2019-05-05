@@ -92,10 +92,11 @@ public class CurrentBookingDao {
 
 
     public ArrayList<CurrentBooking> fetchCustomerBooking(int id) {
-        final String sqlBooking = "select b.id as booking_id ,c.id as cid,t.id as TourPackageID ,t.imageURL_1 as image1, t.tour_name as TourPackage , t.price as price , b.datetime as booked_date , b.booking_status from current_booking b INNER JOIN users c ON c.id = b.customer_id INNER JOIN tourpakages t  ON t.id = b.package_id where c.id = 8";
+        final String sqlBooking = "select b.id as booking_id ,c.id as cid,t.id as TourPackageID ,t.imageURL_1 as image1, t.tour_name as TourPackage , t.price as price , b.datetime as booked_date , b.booking_status from current_booking b INNER JOIN users c ON c.id = b.customer_id INNER JOIN tourpakages t  ON t.id = b.package_id where c.id = ?";
         try {
-            Statement stz = connection.createStatement();
-            ResultSet rs = stz.executeQuery(sqlBooking);
+            PreparedStatement ps = connection.prepareStatement(sqlBooking);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
 
@@ -140,6 +141,8 @@ public class CurrentBookingDao {
 
         return customerCurrentBKList;
     }
+
+
 
 
 

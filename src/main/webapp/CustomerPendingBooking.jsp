@@ -1,15 +1,20 @@
-<%@ page import="com.onlinetourguide.model.User" %><%--
+<%@ page import="com.onlinetourguide.dao.CurrentBookingDao" %>
+<%@ page import="com.onlinetourguide.model.CurrentBooking" %>
+<%@ page import="com.onlinetourguide.model.User" %>
+<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
+<%@ page import="com.onlinetourguide.model.BookingRequest" %>
+<%--
   Created by IntelliJ IDEA.
   User: Luke
-  Date: 2019-05-02
-  Time: 10:53 AM
+  Date: 2019-05-05
+  Time: 12:19 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Contact | Luke Travels | Online Tour Guide</title>
+    <title>Current Bookings | LUKE TRAVELS | Online Tour Guide </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -40,7 +45,11 @@
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
-    String username = (String) session.getAttribute("username");
+
+
+    if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
+        response.sendRedirect("indexc.jsp");
+    } else {
 
 
 %>
@@ -58,19 +67,18 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="indexc.jsp" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="tourPackages.jsp" class="nav-link">Tour Packages</a></li>
-                <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
-                <li class="nav-item active"><a href="contact.jsp" class="nav-link">Contact</a></li>
-<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Sign In</a></li>--%>
-<%--                <li class="nav-item"><a href="login.jsp" class="nav-link">Register</a></li>--%>
+                <li class="nav-item active"><a href="about.jsp" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
+
 
                 <%
-                    if (session.getAttribute("username") == null) {
+                    if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
                         out.print("<li class=\"nav-item\"><a href=\"login.jsp\" class=\"nav-link\">Sign In</a></li>");
                         out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
-                    } else
-                    {
+                    } else {
                         //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
-                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! "+((User) session.getAttribute("cid")).getName()+"</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"> <a class=\"dropdown-item\" href=\"CustomerPendingBooking.jsp\">Pending Bookings</a>  <a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+
+                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"CustomerPendingBooking.jsp\">Pending Bookings</a><a class=\"dropdown-item\" href=\"customerCurrentBooking.jsp\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
                     }
                 %>
 
@@ -84,124 +92,140 @@
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');"
-         data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
-            <div class="col-md-9 ftco-animate pb-5 text-center">
-                <h1 class="mb-3 bread">Contact Information</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
-                        class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i
-                        class="ion-ios-arrow-forward"></i></span></p>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="ftco-section ftco-no-pb contact-section">
-    <div class="container">
-        <div class="row d-flex contact-info">
-            <div class="col-md-3 d-flex">
-                <div class="align-self-stretch box p-4 text-center">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="icon-map-signs"></span>
-                    </div>
-                    <h3 class="mb-4">Address</h3>
-                    <p>198 West 21th Street, Suite 721 New York NY 10016</p>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex">
-                <div class="align-self-stretch box p-4 text-center">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="icon-phone2"></span>
-                    </div>
-                    <h3 class="mb-4">Contact Number</h3>
-                    <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex">
-                <div class="align-self-stretch box p-4 text-center">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="icon-paper-plane"></span>
-                    </div>
-                    <h3 class="mb-4">Email Address</h3>
-                    <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex">
-                <div class="align-self-stretch box p-4 text-center">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <span class="icon-globe"></span>
-                    </div>
-                    <h3 class="mb-4">Website</h3>
-                    <p><a href="#">yoursite.com</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<section class="ftco-section services-section bg-dark">
 
-<section class="ftco-section contact-section">
-    <div class="container">
-        <div class="row block-9">
-            <div class="col-md-6 order-md-last d-flex">
-                <form action="#" class="bg-light p-5 contact-form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control"
-                                  placeholder="Message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                    </div>
-                </form>
+    <div class="container-fluid">
 
-            </div>
+        <table class="table table-bordered ">
+            <thead class="thead-light">
+            <tr>
+                <th>Your Current Bookings
 
-            <div class="col-md-6 d-flex">
-                <div id="map" class="bg-white"></div>
-            </div>
-        </div>
-    </div>
-</section>
+                    <%
+                        NewCustomerBookingDao countDao = new NewCustomerBookingDao();
+                        if (0 == countDao.bookingRequestCount()) {
+                            out.print("<div class=\"text-center\"><h3>New Bookings not available</h3></div>");
 
-<section class="ftco-subscribe" style="background-image: url(images/bg_1.jpg);">
-    <div class="overlay">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-10 text-wrap text-center heading-section ftco-animate">
-                    <h2>Subcribe to our Newsletter</h2>
-                    <div class="row d-flex justify-content-center mt-4 mb-4">
-                        <div class="col-md-10">
-                            <form action="#" class="subscribe-form">
-                                <div class="form-group d-flex">
-                                    <input type="text" class="form-control" placeholder="Enter email address">
-                                    <input type="submit" value="Subscribe" class="submit px-3">
-                                </div>
-                            </form>
+                        } else {
+                            out.print("");
+                        }
+                    %>
+
+                </th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+                <%
+                    NewCustomerBookingDao newCustomerBookingDao = new NewCustomerBookingDao();
+                   int count = 0;
+
+                     for (BookingRequest t : newCustomerBookingDao.fetchCustomerPendingBooking(Integer.parseInt(((User) session.getAttribute("cid")).getId())) )
+                    {       count = count + 1;
+                %>
+
+            <tr>
+                <td>
+                    <div class="card">
+                        <div class="card-header"><%out.print(count + " : " + t.getTourPkgName());%></div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-borderless">
+
+                                    <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Package Name</th>
+                                        <th>Booked Date</th>
+                                        <th>Price</th>
+                                        <th>
+                                            <div class="text-center">Status</div>
+                                        </th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td><%out.print(t.getBid());%></td>
+                                        <td>
+                                            <%out.print(t.getTourPkgName());%>
+
+                                            <br>
+                                            <img src="data:image/jpg;base64,<%out.print(t.getImageUrl()); %>"
+                                                 width="100" height="80"/>
+                                        </td>
+                                        <td><%out.print(t.getBook_date());%></td>
+                                        <td><%out.print(t.getPrice());%> LKR</td>
+                                        <td>
+                                            <div class="text-center">
+
+                                                <% if (t.isBook_status()) {
+                                                    out.print("Booking Confirmed. Agent will contact you soon.");
+                                                } else {
+                                                    out.print("  <div class=\"alert alert-warning\"><strong>Booking Confirmation Pending..</strong></div>");
+                                                }
+                                                %>
+
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+
     </div>
+    </div>
+    </div>
+
+    <br>
+
+
+    </div>
+
+
+    </td>
+
+
+    </tr>
+
+    <%
+            }
+        }
+
+
+
+    %>
+
+
+
+
+    </tbody>
+    </table>
+
+    </div>
+
+
 </section>
+
 
 <footer class="ftco-footer ftco-footer-2 ftco-section">
     <div class="container">
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Traveland</h2>
+                    <h2 class="ftco-heading-2">LUKE TRAVELS</h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
                         live the blind texts.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">

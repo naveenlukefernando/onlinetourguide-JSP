@@ -12,6 +12,24 @@ public class BookingRequest {
     private String price;
     private String email;
     private String phone;
+    private String imageUrl;
+    private boolean book_status;
+
+    public boolean isBook_status() {
+        return book_status;
+    }
+
+    public void setBook_status(boolean book_status) {
+        this.book_status = book_status;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     public int getBid() {
         return bid;

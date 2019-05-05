@@ -3,8 +3,12 @@ package com.onlinetourguide.dao;
 import com.onlinetourguide.common.DbConnect;
 import com.onlinetourguide.model.BookingRequest;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,13 +18,14 @@ public class NewCustomerBookingDao {
 
     Connection connection = DbConnect.get_Connection();
     ArrayList<BookingRequest> bookingRequestsList = new ArrayList<>();
+    ArrayList<BookingRequest> customerPendingBkList = new ArrayList<>();
 
     public static void main(String[] args) {
         NewCustomerBookingDao newCustomerBookingDao = new NewCustomerBookingDao();
-//        newCustomerBookingDao.addBooking(32, 8, "2018-04-21", true);
-        newCustomerBookingDao.addBooking(32, 11, "2018-04-21", true);
-        newCustomerBookingDao.addBooking(32, 10, "2018-04-21", true);
-        newCustomerBookingDao.addBooking(33, 10, "2018-04-21", true);
+        newCustomerBookingDao.addBooking(32, 11, "2018-04-21", false);
+
+
+
 
         //System.out.println(newCustomerBookingDao.bookingRequestCount());
 
@@ -51,7 +56,14 @@ public class NewCustomerBookingDao {
 
         final String deleteSql = "DELETE FROM newbooking WHERE newbooking.id = ?";
 
+        final String markAsConfirmed = "UPDATE newbooking b SET b.booking_status=true where b.id= ?";
+
         try {
+
+            PreparedStatement psUpdate = connection.prepareStatement(markAsConfirmed);
+            psUpdate.setInt(1, requestId);
+            psUpdate.executeUpdate();
+
 
             PreparedStatement ps = connection.prepareStatement(confirmSql);
             ps.setInt(1, requestId);
@@ -142,6 +154,58 @@ public class NewCustomerBookingDao {
         }
 
         return count;
+    }
+
+
+    public ArrayList<BookingRequest> fetchCustomerPendingBooking(int id) {
+        final String sqlBooking = "select n.id as booking_id ,c.id as cid ,t.id as TourPackageID,t.imageURL_1 as image1 ,t.tour_name as TourPackage, t.price as price ,n.datetime as booked_date, n.booking_status  from newbooking n INNER JOIN users c ON c.id = n.customer_id INNER JOIN tourpakages t  ON t.id = n.package_id where c.id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sqlBooking);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                BookingRequest pendingBooking = new BookingRequest();
+
+
+                Blob blob1 = rs.getBlob("image1");
+
+                InputStream inputStream = blob1.getBinaryStream();
+
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+                byte[] buffer = new byte[4096];
+                int bytesRead = -1;
+
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
+
+                byte[] imageBytes = outputStream.toByteArray();
+
+                String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+
+                inputStream.close();
+                outputStream.close();
+
+                pendingBooking.setBid(rs.getInt("booking_id"));
+                pendingBooking.setCustomer_id(rs.getInt("cid"));
+                pendingBooking.setPackageId(rs.getInt("TourPackageID"));
+                pendingBooking.setTourPkgName(rs.getString("TourPackage"));
+                pendingBooking.setPrice(rs.getString("price"));
+                pendingBooking.setBook_date(rs.getString("booked_date"));
+                pendingBooking.setBook_status(rs.getBoolean("booking_status"));
+                pendingBooking.setImageUrl(base64Image);
+                customerPendingBkList.add(pendingBooking);
+
+            }
+
+        } catch (SQLException | IOException ex) {
+            System.out.println(ex);
+        }
+
+        return customerPendingBkList;
     }
 
 

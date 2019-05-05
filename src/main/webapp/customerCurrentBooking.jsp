@@ -74,7 +74,7 @@
                     } else {
                         //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
 
-                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"> <a class=\"dropdown-item\" href=\"CustomerPendingBooking.jsp\">Pending Bookings</a>  <a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
                     }
                 %>
 
@@ -147,9 +147,12 @@
                                             <div class="text-center">
 
                                                 <% if (t.isBook_status()) {
-                                                    out.print("Booking Confirmed. Agent will contact you soon.");
+                                                    out.print("  <div class=\"alert alert-success\"><strong>Booking Confirmed.</strong> <br> Agent will contact you soon.</div>");
+                                                    //out.print("Booking Confirmed. Agent will contact you soon.");
                                                 } else {
-                                                    out.print("Booking Confirmation Pending.");
+                                                    out.print("  <div class=\"alert alert-success\"><strong>Booking Confirmation Pending..</strong></div>");
+                                                    //out.print("Booking Confirmation Pending.");
+                                                   // out.print("<strong>Booking Confirmation Pending.</strong>");
                                                 }
                                                 %>
 
