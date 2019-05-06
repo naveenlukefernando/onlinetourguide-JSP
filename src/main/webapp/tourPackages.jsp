@@ -67,7 +67,7 @@
                         out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
                     } else {
                         //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
-                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"><a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"> <a class=\"dropdown-item\" href=\"CustomerPendingBooking.jsp\">Pending Bookings</a> <a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
                     }
                 %>
 
@@ -223,8 +223,8 @@
     <div class="container">
         <div class="row justify-content-center pb-5">
             <div class="col-md-12 heading-section text-center ftco-animate">
-                <h2 class="mb-4">Best Place to Travel</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                <h2 class="mb-4">BEST OF THE ISLAND</h2>
+                <p>Find best Sri Lanka tour packages to plan your holiday in Sri Lanka.</p>
             </div>
         </div>
         <div class="row">

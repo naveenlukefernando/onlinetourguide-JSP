@@ -67,7 +67,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="indexc.jsp" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="tourPackages.jsp" class="nav-link">Tour Packages</a></li>
-                <li class="nav-item active"><a href="about.jsp" class="nav-link">About</a></li>
+                <li class="nav-item "><a href="about.jsp" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
 
 
@@ -169,7 +169,7 @@
                                                 <% if (t.isBook_status()) {
                                                     out.print("Booking Confirmed. Agent will contact you soon.");
                                                 } else {
-                                                    out.print("  <div class=\"alert alert-warning\"><strong>Booking Confirmation Pending..</strong></div>");
+                                                    out.print("  <div class=\"alert alert-warning\"><strong> Thank you for book with us. <br> Booking Confirmation Pending.. </strong></div>");
                                                 }
                                                 %>
 

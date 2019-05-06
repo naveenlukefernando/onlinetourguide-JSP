@@ -134,44 +134,14 @@
                     <div class="col-md-12 heading-section ftco-animate">
                         <h1 class="mb-4"
                             data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><%out.print(((TourPackage) session.getAttribute("tour_pkg")).getTour_name());%></h1>
-                        <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Far far away,
-                            behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+
+                            <%out.print(((TourPackage) session.getAttribute("tour_pkg")).getDesp1());%>
+
+                        </p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center py-5 bg-light mb-4">
-                            <div class="text">
-                                <strong class="number" data-number="30">0</strong>
-                                <span>Amazing Deals</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center py-5 bg-light mb-4">
-                            <div class="text">
-                                <strong class="number" data-number="200">0</strong>
-                                <span>Sold Tours</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center py-5 bg-light mb-4">
-                            <div class="text">
-                                <strong class="number" data-number="2500">0</strong>
-                                <span>New Tours</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center py-5 bg-light mb-4">
-                            <div class="text">
-                                <strong class="number" data-number="40">0</strong>
-                                <span>Happy Customers</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -192,20 +162,19 @@
             <div class="col-md-6 pr-md-5 py-5">
                 <div class="row justify-content-start pb-3">
                     <div class="col-md-12 heading-section ftco-animate">
-                        <h2 class="mb-4">Things to Know Before Traveling to other Places</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <h2 class="mb-4">NEVER. STOP. EXPLORING. </h2>
+                        <p> Customer Satisfaction is our priority.</p>
+                        <h4 class="mb-5"> More Details. </h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="ftco-animate tips"><span>1.</span> A small river named Duden flows by their place and
-                            supplies it with the necessary regelialia.</p>
-                        <p class="ftco-animate tips"><span>2.</span> A small river named Duden flows by their place and
-                            supplies it with the necessary regelialia. It is a paradisematic country, in which roasted
-                            parts of sentences fly into your mouth.</p>
-                        <p class="ftco-animate tips"><span>3.</span> It is a paradisematic country, in which roasted
-                            parts of sentences fly into your mouth.</p>
-                        <p class="ftco-animate mt-4">
+                        <p class="ftco-animate tips"><span>•</span>
+
+                            <%out.print(((TourPackage) session.getAttribute("tour_pkg")).getDesp2());%>
+
+                        </p>
+                         <p class="ftco-animate mt-4">
                             <a class="btn btn-primary py-3 px-5" data-toggle="modal"
 
                                     <%
@@ -356,8 +325,8 @@
                 <div class="media block-6 services d-block">
                     <div class="icon"><span class="flaticon-yatch"></span></div>
                     <div class="media-body">
-                        <h3 class="heading mb-3">Activities</h3>
-                        <p> 203 Fake St. Mountain View, San Francisco, California, USA</p>
+                        <h3 class="heading mb-3">Transport Type</h3>
+                        <h2 class="mb-4">  <%out.print(((TourPackage) session.getAttribute("tour_pkg")).getTransport_type());%> </h2>
                     </div>
                 </div>
             </div>
@@ -365,8 +334,8 @@
                 <div class="media block-6 services d-block">
                     <div class="icon"><span class="flaticon-around"></span></div>
                     <div class="media-body">
-                        <h3 class="heading mb-3">Travel Arrangements</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
+                        <h3 class="heading mb-3">Number of Days </h3>
+                        <h3 class="mb-4"> <%out.print(((TourPackage) session.getAttribute("tour_pkg")).getDuration());%> </h3>
                     </div>
                 </div>
             </div>
