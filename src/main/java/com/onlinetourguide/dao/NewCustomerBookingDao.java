@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 public class NewCustomerBookingDao {
 
-    protected final String sql = "INSERT INTO newbooking VALUES (NULL, ?,?, ?,?)";
+    protected final String sql = "INSERT INTO newbooking VALUES (NULL, ?,?, ?,?,?,?)";
 
     Connection connection = DbConnect.get_Connection();
     ArrayList<BookingRequest> bookingRequestsList = new ArrayList<>();
@@ -22,9 +22,9 @@ public class NewCustomerBookingDao {
 
     public static void main(String[] args) {
         NewCustomerBookingDao newCustomerBookingDao = new NewCustomerBookingDao();
-        newCustomerBookingDao.addBooking(32, 11, "2018-04-21", false);
+        newCustomerBookingDao.addBooking(32, 11, "2018-04-21", 2,2,false);
 
-
+       // newCustomerBookingDao.confirmBooking(52);
 
 
         //System.out.println(newCustomerBookingDao.bookingRequestCount());
@@ -32,14 +32,16 @@ public class NewCustomerBookingDao {
 
     }
 
-    public void addBooking(int tourPacID, int cusID, String date, boolean booking_status) {
+    public void addBooking(int tourPacID, int cusID, String date,int adults,int children, boolean booking_status) {
         try {
 
             PreparedStatement ps = connection.prepareStatement(this.sql);
             ps.setInt(1, tourPacID);
             ps.setInt(2, cusID);
             ps.setString(3, date);
-            ps.setBoolean(4, booking_status);
+            ps.setInt(4,adults);
+            ps.setInt(5,children);
+            ps.setBoolean(6, booking_status);
             System.out.println(ps.executeUpdate());
 
 
@@ -102,7 +104,7 @@ public class NewCustomerBookingDao {
 
 
     public ArrayList<BookingRequest> fetchBookingRequest() {
-        final String sqlBooking = "select n.id as booking_id ,c.id as cust_id ,c.firstname as customer_name, c.lastname as lastname ,c.email as email,c.phone,t.id as TourPackageID ,t.tour_name as TourPackage, t.price as price ,n.datetime as booked_date from newbooking n INNER JOIN users c ON c.id = n.customer_id INNER JOIN tourpakages t  ON t.id = n.package_id";
+        final String sqlBooking = "select n.id as booking_id ,c.id as cust_id ,c.firstname as customer_name, c.lastname as lastname,n.adults,n.children ,c.email as email,c.phone,t.id as TourPackageID ,t.tour_name as TourPackage, t.price as price ,n.datetime as booked_date from newbooking n INNER JOIN users c ON c.id = n.customer_id INNER JOIN tourpakages t  ON t.id = n.package_id";
 
         try {
             Statement st = connection.createStatement();
@@ -117,6 +119,8 @@ public class NewCustomerBookingDao {
                 b.setFname(rs.getString("customer_name"));
                 b.setLname(rs.getString("lastname"));
                 b.setEmail(rs.getString("email"));
+                b.setAdult(rs.getInt("adults"));
+                b.setChildren(rs.getInt("children"));
                 b.setPhone(rs.getString("phone"));
                 b.setPackageId(rs.getInt("TourPackageID"));
                 b.setTourPkgName(rs.getString("TourPackage"));
@@ -158,7 +162,7 @@ public class NewCustomerBookingDao {
 
 
     public ArrayList<BookingRequest> fetchCustomerPendingBooking(int id) {
-        final String sqlBooking = "select n.id as booking_id ,c.id as cid ,t.id as TourPackageID,t.imageURL_1 as image1 ,t.tour_name as TourPackage, t.price as price ,n.datetime as booked_date, n.booking_status  from newbooking n INNER JOIN users c ON c.id = n.customer_id INNER JOIN tourpakages t  ON t.id = n.package_id where c.id = ?";
+        final String sqlBooking = "select n.id as booking_id ,c.id as cid ,t.id as TourPackageID,t.imageURL_1 as image1 ,t.tour_name as TourPackage,n.adults,n.children, t.price as price ,n.datetime as booked_date, n.booking_status  from newbooking n INNER JOIN users c ON c.id = n.customer_id INNER JOIN tourpakages t  ON t.id = n.package_id where c.id = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(sqlBooking);
             ps.setInt(1,id);
@@ -194,6 +198,8 @@ public class NewCustomerBookingDao {
                 pendingBooking.setPackageId(rs.getInt("TourPackageID"));
                 pendingBooking.setTourPkgName(rs.getString("TourPackage"));
                 pendingBooking.setPrice(rs.getString("price"));
+                pendingBooking.setAdult(rs.getInt("adults"));
+                pendingBooking.setChildren(rs.getInt("children"));
                 pendingBooking.setBook_date(rs.getString("booked_date"));
                 pendingBooking.setBook_status(rs.getBoolean("booking_status"));
                 pendingBooking.setImageUrl(base64Image);

@@ -72,7 +72,22 @@
                 %>
 
 
-                <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
+                <li class="nav-item cta">
+
+                    <a class="btn btn-primary py-3 px-5" data-toggle="modal"
+
+                        <%
+                                if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
+                                    out.print("data-target=\"#SignUpModal\"");
+                                } else {
+                                    out.print("");
+                                }
+                            %>
+                    >
+                    Book Now
+                    </a>
+
+                </li>
 
 
             </ul>
@@ -80,6 +95,38 @@
     </div>
 </nav>
 <!-- END nav -->
+
+
+
+<div class="modal fade" id="SignUpModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <p class="text-center"> Please Sign In or Register</p>
+
+                <p class="text-center">
+                    <a class="btn btn-info" href="login.jsp"> Sign In </a>
+                    <a class="btn btn-success" href="register.jsp">Register</a>
+
+                </p>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');"
          data-stellar-background-ratio="0.5">
@@ -193,7 +240,7 @@
                         <h4 class="price"><%out.print(tp.getPrice());%> LKR</h4>
                         <span> <%out.print(tp.getDuration());%> Days Tour</span>
                         <h3><a href="project.html"><%out.print(tp.getTour_name());%></a></h3>
-                        <a href="#" class="nav-link cta">Book Now</a>
+                        <a href="SelectedTour?bid=<%out.print(tp.getId());%>" class="nav-link cta">Book Now</a>
                         <div class="star d-flex clearfix">
                             <div class="mr-auto float-left">
                                 <span class="ion-ios-star"></span>

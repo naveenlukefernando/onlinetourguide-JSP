@@ -1,8 +1,10 @@
-<%@ page import="com.onlinetourguide.model.User" %><%--
+<%@ page import="com.onlinetourguide.model.TourPackage" %>
+<%@ page import="com.onlinetourguide.model.User" %>
+<%--
   Created by IntelliJ IDEA.
   User: Luke
-  Date: 2019-05-02
-  Time: 10:52 AM
+  Date: 2019-05-05
+  Time: 7:48 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -24,6 +26,9 @@
 
     <link rel="stylesheet" href="css/aos.css">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/ionicons.min.css">
 
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
@@ -33,13 +38,23 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+
+        /*img {*/
+        /*    position: absolute;*/
+        /*    clip: rect(0px,600px,945px,0px);*/
+        /*}*/
+    </style>
+
+
 </head>
 <body>
 
 
 <%
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-
 
 
 %>
@@ -66,14 +81,31 @@
                         out.print("<li class=\"nav-item\"><a href=\"login.jsp\" class=\"nav-link\">Sign In</a></li>");
                         out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
                     } else {
-                        //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
+
 
                         out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"> <a class=\"dropdown-item\" href=\"CustomerPendingBooking.jsp\">Pending Bookings</a>  <a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
                     }
                 %>
 
 
-                <li class="nav-item cta"><a href="tourPackages.jsp" class="nav-link">Book Now</a></li>
+                <li class="nav-item cta">
+                    <a class="btn btn-primary py-3 px-5" data-toggle="modal"
+
+                            <%
+                                if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
+                                    out.print("data-target=\"#SignUpModal\"");
+                                } else {
+                                    out.print("data-target=\"#CustomerBookNowModal\"");
+                                }
+                            %>
+                    >
+
+
+                        Book Now
+
+                    </a>
+
+                </li>
 
 
             </ul>
@@ -82,75 +114,28 @@
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');"
-         data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
-            <div class="col-md-9 ftco-animate pb-5 text-center">
-                <h1 class="mb-3 bread">About Us</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
-                        class="ion-ios-arrow-forward"></i></a></span> <span>About us <i
-                        class="ion-ios-arrow-forward"></i></span></p>
-            </div>
-        </div>
-    </div>
-</section>
+<br>
+<br>
+<br>
+<br>
 
-<section class="ftco-section services-section bg-light">
-    <div class="container">
-        <div class="row d-flex">
-            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services d-block">
-                    <div class="icon"><span class="flaticon-yatch"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Activities</h3>
-                        <p> 203 Fake St. Mountain View, San Francisco, California, USA</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services d-block">
-                    <div class="icon"><span class="flaticon-around"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Travel Arrangements</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services d-block">
-                    <div class="icon"><span class="flaticon-compass"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Private Guide</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                <div class="media block-6 services d-block">
-                    <div class="icon"><span class="flaticon-map-of-roads"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Location Manager</h3>
-                        <p>A small river named Duden flows by their place and supplies.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="ftco-counter img" id="section-counter">
     <div class="container">
         <div class="row d-flex">
-            <div class="col-md-6 d-flex">
-                <div class="img d-flex align-self-stretch" style="background-image:url(images/about.jpg);"></div>
+            <div class="col-md-6 d-flex ftco-animate" data-stellar-background-ratio="0.5">
+                <div class="img d-flex align-self-stretch "><img
+                        src="data:image/jpg;base64,<%out.print(((TourPackage) session.getAttribute("tour_pkg")).getImageURL_1());%>"
+                        width="1200" height="768"></div>
             </div>
-            <div class="col-md-6 pl-md-5 py-5">
+            <div class="overlay"></div>
+            <div class="col-md-6 pl-md-5 py-5 bg-light">
                 <div class="row justify-content-start pb-3">
                     <div class="col-md-12 heading-section ftco-animate">
-                        <h2 class="mb-4">About Traveland</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <h1 class="mb-4"
+                            data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><%out.print(((TourPackage) session.getAttribute("tour_pkg")).getTour_name());%></h1>
+                        <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Far far away,
+                            behind the word mountains, far from the countries Vokalia and Consonantia</p>
                     </div>
                 </div>
                 <div class="row">
@@ -193,11 +178,16 @@
 </section>
 
 
-<section class="ftco-counter img" id="section-counter">
+<br>
+<br>
+
+<section class="ftco-counter img " id="section-counter">
     <div class="container">
         <div class="row d-flex">
             <div class="col-md-6 order-md-last d-flex">
-                <div class="img d-flex align-self-stretch" style="background-image:url(images/about-1.jpg);"></div>
+                <div class="img d-flex align-self-stretch"><img
+                        src="data:image/jpg;base64,<%out.print(((TourPackage) session.getAttribute("tour_pkg")).getImageURL_2());%>"
+                        width="1200" height="768"></div>
             </div>
             <div class="col-md-6 pr-md-5 py-5">
                 <div class="row justify-content-start pb-3">
@@ -215,7 +205,186 @@
                             parts of sentences fly into your mouth.</p>
                         <p class="ftco-animate tips"><span>3.</span> It is a paradisematic country, in which roasted
                             parts of sentences fly into your mouth.</p>
-                        <p class="ftco-animate mt-4"><a href="#" class="btn btn-primary py-3 px-5">Read more</a></p>
+                        <p class="ftco-animate mt-4">
+                            <a class="btn btn-primary py-3 px-5" data-toggle="modal"
+
+                                    <%
+                                        if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
+                                            out.print("data-target=\"#SignUpModal\"");
+                                        } else {
+                                            out.print("data-target=\"#CustomerBookNowModal\"");
+                                        }
+                                    %>
+                            >
+
+
+                                Book Now
+
+                            </a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade" id="SignUpModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <p class="text-center"> Please Sign In or Register</p>
+
+                <p class="text-center">
+                    <a class="btn btn-info" href="login.jsp"> Sign In </a>
+                    <a class="btn btn-success" href="register.jsp">Register</a>
+
+                </p>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="CustomerBookNowModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"> Enter Details</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+
+                <form id="profileForm" name="profileForm" action="CustomerBookPkg" method="post">
+
+                    <input class="form-control" type="hidden" name="tourId"
+                           value="<%out.print(((TourPackage) session.getAttribute("tour_pkg")).getId());%>">
+                    <input class="form-control" type="hidden" name="cusId" value="<%
+
+                    if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
+                                            out.print("");
+                    }
+                    else{
+                        out.print(((User) session.getAttribute("cid")).getId());
+
+                    }
+
+                    %>">
+
+                    First Name: : <input class="form-control" type="text" name="fname" value=""
+                                         placeholder="<%
+                                         if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
+                                            out.print("");
+                                         }
+                                         else{
+                                             out.print(((User) session.getAttribute("cid")).getName());
+
+                                         }
+                                         %>"
+                                         required readonly="readonly">
+
+                    Last Name : <input class="form-control" type="text" name="lname" value=""
+                                       placeholder="<%
+
+                                       if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
+                                           out.print("");
+                                        }
+                                       else {
+                                           out.print(((User) session.getAttribute("cid")).getLastname() );
+
+                                       }
+                                       %>"
+                                       required readonly="readonly">
+
+                    Phone Number : <input class="form-control" type="text" name="phone" value=""
+                                          placeholder="<%
+                                          if (session.getAttribute("username") == null && session.getAttribute("cid") == null) {
+                                              out.print("");
+                                           }
+                                          else{
+                                              out.print(((User) session.getAttribute("cid")).getPhone());
+
+
+                                          }
+
+                                          %>"
+                                          required readonly="readonly">
+
+                    Prefered Date : <input class="form-control" type="date" name="pdate" value="" placeholder="date"
+                                           required>
+
+                    Adults : <input class="form-control" type="number" name="adult" value=""
+                                    placeholder="Number of Adults "
+                                    required>
+
+                    Children : <input class="form-control" type="number" name="child" value=""
+                                      placeholder="Number of Children"
+                                      required>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Book Now</button>
+                </form>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="ftco-section services-section bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block">
+                    <div class="icon"><span class="flaticon-yatch"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3">Activities</h3>
+                        <p> 203 Fake St. Mountain View, San Francisco, California, USA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block">
+                    <div class="icon"><span class="flaticon-around"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3">Travel Arrangements</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block">
+                    <div class="icon"><span class="flaticon-compass"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3">Private Guide</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block">
+                    <div class="icon"><span class="flaticon-map-of-roads"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3">Location Manager</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
                     </div>
                 </div>
             </div>
@@ -335,3 +504,4 @@
 
 </body>
 </html>
+

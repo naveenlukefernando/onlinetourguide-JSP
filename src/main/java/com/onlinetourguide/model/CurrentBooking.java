@@ -12,6 +12,27 @@ public class CurrentBooking {
     private String tourPkgName;
     private String price;
     private String email;
+    private String imageURL_1;
+    private String phone;
+    private boolean book_status;
+    private int adults;
+    private int children;
+
+    public int getAdults() {
+        return adults;
+    }
+
+    public void setAdults(int adults) {
+        this.adults = adults;
+    }
+
+    public int getChildren() {
+        return children;
+    }
+
+    public void setChildren(int children) {
+        this.children = children;
+    }
 
     public String getImageURL_1() {
         return imageURL_1;
@@ -20,10 +41,6 @@ public class CurrentBooking {
     public void setImageURL_1(String imageURL_1) {
         this.imageURL_1 = imageURL_1;
     }
-
-    private String imageURL_1;
-    private String phone;
-    private boolean book_status;
 
     public boolean isBook_status() {
         return book_status;

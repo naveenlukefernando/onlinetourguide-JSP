@@ -13,6 +13,25 @@ public class BookingRequest {
     private String email;
     private String phone;
     private String imageUrl;
+    private int children;
+    private int adult;
+
+    public int getChildren() {
+        return children;
+    }
+
+    public void setChildren(int children) {
+        this.children = children;
+    }
+
+    public int getAdult() {
+        return adult;
+    }
+
+    public void setAdult(int adult) {
+        this.adult = adult;
+    }
+
     private boolean book_status;
 
     public boolean isBook_status() {

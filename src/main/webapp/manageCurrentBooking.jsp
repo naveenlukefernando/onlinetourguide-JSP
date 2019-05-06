@@ -206,6 +206,8 @@
                         <th>Customer ID</th>
                         <th>Last Name</th>
                         <th>First Name</th>
+                        <th>Adults</th>
+                        <th>Children</th>
                         <th>E-mail</th>
                         <th>Phone</th>
                         <th>TourPkgID</th>
@@ -248,6 +250,18 @@
                         <td>
                             <%
                                 out.print(b.getFname());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getAdults());
+                            %>
+                        </td>
+
+                        <td>
+                            <%
+                                out.print(b.getChildren());
                             %>
                         </td>
 

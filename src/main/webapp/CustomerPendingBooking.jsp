@@ -139,6 +139,8 @@
                                     <tr>
                                         <th>Booking ID</th>
                                         <th>Package Name</th>
+                                        <th>Adults</th>
+                                        <th>Children</th>
                                         <th>Booked Date</th>
                                         <th>Price</th>
                                         <th>
@@ -157,6 +159,8 @@
                                             <img src="data:image/jpg;base64,<%out.print(t.getImageUrl()); %>"
                                                  width="100" height="80"/>
                                         </td>
+                                        <td><%out.print(t.getAdult());%></td>
+                                        <td><%out.print(t.getChildren());%></td>
                                         <td><%out.print(t.getBook_date());%></td>
                                         <td><%out.print(t.getPrice());%> LKR</td>
                                         <td>

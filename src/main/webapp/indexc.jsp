@@ -77,7 +77,7 @@
                         }
                     %>
 
-                <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
+                <li class="nav-item cta"><a href="tourPackages.jsp" class="nav-link">Book Now</a></li>
 
 
             </ul>
@@ -201,8 +201,8 @@
                     </div>
                     <div class="text">
                         <h4 class="price"><%out.print(t.getPrice());%> LKR </h4>
-                        <span><%out.print(t.getDuration());%></span>
-                        <h3><a href="project.html"><%out.print(t.getTour_name());%></h3>
+                        <span><%out.print(t.getDuration());%> DAYS TOUR</span>
+                        <h3><a href="project.html"><%out.print(t.getTour_name());%></a></h3>
                         <div class="star d-flex clearfix">
                             <div class="mr-auto float-left">
                                 <span class="ion-ios-star"></span>

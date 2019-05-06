@@ -75,7 +75,7 @@
                 %>
 
 
-                <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
+                <li class="nav-item cta"><a href="tourPackages.jsp" class="nav-link">Book Now</a></li>
 
 
             </ul>

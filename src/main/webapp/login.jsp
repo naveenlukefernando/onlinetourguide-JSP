@@ -54,7 +54,6 @@
 
                 <li class="nav-item"><a href="register.jsp" class="nav-link">Register</a></li>
 
-                <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
 
 
             </ul>
