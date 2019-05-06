@@ -1,6 +1,7 @@
 <%@ page import="com.onlinetourguide.dao.TourPkgFetchDao" %>
 <%@ page import="com.onlinetourguide.model.TourPackage" %>
-<%@ page import="com.onlinetourguide.model.User" %><%--
+<%@ page import="com.onlinetourguide.model.User" %>
+<%@ page import="java.util.Random" %><%--
   Created by IntelliJ IDEA.
   User: Luke
   Date: 2019-05-02
@@ -239,18 +240,31 @@
                     <div class="text">
                         <h4 class="price"><%out.print(tp.getPrice());%> LKR</h4>
                         <span> <%out.print(tp.getDuration());%> Days Tour</span>
-                        <h3><a href="project.html"><%out.print(tp.getTour_name());%></a></h3>
+                        <h3><a href="SelectedTour?bid=<%out.print(tp.getId());%>"><%out.print(tp.getTour_name());%></a></h3>
                         <a href="SelectedTour?bid=<%out.print(tp.getId());%>" class="nav-link cta">Book Now</a>
                         <div class="star d-flex clearfix">
                             <div class="mr-auto float-left">
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
+                                <%
+
+                                    int v = (int )(Math.random() * 5 + 2);
+
+                                    for(int i = 1; i<v;i++)
+                                    {
+                                        out.print("<span class=\"ion-ios-star\"></span>");
+                                    }
+                                %>
+
+
+
+
                             </div>
                             <div class="float-right">
-                                <span class="rate"><a href="#">(120)</a></span>
+                                <span class="rate"><a href="#">
+                                <%
+                                    int val = (int )(Math.random() * 50 + 1);
+                                    out.print(val);
+                                %>
+                                </a></span>
                             </div>
                         </div>
                     </div>

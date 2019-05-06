@@ -223,67 +223,6 @@
             <%}%>
 
 
-
-
-
-
-
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="project">
-                    <div class="img">
-                        <img src="images/destination-3.jpg" class="img-fluid" alt="Colorlib Template">
-                    </div>
-                    <div class="text">
-                        <h4 class="price">$400</h4>
-                        <span>15 Days Tour</span>
-                        <h3><a href="project.html">Gurtnellen, Swetzerland</a></h3>
-                        <div class="star d-flex clearfix">
-                            <div class="mr-auto float-left">
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                            </div>
-                            <div class="float-right">
-                                <span class="rate"><a href="#">(120)</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="images/destination-3.jpg"
-                       class="icon image-popup d-flex justify-content-center align-items-center">
-                        <span class="icon-expand"></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="project">
-                    <div class="img">
-                        <img src="images/destination-4.jpg" class="img-fluid" alt="Colorlib Template">
-                    </div>
-                    <div class="text">
-                        <h4 class="price">$400</h4>
-                        <span>15 Days Tour</span>
-                        <h3><a href="project.html">Gurtnellen, Swetzerland</a></h3>
-                        <div class="star d-flex clearfix">
-                            <div class="mr-auto float-left">
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                                <span class="ion-ios-star"></span>
-                            </div>
-                            <div class="float-right">
-                                <span class="rate"><a href="#">(120)</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="images/destination-4.jpg"
-                       class="icon image-popup d-flex justify-content-center align-items-center">
-                        <span class="icon-expand"></span>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -340,8 +279,9 @@
             <div class="col-md-6 pl-md-5 py-5">
                 <div class="row justify-content-start pb-3">
                     <div class="col-md-12 heading-section ftco-animate">
-                        <h2 class="mb-4">About Traveland</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <h2 class="mb-4">About LUKE TRAVELS</h2>
+                        <p>A successful visit to Sri Lanka depends on having an expert tour guide at your disposal. We look forward to meeting you, and to helping to make your visit an unforgettable success! We have long experience of the country, its customs
+                            and traditions, and its many astonishing historical and cultural sites.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -364,7 +304,7 @@
                     <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center py-5 bg-light mb-4">
                             <div class="text">
-                                <strong class="number" data-number="2500">0</strong>
+                                <strong class="number" data-number="350">0</strong>
                                 <span>New Tours</span>
                             </div>
                         </div>
@@ -398,19 +338,21 @@
             <div class="col-md-6 pr-md-5 py-5">
                 <div class="row justify-content-start pb-3">
                     <div class="col-md-12 heading-section ftco-animate">
-                        <h2 class="mb-4">Things to Know Before Traveling to other Places</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <h2 class="mb-4">BEST OF THE ISLAND</h2>
+                        <p>Find best Sri Lanka tour packages to plan your holiday in Sri Lanka. Customized
+                            Sri Lanka tour packages to suit your requirements with best guide.</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="ftco-animate tips"><span>1.</span> A small river named Duden flows by their place and
-                            supplies it with the necessary regelialia.</p>
-                        <p class="ftco-animate tips"><span>2.</span> A small river named Duden flows by their place and
-                            supplies it with the necessary regelialia. It is a paradisematic country, in which roasted
-                            parts of sentences fly into your mouth.</p>
-                        <p class="ftco-animate tips"><span>3.</span> It is a paradisematic country, in which roasted
-                            parts of sentences fly into your mouth.</p>
+                        <p class="ftco-animate tips">
+                            Specializes in providing Tailor-made holidays to Sri Lanka which is
+                            made possible due to the partnership we hold with a very reputable
+                            and most preferred tour operator in the country. In addition to
+                            being a friendly team of experts, we focus in providing maximum
+                            customer satisfaction to our travelers and guarantee that they are
+                            in safe hands throughout their holiday in Sri Lanka.
+                        </p>
 
                     </div>
                 </div>
