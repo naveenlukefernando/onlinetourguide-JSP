@@ -20,17 +20,7 @@ public class NewCustomerBookingDao {
     ArrayList<BookingRequest> bookingRequestsList = new ArrayList<>();
     ArrayList<BookingRequest> customerPendingBkList = new ArrayList<>();
 
-    public static void main(String[] args) {
-        NewCustomerBookingDao newCustomerBookingDao = new NewCustomerBookingDao();
-        newCustomerBookingDao.addBooking(32, 11, "2018-04-21", 2,2,false);
 
-       // newCustomerBookingDao.confirmBooking(52);
-
-
-        //System.out.println(newCustomerBookingDao.bookingRequestCount());
-
-
-    }
 
     public void addBooking(int tourPacID, int cusID, String date,int adults,int children, boolean booking_status) {
         try {

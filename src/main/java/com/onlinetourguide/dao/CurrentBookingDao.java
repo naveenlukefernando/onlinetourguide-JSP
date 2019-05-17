@@ -21,18 +21,7 @@ public class CurrentBookingDao {
 
 
 
-    public static void main(String[] args) {
-        CurrentBookingDao currentBookingDao = new CurrentBookingDao();
 
-
-
-        for (CurrentBooking t : currentBookingDao.fetchCustomerBooking(8) ){
-            System.out.println(t.getBid()+"|"+t.getTourPkgName()+"|"+t.getPrice()+"|"+ t.isBook_status()+"|"+t.getImageURL_1());
-
-        }
-
-
-    }
 
 
     public int currentBookingCount() {

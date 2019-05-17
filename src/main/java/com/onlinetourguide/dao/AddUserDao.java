@@ -10,10 +10,7 @@ import java.util.logging.Logger;
 
 public class AddUserDao {
 
-    public static void main(String[] args) {
-        AddUserDao addUserDao = new AddUserDao();
-        addUserDao.addUser("Amila","fernando","amila@gmail.com","123","0775645789",2);
-    }
+
 
     protected final String sql = "insert into users values (NULL ,?,?,?,?,?,?)";
     Connection connection = DbConnect.get_Connection();
