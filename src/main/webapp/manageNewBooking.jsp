@@ -105,7 +105,7 @@
 
 
 <div class="header">
-    <a href="#default" class="logo">Online Tour Guide </a>
+    <a href="#default" class="logo">LUKE TRAVELS</a>
 
 </div>
 

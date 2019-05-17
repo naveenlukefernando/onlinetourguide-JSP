@@ -51,7 +51,7 @@ public class Register extends HttpServlet {
         else
         {
             request.setAttribute("error", "error");
-            RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("loginerror.jsp");
             rd.forward(request, response);
         }
     }

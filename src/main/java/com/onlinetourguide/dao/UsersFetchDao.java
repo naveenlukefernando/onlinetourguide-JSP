@@ -73,4 +73,26 @@ public class UsersFetchDao {
         return user;
     }
 
+    public int currentUserCount() {
+        final String sqlCount = "SELECT count(id) as id FROM users s where s.level = 2;";
+        int count = 0;
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sqlCount);
+
+            while (rs.next()) {
+
+
+                count = rs.getInt("id");
+
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return count;
+    }
+
 }

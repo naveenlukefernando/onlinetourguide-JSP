@@ -32,12 +32,30 @@ public class CurrentBookingDao {
         }
 
 
-//        for (CurrentBooking t : currentBookingDao.fetchCurrentBooking() ){
-//            System.out.println(t.getBid()+"|"+t.getCustomer_id()+"|"+t.getFname()+ "|"+ t.getLname()+ "|"+ t.isBook_status());
-//
-//        }
     }
 
+
+    public int currentBookingCount() {
+        final String sqlCount = "select count(id) as id from current_booking";
+        int count = 0;
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sqlCount);
+
+            while (rs.next()) {
+
+
+                count = rs.getInt("id");
+
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return count;
+    }
 
     public ArrayList<CurrentBooking> fetchCurrentBooking() {
         final String sqlBooking = "select b.id as booking_id , c.id as cust_id , c.firstname as customer_name , c.lastname as lastname ,b.adults ,b.children ,c.email as email , c.phone,t.id as TourPackageID , t.tour_name as TourPackage , t.price as price , b.datetime as booked_date , b.booking_status from current_booking b INNER JOIN users c ON c.id = b.customer_id INNER JOIN tourpakages t  ON t.id = b.package_id";

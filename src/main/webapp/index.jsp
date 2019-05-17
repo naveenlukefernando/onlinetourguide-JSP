@@ -1,4 +1,6 @@
-<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %><%--
+<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
+<%@ page import="com.onlinetourguide.dao.CurrentBookingDao" %>
+<%@ page import="com.onlinetourguide.dao.UsersFetchDao" %><%--
   Created by IntelliJ IDEA.
   User: Luke
   Date: 2019-04-18
@@ -108,12 +110,14 @@
     }
 
     NewCustomerBookingDao dao = new NewCustomerBookingDao();
+    CurrentBookingDao cdao = new CurrentBookingDao();
+    UsersFetchDao uDao = new UsersFetchDao();
 
 %>
 
 
 <div class="header">
-    <a href="#default" class="logo">Online Tour Guide </a>
+    <a href="#default" class="logo">LUKE TRAVELS | </a>
 
 </div>
 
@@ -219,29 +223,40 @@
                 <div class="col-sm-4">
                     <div class="well">
                         <h4>Current Bookings</h4>
+                        <h4>
 
+                            <%
+                                if (0 == cdao.currentBookingCount()) {
+                                    out.print("<div class=\"text-center\"><h3>Not available</h3></div>");
+                                } else {
+                                    out.print("<div class=\"text-center\">" + "<h1>" + cdao.currentBookingCount() + "</h1></div>");
+                                    //out.print("<span class=\"label label-danger\">" + dao.bookingRequestCount() + "</span>");
+                                }
+                            %>
+
+                        </h4>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="well">
                         <h4>Current Clients</h4>
-                        <p>Text</p>
+                        <h4>
+
+                            <%
+                                if (0 == uDao.currentUserCount()) {
+                                    out.print("<div class=\"text-center\"><h3>Not available</h3></div>");
+                                } else {
+                                    out.print("<div class=\"text-center\">" + "<h1>" + uDao.currentUserCount() + "</h1></div>");
+                                    //out.print("<span class=\"label label-danger\">" + dao.bookingRequestCount() + "</span>");
+                                }
+                            %>
+
+                        </h4>
 
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="well">
-                        <p>Text</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="well">
-                        <p>Text</p>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

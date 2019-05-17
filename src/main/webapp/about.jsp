@@ -149,8 +149,10 @@
             <div class="col-md-6 pl-md-5 py-5">
                 <div class="row justify-content-start pb-3">
                     <div class="col-md-12 heading-section ftco-animate">
-                        <h2 class="mb-4">About Traveland</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                        <h2 class="mb-4">About LUKE TRAVELS</h2>
+                        <p>A successful visit to Sri Lanka depends on having an expert tour guide at your disposal.
+                            We look forward to meeting you, and to helping to make your visit an unforgettable success! We have long experience of the
+                            country, its customs and traditions, and its many astonishing historical and cultural sites.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -193,35 +195,7 @@
 </section>
 
 
-<section class="ftco-counter img" id="section-counter">
-    <div class="container">
-        <div class="row d-flex">
-            <div class="col-md-6 order-md-last d-flex">
-                <div class="img d-flex align-self-stretch" style="background-image:url(images/about-1.jpg);"></div>
-            </div>
-            <div class="col-md-6 pr-md-5 py-5">
-                <div class="row justify-content-start pb-3">
-                    <div class="col-md-12 heading-section ftco-animate">
-                        <h2 class="mb-4">Things to Know Before Traveling to other Places</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="ftco-animate tips"><span>1.</span> A small river named Duden flows by their place and
-                            supplies it with the necessary regelialia.</p>
-                        <p class="ftco-animate tips"><span>2.</span> A small river named Duden flows by their place and
-                            supplies it with the necessary regelialia. It is a paradisematic country, in which roasted
-                            parts of sentences fly into your mouth.</p>
-                        <p class="ftco-animate tips"><span>3.</span> It is a paradisematic country, in which roasted
-                            parts of sentences fly into your mouth.</p>
-                        <p class="ftco-animate mt-4"><a href="#" class="btn btn-primary py-3 px-5">Read more</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 
 <section class="ftco-subscribe" style="background-image: url(images/bg_1.jpg);">
@@ -253,8 +227,10 @@
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">LUKE TRAVELS</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts.</p>
+                    <p>A successful visit to Sri Lanka depends on having an expert tour guide at your disposal.
+                        We look forward to meeting you, and to helping to make your visit an unforgettable success!
+                        We have long experience of the country, its customs
+                        and traditions, and its many astonishing historical and cultural sites.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>

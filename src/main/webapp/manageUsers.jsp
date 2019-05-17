@@ -120,7 +120,7 @@
 
 
 <div class="header">
-    <a href="index.jsp" class="logo">Online Tour Guide </a>
+    <a href="index.jsp" class="logo">LUKE TRAVELS</a>
     <div class="header-right">
 
         <button type="button" class="btn btn-primary" data-toggle="modal"
