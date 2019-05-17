@@ -2,6 +2,8 @@ package com.onlinetourguide.controller;
 
 import com.onlinetourguide.dao.AddUserDao;
 import com.onlinetourguide.dao.LoginDao;
+import com.onlinetourguide.dao.UsersFetchDao;
+import com.onlinetourguide.model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +16,9 @@ import java.io.IOException;
 
 @WebServlet(name = "Register", urlPatterns = {"/Register"})
 public class Register extends HttpServlet {
+
+    private static User user;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
@@ -31,11 +36,17 @@ public class Register extends HttpServlet {
         addUserDao.addUser(fname, lname, email, password, phone, userLevel);
 
         if (loginDao.check(email, password)) {
-            String id = String.valueOf(loginDao.getId());
+
             HttpSession session = request.getSession();
+            int id = loginDao.getId();
+
+            user = new UsersFetchDao().fetchCustomer(id);
+
             session.setAttribute("username", email);
-            session.setAttribute("cid", id);
+            session.setAttribute("cid", user);
             response.sendRedirect("indexc.jsp");
+
+
     }
         else
         {
