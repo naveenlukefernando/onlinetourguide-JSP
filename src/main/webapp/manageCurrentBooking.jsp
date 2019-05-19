@@ -197,6 +197,39 @@
                 <h4>Current Bookings</h4>
             </div>
 
+            <div class="input-group">
+                <span class="input-group-addon">Search</span>
+                <input type="text" id="myInput" class="form-control" onkeyup="myFunction()"
+                       placeholder="Search using Booking ID" title="Type in a name">
+            </div>
+
+
+            <script>
+
+                function myFunction() {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("userTable");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[0];
+                        if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+                }
+
+            </script>
+
+
+
+
             <div class="panel-body">
 
                 <table id="userTable" class="table table-bordered">

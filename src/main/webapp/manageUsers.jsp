@@ -184,6 +184,7 @@
     <div class="row content">
         <div class="col-sm-3 sidenav hidden-xs">
 
+            <h2>Admin Panel</h2>
 
             <ul class="nav nav-tabs">
 
@@ -250,7 +251,7 @@
                 table = document.getElementById("userTable");
                 tr = table.getElementsByTagName("tr");
                 for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[1];
+                    td = tr[i].getElementsByTagName("td")[2];
                     if (td) {
                         txtValue = td.textContent || td.innerText;
                         if (txtValue.toUpperCase().indexOf(filter) > -1) {

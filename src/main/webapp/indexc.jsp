@@ -173,7 +173,8 @@
                     <div class="text">
                         <h4 class="price"><%out.print(t.getPrice());%> LKR </h4>
                         <span><%out.print(t.getDuration());%> DAYS TOUR</span>
-                        <h3><a href="#"><%out.print(t.getTour_name());%></a></h3>
+                        <h3><a href="SelectedTour?bid=<%out.print(t.getId());%>"><%out.print(t.getTour_name());%></a></h3>
+                        <a href="SelectedTour?bid=<%out.print(t.getId());%>" class="nav-link cta">Book Now</a>
                         <div class="star d-flex clearfix">
                             <div class="mr-auto float-left">
                                 <span class="ion-ios-star"></span>
