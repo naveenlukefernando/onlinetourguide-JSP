@@ -100,7 +100,7 @@
         <table class="table table-bordered ">
             <thead class="thead-light">
             <tr>
-                <th>Your Current Bookings
+                <th>Your Pending Bookings
 
                     <%
                         NewCustomerBookingDao countDao = new NewCustomerBookingDao();

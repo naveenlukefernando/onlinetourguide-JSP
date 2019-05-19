@@ -117,7 +117,7 @@
 
 
 <div class="header">
-    <a href="#default" class="logo">PARADISE TRAVELS | </a>
+    <a href="#default" class="logo">PARADISE TRAVELS  </a>
 
 </div>
 

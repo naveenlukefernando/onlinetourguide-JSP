@@ -68,7 +68,7 @@
                         out.print("<li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">Register</a></li>");
                     } else {
                         //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
-                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"> <a class=\"dropdown-item\" href=\"CustomerPendingBooking.jsp\">Pending Bookings</a> <a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"> <a class=\"dropdown-item\" href=\"CustomerPendingBooking.jsp\">Pending Bookings</a> <a class=\"dropdown-item\" href=\"customerCurrentBooking.jsp\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
                     }
                 %>
 
@@ -181,30 +181,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg align-items-end">
-                                <div class="form-group">
-                                    <label for="">Price Limit</label>
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">$100</option>
-                                                <option value="">$500</option>
-                                                <option value="">$1000</option>
-                                                <option value="">$2000</option>
-                                                <option value="">$3000</option>
-                                                <option value="">$4000</option>
-                                                <option value="">$5000</option>
-                                                <option value="">$6000</option>
-                                                <option value="">$7000</option>
-                                                <option value="">$8000</option>
-                                                <option value="">$9000</option>
-                                                <option value="">$10000</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="col-lg align-self-end">
                                 <div class="form-group">
                                     <div class="form-field">

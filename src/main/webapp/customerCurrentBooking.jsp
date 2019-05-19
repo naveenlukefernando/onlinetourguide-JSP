@@ -1,6 +1,7 @@
 <%@ page import="com.onlinetourguide.dao.CurrentBookingDao" %>
 <%@ page import="com.onlinetourguide.model.CurrentBooking" %>
 <%@ page import="com.onlinetourguide.model.User" %>
+<%@ page import="com.onlinetourguide.dao.NewCustomerBookingDao" %>
 <%--
   Created by IntelliJ IDEA.
   User: Luke
@@ -74,7 +75,7 @@
                     } else {
                         //out.print("<li class=\"nav-item\"><a class=\"nav-link\"> Hi "+username+"</a></li>");
 
-                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"> <a class=\"dropdown-item\" href=\"CustomerPendingBooking.jsp\">Pending Bookings</a>  <a class=\"dropdown-item\" href=\"#\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
+                        out.print("<li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Hi ! " + ((User) session.getAttribute("cid")).getName() + "</a><div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\"> <a class=\"dropdown-item\" href=\"CustomerPendingBooking.jsp\">Pending Bookings</a>  <a class=\"dropdown-item\" href=\"customerCurrentBooking.jsp\">Current Bookings</a> <form action=\"Logout\" method=\"get\"> <button type=\"submit\" class=\"btn btn-link\">Logout</button></form> </div></li>");
                     }
                 %>
 
@@ -96,7 +97,21 @@
         <table class="table table-bordered ">
             <thead class="thead-light">
             <tr>
-                <th>Your Current Bookings</th>
+                <th>Your Current Bookings
+                    <%
+                        NewCustomerBookingDao countDao = new NewCustomerBookingDao();
+                        if (0 == countDao.currentBookingRequestCount()) {
+                            out.print("<div class=\"text-center\"><h3>New Bookings not available</h3></div>");
+
+                        } else {
+                            out.print("");
+                        }
+                    %>
+
+                </th>
+
+
+
 
             </tr>
             </thead>

@@ -150,6 +150,29 @@ public class NewCustomerBookingDao {
         return count;
     }
 
+    public int currentBookingRequestCount() {
+        final String sqlCount = "select count(id) as id from current_booking";
+        int count = 0;
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sqlCount);
+
+            while (rs.next()) {
+
+
+                count = rs.getInt("id");
+
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return count;
+    }
+
+
 
     public ArrayList<BookingRequest> fetchCustomerPendingBooking(int id) {
         final String sqlBooking = "select n.id as booking_id ,c.id as cid ,t.id as TourPackageID,t.imageURL_1 as image1 ,t.tour_name as TourPackage,n.adults,n.children, t.price as price ,n.datetime as booked_date, n.booking_status  from newbooking n INNER JOIN users c ON c.id = n.customer_id INNER JOIN tourpakages t  ON t.id = n.package_id where c.id = ?";
