@@ -120,7 +120,7 @@
 
 
 <div class="header">
-    <a href="index.jsp" class="logo">LUKE TRAVELS</a>
+    <a href="index.jsp" class="logo">PARADISE TRAVELS</a>
     <div class="header-right">
 
         <button type="button" class="btn btn-primary" data-toggle="modal"

@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Luke Travels | Online Tour Guide</title>
+    <title>PARADISE TRAVELS | Online Tour Guide</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -49,7 +49,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="indexc.jsp"><span>LUKE TRAVELS</span></a>
+        <a class="navbar-brand" href="indexc.jsp"><span>PARADISE TRAVELS</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -133,32 +133,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg align-items-end">
-                                <div class="form-group">
-                                    <label for="#">Price Limit</label>
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">$5,000</option>
-                                                <option value="">$10,000</option>
-                                                <option value="">$50,000</option>
-                                                <option value="">$100,000</option>
-                                                <option value="">$200,000</option>
-                                                <option value="">$300,000</option>
-                                                <option value="">$400,000</option>
-                                                <option value="">$500,000</option>
-                                                <option value="">$600,000</option>
-                                                <option value="">$700,000</option>
-                                                <option value="">$800,000</option>
-                                                <option value="">$900,000</option>
-                                                <option value="">$1,000,000</option>
-                                                <option value="">$2,000,000</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="col-lg align-self-end">
                                 <div class="form-group">
                                     <div class="form-field">
@@ -198,7 +173,7 @@
                     <div class="text">
                         <h4 class="price"><%out.print(t.getPrice());%> LKR </h4>
                         <span><%out.print(t.getDuration());%> DAYS TOUR</span>
-                        <h3><a href="project.html"><%out.print(t.getTour_name());%></a></h3>
+                        <h3><a href="#"><%out.print(t.getTour_name());%></a></h3>
                         <div class="star d-flex clearfix">
                             <div class="mr-auto float-left">
                                 <span class="ion-ios-star"></span>
@@ -275,7 +250,7 @@
             <div class="col-md-6 pl-md-5 py-5">
                 <div class="row justify-content-start pb-3">
                     <div class="col-md-12 heading-section ftco-animate">
-                        <h2 class="mb-4">About LUKE TRAVELS</h2>
+                        <h2 class="mb-4">About PARADISE TRAVELS</h2>
                         <p>A successful visit to Sri Lanka depends on having an expert tour guide at your disposal. We look forward to meeting you, and to helping to make your visit an unforgettable success! We have long experience of the country, its customs
                             and traditions, and its many astonishing historical and cultural sites.</p>
                     </div>
@@ -391,7 +366,7 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">LUKE TRAVELS</h2>
+                    <h2 class="ftco-heading-2">PARADISE TRAVELS</h2>
                     <p>A successful visit to Sri Lanka depends on having an expert tour guide at your disposal.
                         We look forward to meeting you, and to helping to make your visit an unforgettable success!
                         We have long experience of the country, its customs
@@ -427,7 +402,7 @@
                             </li>
                             <li><a href="#"><span class="icon icon-phone"></span><span
                                     class="text">+94 772 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@paradisetravels.com</span></a>
                             </li>
                         </ul>
                     </div>

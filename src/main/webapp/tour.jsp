@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>About | LUKE TRAVELS | Online Tour Guide </title>
+    <title>About | PARADISE TRAVELS | Online Tour Guide </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -62,7 +62,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html"><span>LUKE TRAVELS</span></a>
+        <a class="navbar-brand" href="index.html"><span>PARADISE TRAVELS</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -390,7 +390,7 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">LUKE TRAVELS</h2>
+                    <h2 class="ftco-heading-2">PARADISE TRAVELS</h2>
                     <p>A successful visit to Sri Lanka depends on having an expert tour guide at your disposal.
                         We look forward to meeting you, and to helping to make your visit an unforgettable success!
                         We have long experience of the country, its customs
@@ -426,7 +426,7 @@
                             </li>
                             <li><a href="#"><span class="icon icon-phone"></span><span
                                     class="text">+94 772 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@paradisetravels.com</span></a>
                             </li>
                         </ul>
                     </div>

@@ -107,7 +107,7 @@
 
 
 <div class="header">
-    <a href="#default" class="logo"> LUKE TRAVELS </a>
+    <a href="#default" class="logo"> PARADISE TRAVELS </a>
 
 </div>
 
