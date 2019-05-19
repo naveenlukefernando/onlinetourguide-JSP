@@ -17,21 +17,6 @@ import java.util.concurrent.TimeUnit;
 public class TourPkgFetchDao {
 
 
-//    public static void main(String[] args) {
-//        TourPkgFetchDao pkgFetchDao = new TourPkgFetchDao();
-//
-//
-//
-//
-//
-//
-////        for (TourPackage t : pkgFetchDao.searchPackage("Ga",2) )
-////        {
-////            System.out.println(t.getId());
-////            System.out.println(t.getTour_name());
-////        }
-//    }
-
 
     protected final String sql = "select * from tourpakages";
     protected final String random = "SELECT * FROM tourpakages ORDER BY RAND() LIMIT 4";

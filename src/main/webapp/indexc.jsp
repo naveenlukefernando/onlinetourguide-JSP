@@ -109,7 +109,7 @@
                                     <label for="#">Destination</label>
                                     <div class="form-field">
                                         <div class="icon"><span class="ion-ios-search"></span></div>
-                                        <input name="city" type="text" class="form-control" placeholder="Search place">
+                                        <input name="city" type="text" class="form-control" placeholder="Search place" required>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                                     <div class="form-field">
                                         <div class="icon"><span class="ion-ios-calendar"></span></div>
                                         <input name= "checkIndate" type="text" class="form-control checkin_date"
-                                               placeholder="Check In Date">
+                                               placeholder="Check In Date" required>
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                                     <div class="form-field">
                                         <div class="icon"><span class="ion-ios-calendar"></span></div>
                                         <input name="checkout" type="text" class="form-control checkout_date"
-                                               placeholder="Check Out Date">
+                                               placeholder="Check Out Date" required>
                                     </div>
                                 </div>
                             </div>
