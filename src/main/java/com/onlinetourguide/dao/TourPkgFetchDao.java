@@ -257,7 +257,7 @@ public class TourPkgFetchDao {
 
         try {
 
-            PreparedStatement ps = connection.prepareStatement("select * from tourpakages t where t.location_to like '%"+city+"%'  AND  t.duration like '%"+duration+"%'");
+            PreparedStatement ps = connection.prepareStatement("select * from tourpakages t where t.location_to like '%"+city+"%'  OR  t.duration like '%"+duration+"%'");
 
             ResultSet rs = ps.executeQuery();
 

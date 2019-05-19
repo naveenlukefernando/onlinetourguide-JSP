@@ -150,14 +150,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-wrap-1 ftco-animate p-4">
-                    <form action="#" class="search-property-1">
+                    <form action="SearchPkg" class="search-property-1" method="post">
                         <div class="row">
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
                                     <label for="#">Destination</label>
                                     <div class="form-field">
                                         <div class="icon"><span class="ion-ios-search"></span></div>
-                                        <input type="text" class="form-control" placeholder="Search place">
+                                        <input name="city" type="text" class="form-control" placeholder="Search place">
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                                     <label for="#">Check-in date</label>
                                     <div class="form-field">
                                         <div class="icon"><span class="ion-ios-calendar"></span></div>
-                                        <input type="text" class="form-control checkin_date"
+                                        <input name= "checkIndate" type="text" class="form-control checkin_date"
                                                placeholder="Check In Date">
                                     </div>
                                 </div>
@@ -176,7 +176,7 @@
                                     <label for="#">Check-out date</label>
                                     <div class="form-field">
                                         <div class="icon"><span class="ion-ios-calendar"></span></div>
-                                        <input type="text" class="form-control checkout_date"
+                                        <input name="checkout" type="text" class="form-control checkout_date"
                                                placeholder="Check Out Date">
                                     </div>
                                 </div>

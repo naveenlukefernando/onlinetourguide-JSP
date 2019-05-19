@@ -118,7 +118,7 @@
                                     <label for="#">Check-in date</label>
                                     <div class="form-field">
                                         <div class="icon"><span class="ion-ios-calendar"></span></div>
-                                        <input name= "checkIndate"type="text" class="form-control checkin_date"
+                                        <input name= "checkIndate" type="text" class="form-control checkin_date"
                                                placeholder="Check In Date">
                                     </div>
                                 </div>
